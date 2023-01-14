@@ -12,7 +12,7 @@ namespace CSharks.DAL.Repositories.Interfaces
         void Add(QuizType quizType);
         QuizType GetForEdit(int id);
         void Update(QuizType quizType);
-        QuizType GeyById(int id);
+        QuizType GetById(int id);
         List<QuizType> GetAll();
     }
 }

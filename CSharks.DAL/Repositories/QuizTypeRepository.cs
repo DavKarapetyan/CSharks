@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace CSharks.DAL.Repositories
 {
@@ -33,7 +34,7 @@ namespace CSharks.DAL.Repositories
             return entity;
         }
 
-        public QuizType GeyById(int id)
+        public QuizType GetById(int id)
         {
             var entity = _context.QuizTypes.Where(q => q.Id == id).AsNoTracking().FirstOrDefault();
             return entity;
@@ -45,6 +46,10 @@ namespace CSharks.DAL.Repositories
             entity.Id = quizType.Id;
             entity.Description = quizType.Description;
             entity.Title    = quizType.Title;
+        }
+        public void Delete(int Id)
+        {
+            var delete = _context.QuizTypes.Remove(GetById(Id));
         }
     }
 }
