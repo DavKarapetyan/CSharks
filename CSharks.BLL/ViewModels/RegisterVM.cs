@@ -14,8 +14,8 @@ namespace CSharks.BLL.ViewModels
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Year of Birth")]
-        public int Year { get; set; }
+        [Display(Name = "Date of Birth")]
+        public DateTime DOB { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
