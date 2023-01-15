@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CSharks.BLL.Services
 {
-    internal class QuizTypeService : IQuizTypeService
+    public class QuizTypeService : IQuizTypeService
     {
         private readonly IQuizTypeRepository _quizTypeRepository;
         private readonly ITranslateService _translatorService;

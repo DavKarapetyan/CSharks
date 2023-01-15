@@ -47,9 +47,9 @@ namespace CSharks.BLL.Services
         public CharacterVM GetCharacter(int Id,CultureType cultureType)
         {
             var character = _characterRepository.GetById(Id);
-            if (cultureType != cultureType.en)
+            if (cultureType != CultureType.en)
             { 
-                character = _translateService.Convert(character, "Characters", id, cultureType, new List<int> { id }) as Characters;
+                character = _translateService.Convert(character, "Characters", Id, cultureType, new List<int> { Id }) as Characters;
             }
             CharacterVM characterVM = new CharacterVM()
             { 
@@ -64,9 +64,9 @@ namespace CSharks.BLL.Services
         public CharacterVM GetCharacterForEdit(int Id,CultureType cultureType)
         {
             var character = _characterRepository.GetForEdit(Id);
-            if (cultureType != cultureType.en)
+            if (cultureType != CultureType.en)
             {
-                character = _translateService.Convert(character, "Characters", id, cultureType, new List<int> { id }) as Characters;
+                character = _translateService.Convert(character, "Characters", Id, cultureType, new List<int> { Id }) as Characters;
             }
             CharacterVM characterVM = new CharacterVM()
             { 
@@ -81,9 +81,9 @@ namespace CSharks.BLL.Services
         public List<CharacterVM> GetAllCharacters(CultureType cultureType)
         {
             var characters = _characterRepository.GetAll();
-            if (cultureType != cultureType.en)
+            if (cultureType != CultureType.en)
             {
-                characters = _translateService.Convert(character, "Characters", id, cultureType, new List<int> { id }) as List<Characters>;
+                characters = _translateService.Convert(characters, "Characters", 0,cultureType,characters.Select(c => c.Id).ToList()) as List<Characters>;
             }
             var list = characters.Select(c => new CharacterVM
             {

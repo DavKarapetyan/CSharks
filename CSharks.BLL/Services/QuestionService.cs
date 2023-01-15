@@ -92,5 +92,11 @@ namespace CSharks.BLL.Services
             };
             return model;
         }
+
+        public void Delete(int id)
+        {
+            _questionRepository.Delete(id);
+            _unitOfWork.Save();
+        }
     }
 }

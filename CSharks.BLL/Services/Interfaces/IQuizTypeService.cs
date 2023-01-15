@@ -1,4 +1,5 @@
-﻿using CSharks.DAL.Entities;
+﻿using CSharks.BLL.ViewModels;
+using CSharks.DAL.Entities;
 using CSharks.DAL.Enums;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,6 @@ namespace CSharks.BLL.Services.Interfaces
         public QuizTypeVM GetQuizTypeById(int id);
         public void Add(QuizTypeVM model);
         public void Update(QuizTypeVM model, CultureType cultureType);
+        public void Delete(int id);
     }
 }

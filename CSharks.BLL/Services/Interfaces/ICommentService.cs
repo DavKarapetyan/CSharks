@@ -10,7 +10,7 @@ namespace CSharks.BLL.Services.Interfaces
 {
     public interface ICommentService
     {
-        List<CommentVM> GetComments(Comment model);
+        List<CommentVM> GetComments();
         public List<CommentVM> GetCommentsByNewsId(int NewsId);
         public CommentVM GetComment(int Id);
         public CommentAddEditVM GetCommentForEdit(int Id);

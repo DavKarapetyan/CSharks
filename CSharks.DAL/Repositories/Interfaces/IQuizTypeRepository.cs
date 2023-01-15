@@ -14,5 +14,7 @@ namespace CSharks.DAL.Repositories.Interfaces
         void Update(QuizType quizType);
         QuizType GetById(int id);
         List<QuizType> GetAll();
+        void Delete(int Id);
+
     }
 }

@@ -16,5 +16,6 @@ namespace CSharks.BLL.Services.Interfaces
         public QuestionAnswerAddEditVM GetForEdit(int id);
         public void Add(QuestionAnswerAddEditVM model);
         public void Update(QuestionAnswerAddEditVM model, CultureType cultureType);
+        public void Delete(int id);
     }
 }

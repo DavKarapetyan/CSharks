@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CSharks.BLL.ViewModels
 {
-    internal class CommentAddEditVM
+    public class CommentAddEditVM
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public DateTime DateOfComment { get; set; }
+        public string CommentText { get; set; }
+        public int NewsId { get; set; }
     }
 }

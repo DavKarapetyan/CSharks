@@ -1,4 +1,5 @@
-﻿using CSharks.DAL.Entities;
+﻿using CSharks.BLL.ViewModels;
+using CSharks.DAL.Entities;
 using CSharks.DAL.Enums;
 using System;
 using System.Collections.Generic;
@@ -15,5 +16,6 @@ namespace CSharks.BLL.Services.Interfaces
         public QuestionAddEditVM GetQuestionForEdit(int id);
         public void Add(QuestionAddEditVM model);
         public void Update(QuestionAddEditVM model, CultureType cultureType);
+        public void Delete(int id);
     }
 }

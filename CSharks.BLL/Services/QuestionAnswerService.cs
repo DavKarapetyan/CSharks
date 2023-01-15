@@ -36,6 +36,12 @@ namespace CSharks.BLL.Services
             _uow.Save();
         }
 
+        public void Delete(int id)
+        {
+            _questionAnswerRepository.Delete(id);
+            _uow.Save();
+        }
+
         public QuestionAnswerAddEditVM GetForEdit(int id)
         {
             var question = _questionAnswerRepository.GetForEdit(id);
