@@ -29,7 +29,7 @@ namespace CSharks.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year };
+                User user = new User { Email = model.Email, UserName = model.Email, DOB = model.DOB };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -53,7 +53,7 @@ namespace CSharks.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            EditUserVM model = new EditUserVM { Id = Convert.ToString(user.Id), Email = user.Email, Year = user.Year };
+            EditUserVM model = new EditUserVM { Id = Convert.ToString(user.Id), Email = user.Email, DOB = user.DOB };
             return View(model);
         }
         [HttpPost]
@@ -66,7 +66,7 @@ namespace CSharks.Areas.Admin.Controllers
                 {
                     user.Email = model.Email;
                     user.UserName = model.Email;
-                    user.Year = model.Year;
+                    user.DOB = model.DOB;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)
