@@ -1,0 +1,14 @@
+﻿@model CommentVM
+<div class="modal-content">
+    <form asp-action="Delete" asp-controller="Comment">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">Delete Comment</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h1>Are you sure that you want delete this Comment?</h1>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">No Thanks</button>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+</div>

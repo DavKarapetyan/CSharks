@@ -1,0 +1,30 @@
+﻿@using CSharks.DAL.Entities;
+@model QuizTypeVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="QuizType">
+        <input asp-for="Id" hidden/>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input type="text" class="form-control" placeholder="Enter title" asp-for="Title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <input type="text" class="form-control" placeholder="Enter Description" asp-for="Description">
+                </div>
+            </div>
+            <input asp-for="Culture" hidden/>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

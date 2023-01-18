@@ -110,6 +110,7 @@ namespace CSharks.BLL.Services
                 var tableName = "Characters";
                 _translateService.Fill(model,cultureType,tableName,model.Id);
             }
+            _uow.Save();
         }
     }
 }

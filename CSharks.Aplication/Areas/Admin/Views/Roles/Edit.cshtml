@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model ChangeRoleVM
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Edit User Role</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="Edit" asp-controller="Roles">
+        <div class="modal-body">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" name="userId" value="@Model.UserId"/>
+            <div class="row">
+                <div class="col mb-3">
+                    @foreach (var role in Model.AllRoles)
+                    {
+                        <input type="checkbox" class="form-check-input" name="roles" value="@role.Name" @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />
+                        <label class="form-check-label">@role.Name</label>
+                        <br />
+                    }
+                </div>
+            </div>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

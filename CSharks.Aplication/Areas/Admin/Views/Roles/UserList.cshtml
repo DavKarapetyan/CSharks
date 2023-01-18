@@ -1,0 +1,19 @@
+﻿@using CSharks.DAL.Entities;
+@model IEnumerable<User>
+@{
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<table class="table">
+    <tbody class="table-border-bottom-0">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><strong>@item.Email</strong></td>
+                <td>
+                    <a class="btn btn-sm btn-primary modal-open" asp-action="Edit" asp-route-userId="@item.Id">Access rights</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -34,6 +34,7 @@ namespace CSharks.Areas.Admin.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "user");
                     await _signInManager.SignInAsync(user, false);
                     return Redirect("https://localhost:44349/Home/Index");
                 }

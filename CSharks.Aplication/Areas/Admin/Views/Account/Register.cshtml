@@ -1,0 +1,30 @@
+﻿@model RegisterVM
+@{
+    Layout = "~/Areas/Admin/Views/_Layout.cshtml";
+}
+<form method="post" asp-controller="Account" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label><br />
+        <input asp-for="Email" class="form-control"/>
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DOB" class="form-label"></label><br />
+        <input asp-for="DOB" class="form-control"/>
+        <span asp-validation-for="DOB"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label><br />
+        <input asp-for="Password" class="form-control"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PasswordConfirm" class="form-label"></label><br />
+        <input asp-for="PasswordConfirm" class="form-control"/>
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="btn btn-success w-100" />
+    </div>
+</form>

@@ -1,0 +1,20 @@
+﻿@model string
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Create Role</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="Create" asp-controller="Roles">
+        <div class="modal-body">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="name" class="form-label"></label>
+                    <input type="text" class="form-control" placeholder="Enter Rola name" name="name"/>
+                </div>
+            </div>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

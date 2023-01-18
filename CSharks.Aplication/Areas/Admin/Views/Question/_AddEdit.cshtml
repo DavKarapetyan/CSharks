@@ -1,0 +1,36 @@
+﻿@using CSharks.DAL.Entities;
+@model QuestionAddEditVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="Question">
+        <div class="modal-body">
+            <input asp-for="Id" hidden/>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Text" class="form-label">Text</label>
+                    <input type="text" class="form-control" placeholder="Enter Text" asp-for="Text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="QuizTypeId" class="form-label">Quiz Type</label>
+                    <select class="form-control" asp-for="QuizTypeId">
+                        <option>Please select Quiz Type...</option>
+                        @foreach (var item in ViewBag.QuestionTypes)
+                        {
+                            <option value="@item.Id">@item.Title</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <input asp-for="Culture" hidden/>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

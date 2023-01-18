@@ -13,6 +13,11 @@ namespace CSharks.DAL.Repositories
     public class QuizTypeRepository : IQuizTypeRepository
     {
         private readonly CSharksDbContext _context;
+        public QuizTypeRepository(CSharksDbContext context)
+        {
+            _context = context;
+        }
+
         public void Add(QuizType quizType)
         {
             _context.QuizTypes.Add(quizType);

@@ -1,8 +1,10 @@
 using CSharks.BLL.Services;
 using CSharks.BLL.Services.Interfaces;
 using CSharks.DAL;
+using CSharks.DAL.Entities;
 using CSharks.DAL.Repositories;
 using CSharks.DAL.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace CSharks.Aplication
@@ -31,6 +33,7 @@ namespace CSharks.Aplication
             builder.Services.AddScoped<IQuestionService, QuestionService>();
             builder.Services.AddScoped<IQuizTypeService, QuizTypeService>();
             builder.Services.AddScoped<ITranslateService, TranslateService>();
+            builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<CSharksDbContext>();
 
 
             var app = builder.Build();

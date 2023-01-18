@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharks.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,6 @@ namespace CSharks.BLL.ViewModels
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageFile { get; set; }
-
+        public CultureType CultureType { get; set; }
     }
 }

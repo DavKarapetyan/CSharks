@@ -1,0 +1,45 @@
+﻿@model CommentAddEditVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="Comment" enctype="multipart/form-data">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Enter title" asp-for="Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="NewsId" class="form-label">News</label>
+                    <select class="form-control" asp-for="NewsId">
+                        <option>Please select News...</option>
+                        @foreach (var item in ViewBag.News)
+                        {
+                            <option value="@item.Id">@item.Title</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" type="text" class="form-control" placeholder="E-mail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="CommentText" class="form-label">Comment Text</label>
+                    <textarea class="form-control" asp-for="CommentText"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

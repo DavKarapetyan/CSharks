@@ -1,0 +1,43 @@
+﻿@model QuestionAnswerAddEditVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="QuestionAnswer">
+        <div class="modal-body">
+            <input asp-for="Id" hidden/>
+            <input asp-for="Culture" hidden/>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Text" class="form-label">Text</label>
+                    <input type="text" class="form-control" placeholder="Enter Text" asp-for="Text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="IsCorrect" class="form-label">Is Correct</label>
+                    <br />
+                    <input class="form-check-input" asp-for="IsCorrect" type="checkbox">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    @if(Model.QuestionId == 0)
+                    {
+                        <label asp-for="QuestionId" class="form-label">Question Id</label>
+                        <input class="form-control" asp-for="QuestionId">
+                    }else
+                    {
+                        <input hidden asp-for="QuestionId" />
+                        <span class="form-label">Question Id - @Model.QuestionId</span>
+                    }
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>
