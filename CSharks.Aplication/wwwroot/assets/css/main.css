@@ -988,18 +988,22 @@ a:hover {
   padding: 6px 20px; }
 
 .submit-btn {
-  padding: 16px 50px;
-  background-color: #220a81;
-  box-shadow: 0px 4px 30px 15px rgba(0, 162, 255, 0.49), inset 0px 0px 12px 6px #30a8db;
-  position: relative;
-  z-index: 9;
-  text-transform: uppercase;
-  color: #ffffff;
-  border-radius: 999px;
-  -webkit-border-radius: 999px;
-  -moz-border-radius: 999px;
-  -ms-border-radius: 999px;
-  -o-border-radius: 999px; }
+    transition: box-shadow .3s;
+    padding: 16px 50px;
+    background-color: #220a81;
+    position: relative;
+    z-index: 9;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    -ms-border-radius: 999px;
+    -o-border-radius: 999px;
+}
+    .submit-btn:hover {
+        box-shadow: 0px 4px 30px 15px rgba(0, 162, 255, 0.49), inset 0px 0px 12px 6px #30a8db;
+    }
   @media (max-width: 575px) {
     .submit-btn {
       font-size: 16px; } }

@@ -25,7 +25,7 @@ namespace CSharks.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? id) {
             CommentAddEditVM model = id.HasValue ? _commentService.GetCommentForEdit(id.Value) : new CommentAddEditVM() { Id = 0};
-            ViewBag.News = _newsService.GetAllNews(CultureType.en); 
+            ViewBag.News = _newsService.GetAllNews(CultureType.en,null,null); 
             return PartialView("_AddEdit",model);
         }
         [HttpPost]

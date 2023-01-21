@@ -18,9 +18,9 @@ namespace CSharks.Areas.Admin.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? text, NewsType? newsType)
         {
-            var data = _newsService.GetAllNews(CultureType.en);
+            var data = _newsService.GetAllNews(CultureType.en,text,newsType);
             return View(data);
         }
         [HttpGet]

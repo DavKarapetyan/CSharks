@@ -10,7 +10,7 @@ namespace CSharks.BLL.Services.Interfaces
 {
     public interface INewsService
     {
-        public List<NewsVM> GetAllNews(CultureType cultureType);
+        public List<NewsVM> GetAllNews(CultureType cultureType,string? text, NewsType? newsType);
         public NewsVM GetNewsById(int id,CultureType cultureType);
         public void Add(NewsVM model);
         public void Update(NewsVM newsVM, CultureType cultureType);
