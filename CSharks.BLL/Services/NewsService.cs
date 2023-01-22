@@ -32,6 +32,7 @@ namespace CSharks.BLL.Services
                 ImageFile = model.ImageFile,
                 NewsType = model.NewsType,
                 Title = model.Title,
+                CreateDate = DateTime.Now
             };
             _newsRepository.Add(news);
             _uow.Save();
@@ -61,6 +62,7 @@ namespace CSharks.BLL.Services
                 NewsType = n.NewsType,
                 Title = n.Title,
                 Id = n.Id,
+                CreateDate = n.CreateDate
             }).ToList();
             return list;
         }
@@ -79,6 +81,7 @@ namespace CSharks.BLL.Services
                 ImageFile = news.ImageFile,
                 NewsType = news.NewsType,
                 Title = news.Title,
+                CreateDate= news.CreateDate,
             };
             return newsVM;
         }
@@ -92,6 +95,7 @@ namespace CSharks.BLL.Services
                 entity.Description = newsVM.Description;
                 entity.NewsType = newsVM.NewsType;
                 entity.ImageFile = newsVM.ImageFile;
+                entity.CreateDate= newsVM.CreateDate;
                 _newsRepository.Update(entity);
             }
             else

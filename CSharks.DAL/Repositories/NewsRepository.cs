@@ -37,6 +37,7 @@ namespace CSharks.DAL.Repositories
                ImageFile= n.ImageFile,
                NewsType= n.NewsType,
                Title= n.Title,
+               CreateDate= n.CreateDate,
            }).AsNoTracking().ToList();  
             return data;    
         }
@@ -61,7 +62,7 @@ namespace CSharks.DAL.Repositories
             data.ImageFile = model.ImageFile;
             data.NewsType = model.NewsType;
             data.Title = model.Title;   
-            
+            data.CreateDate = model.CreateDate;
 
         }
     }
