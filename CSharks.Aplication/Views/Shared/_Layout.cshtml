@@ -126,7 +126,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-xl align-items-center">
                         <a class="site-logo site-title" href="index-2.html">
-                            <img src="~/assets/logo no bggg-01.png" alt="site-logo" style="max-height:60px; padding:5px;"><span class="logo-icon"><i class="flaticon-fire"></i></span>
+                            <img src="~/assets/images/CSharksLogo.png" alt="site-logo" style="max-height:60px; padding:5px;"><span class="logo-icon"><i class="flaticon-fire"></i></span>
                         </a>
                         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -138,8 +138,11 @@
                                 <li class="menu">
                                     <a asp-action="Index" asp-controller="Home"><span class="underline">Home</span></a>
                                 </li>
+                                 <li class="menu">
+                                   <a asp-action="Index" asp-controller="Comics"><span class="underline">Comics</span></a>
+                                </li>
                                 <li class="menu">
-                                    <a href="#0"><span class="underline">Games</span></a>
+                                    <a asp-action="Index" asp-controller="Game"><span class="underline">Games</span></a>
                                 </li>
                                 <li class="menu_has_children">
                                     <a asp-action="Index" asp-controller="News"><span class="underline">News</span></a>

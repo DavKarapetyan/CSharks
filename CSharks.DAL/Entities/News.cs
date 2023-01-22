@@ -15,6 +15,8 @@ namespace CSharks.DAL.Entities
         public string ImageFile { get; set; }
         public NewsType NewsType { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public DateTime CreateDate { get; set; }
+
 
     }
 }

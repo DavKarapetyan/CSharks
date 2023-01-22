@@ -15,5 +15,6 @@ namespace CSharks.BLL.ViewModels
         public string ImageFile { get; set; }
         public NewsType NewsType { get; set; }
         public CultureType CultureType { get; set; }
+        public DateTime CreateDate { get; set; }    
     }
 }
