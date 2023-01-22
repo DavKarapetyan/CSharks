@@ -34,6 +34,8 @@ namespace CSharks.Aplication
             builder.Services.AddScoped<IQuizTypeService, QuizTypeService>();
             builder.Services.AddScoped<ITranslateService, TranslateService>();
             builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<CSharksDbContext>();
+            builder.Services.AddScoped<IComicsRepository, ComicsRepository>();
+            builder.Services.AddScoped<IComicsService, ComicsService>();
 
 
             var app = builder.Build();

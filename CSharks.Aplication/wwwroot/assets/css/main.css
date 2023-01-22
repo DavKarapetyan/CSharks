@@ -920,6 +920,7 @@ a:hover {
   font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
+  transition:box-shadow .3s;
   border-radius: 999px;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
@@ -928,17 +929,18 @@ a:hover {
   background-image: -moz-linear-gradient(0deg, #e2906e 0%, #e83a99 100%);
   background-image: -webkit-linear-gradient(0deg, #e2906e 0%, #e83a99 100%);
   background-image: -ms-linear-gradient(0deg, #e2906e 0%, #e83a99 100%);
-  box-shadow: 2.419px 9.703px 12.48px 0.52px rgba(232, 58, 153, 0.5);
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
   color: #ffffff; }
-  .cmn-btn:hover {
-    color: #ffffff;
-    background-size: 120%;
-    -webkit-transform: translateY(-3px);
-    -ms-transform: translateY(-3px);
-    transform: translateY(-3px); }
+    .cmn-btn:hover {
+        color: #ffffff;
+        background-size: 120%;
+        -webkit-transform: translateY(-3px);
+        box-shadow: 2.419px 9.703px 12.48px 0.52px rgba(232, 58, 153, 0.5);
+        -ms-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
   @media (max-width: 1199px) {
     .cmn-btn {
       font-size: 18px;
@@ -3347,12 +3349,15 @@ span.is-active:after {
     align-items: center;
     justify-content: center;
     background-color: rgba(70, 15, 122, 0.6);
-    box-shadow: 0px 4px 10px 8px rgba(0, 162, 255, 0.15), inset 0px 0px 12px 6px #a816e5;
+    transition:box-shadow .3s;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%; }
+    .contact-item__icon:hover {
+        box-shadow: 0px 4px 10px 8px rgba(0, 162, 255, 0.15), inset 0px 0px 12px 6px #a816e5;
+    }
     .contact-item__icon i {
       color: #00a2ff;
       font-size: 36px;
