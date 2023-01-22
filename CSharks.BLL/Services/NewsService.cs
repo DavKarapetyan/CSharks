@@ -50,27 +50,24 @@ namespace CSharks.BLL.Services
             {
                 news = _translateService.Convert(news, "News", 0, cultureType, news.Select(n => n.Id).ToList()) as List<News>;
             }
-            //var baseQuery = _context.ParentAgreements.Where(p => (
-            //(model.ParentFirstName == null || p.ParentFirstName.ToLower().Contains(model.ParentFirstName.ToLower()))
-            //           && (model.ParentLastName == null || p.ParentSecondName.ToLower().Contains(model.ParentLastName.ToLower())))
-            //           && ((model.ChildFirstName == null || p.ChildFirstName.ToLower().Contains(model.ChildFirstName.ToLower()))
-            //           && (model.ChildLastName == null || p.ChildSecondName.ToLower().Contains(model.ChildLastName.ToLower()))));
-            var list = news.Select(n => new NewsVM
+            var baseQuery = _newsRepository.GetAll().Where(n => (
+            (text == null || n.Title.ToLower().Contains(text.ToLower()))
+                       && (newsType == null || n.NewsType == newsType)));
+
+            var list = baseQuery.Select(n => new NewsVM
             {
                 Description = n.Description,
                 ImageFile = n.ImageFile,
                 NewsType = n.NewsType,
-                Id = n.Id,
                 Title = n.Title,
-            }).Where( n => (text == null || n.Title.ToLower().Contains(text.ToLower()) 
-            && (newsType == null || n.NewsType == newsType))).ToList();
-
+                Id = n.Id,
+            }).ToList();
             return list;
         }
 
         public NewsVM GetNewsById(int id, CultureType cultureType)
         {
-            var news = _newsRepository.GetById(id);
+            var news = _newsRepository.GetForEdit(id);
             if (cultureType != CultureType.en)
             {
                 news = _translateService.Convert(news, "News", id, cultureType, new List<int> { id }) as News;

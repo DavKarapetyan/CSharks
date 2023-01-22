@@ -48,5 +48,16 @@ namespace CSharks.Aplication.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Delete()
+        {
+            return PartialView("_Delete");
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _characterService.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

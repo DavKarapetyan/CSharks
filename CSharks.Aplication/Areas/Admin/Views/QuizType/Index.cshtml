@@ -31,7 +31,7 @@
                             <a asp-action="AddEdit" asp-route-id="@item.Id" asp-route-culture="@CultureType.en" asp-controller="QuizType" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit</a>
                             <a asp-action="AddEdit" asp-route-id="@item.Id" asp-route-culture="@CultureType.am" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit am</a>
                             <a asp-action="AddEdit" asp-route-id="@item.Id" asp-route-culture="@CultureType.ru" class="modal-open dropdown-item"><i class="bx bx-edit-alt me-1"></i>Edit ru</a>
-                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="QuizType" class="modal-open dropdown-item"><i class="bx bx-trash me-1"></i> Delete</a>
                         </div>
                     </div>
                 </td>

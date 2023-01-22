@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace CSharks.DAL.Enums
 {
-   public enum NewsType
+    public enum NewsType
     {
-        Technology,
+        Game,
+        Quiz,
+        Comics,
         MediaLiteracy,
-        ComputerScience,
-        SocilaMedia,
-        Safety,
+        AboutTeam,
+        Other
+
     }
 }

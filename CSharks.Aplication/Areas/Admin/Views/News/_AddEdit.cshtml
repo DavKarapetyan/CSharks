@@ -28,6 +28,11 @@
                 <div class="col mb-3">
                     <label asp-for="ImageFile" class="form-label">ImageFile</label>
                     <input type="file" class="form-control" placeholder="Enter Image" name="fileName">
+                    @if (Model.ImageFile != null)
+                    {
+                        <img src="@Model.ImageFile" class="img-fluid w-25 mt-3 rounded-lg"/>    
+                        <input hidden asp-for="ImageFile"/>
+                    }
                 </div>
             </div>
             <div class="row">

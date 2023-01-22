@@ -1,4 +1,5 @@
-﻿using CSharks.BLL.Services.Interfaces;
+﻿using CSharks.BLL.Services;
+using CSharks.BLL.Services.Interfaces;
 using CSharks.BLL.ViewModels;
 using CSharks.DAL.Entities;
 using CSharks.DAL.Enums;
@@ -36,6 +37,17 @@ namespace CSharks.Areas.Admin.Controllers
             else {
                 _quizTypeService.Update(model, model.Culture);
             }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Delete()
+        {
+            return PartialView("_Delete");
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _quizTypeService.Delete(id);
             return RedirectToAction("Index");
         }
     }
