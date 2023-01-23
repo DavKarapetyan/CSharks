@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Files\Characters\" />
+    <Folder Include="wwwroot\Files\Comics\" />
   </ItemGroup>
 
 </Project>

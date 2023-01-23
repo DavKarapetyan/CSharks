@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharks.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace CSharks.BLL.ViewModels
 {
-    internal class ComicsVM
+    public class ComicsVM
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime DateOfPublication { get; set; }
+        public string ImageFile { get; set; }
+        public string Description { get; set; }
+        public CultureType CultureType { get; set; }
     }
 }
