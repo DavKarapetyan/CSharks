@@ -32,6 +32,11 @@ namespace CSharks.BLL.Services
                 Description = model.Description,
                 ImageFile = model.ImageFile,
                 Name = model.Name,
+                Price = model.Price,
+                NewPrice=model.NewPrice,
+                Discount=model.Discount,
+                HaveDiscount=model.HaveDiscount
+                
             };
             _comicsRepository.Add(comics);
             _uow.Save();
@@ -57,6 +62,7 @@ namespace CSharks.BLL.Services
                 ImageFile = c.ImageFile,
                 Name = c.Name,
                 Id = c.Id,
+
             }).ToList();
             return list;
         }
