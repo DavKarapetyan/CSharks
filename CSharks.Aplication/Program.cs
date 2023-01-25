@@ -36,7 +36,13 @@ namespace CSharks.Aplication
             builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<CSharksDbContext>();
             builder.Services.AddScoped<IComicsRepository, ComicsRepository>();
             builder.Services.AddScoped<IComicsService, ComicsService>();
-
+            builder.Services.AddAuthentication()
+            .AddGoogle(opts =>
+            {
+                opts.ClientId = "17087847832-pkvell0hnehc49539di4ahj4a3pcr97t.apps.googleusercontent.com";
+                opts.ClientSecret = "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";
+                opts.SignInScheme = IdentityConstants.ExternalScheme;
+            });
 
             var app = builder.Build();
 

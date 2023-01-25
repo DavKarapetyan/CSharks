@@ -2310,7 +2310,7 @@ span.is-active:after {
 
 .games-filter-from .nice-select {
   padding: 0px 30px;
-  box-shadow: inset 0px 0px 8px 4px #30a8db;
+  transition:box-shadow .3s;
   border: 1px solid rgba(29, 46, 129, 0.3);
   background-color: rgba(38, 13, 76, 0);
   border-radius: 999px;
@@ -2318,11 +2318,15 @@ span.is-active:after {
   -moz-border-radius: 999px;
   -ms-border-radius: 999px;
   -o-border-radius: 999px; }
-  .games-filter-from .nice-select::after {
-    width: 10px;
-    height: 10px;
-    margin-top: -7px;
-    right: 30px; }
+.games-filter-from .nice-select:hover {
+    box-shadow: inset 0px 0px 8px 4px #30a8db;
+}
+    .games-filter-from .nice-select::after {
+        width: 10px;
+        height: 10px;
+        margin-top: -7px;
+        right: 30px;
+    }
   .games-filter-from .nice-select .list {
     background-color: #311a83; }
     .games-filter-from .nice-select .list li.selected, .games-filter-from .nice-select .list li:hover {

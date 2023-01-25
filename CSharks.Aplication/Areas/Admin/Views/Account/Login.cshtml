@@ -6,17 +6,20 @@
     <div asp-validation-summary="ModelOnly"></div>
     <div class="mb-3">
         <label asp-for="Email" class="form-label"></label><br />
-        <input asp-for="Email" class="form-control"/>
+        <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email"></span>
     </div>
-    <div class ="mb-3">
+    <div class="mb-3">
         <label asp-for="Password" class="form-label"></label><br />
-        <input asp-for="Password" class="form-control"/>
+        <input asp-for="Password" class="form-control" />
         <span asp-validation-for="Password"></span>
     </div>
     <div class="mb-3">
         <label asp-for="RememberMe" class="form-label"></label><br />
-        <input asp-for="RememberMe" class="form-check-input"/>
+        <input asp-for="RememberMe" class="form-check-input" />
+    </div>
+    <div class="mb-3">
+        <a class="btn btn-info" asp-action="GoogleLogin">Log In With Google</a>
     </div>
     <div>
         <input type="submit" value="Submit" class="btn btn-success w-100" />
