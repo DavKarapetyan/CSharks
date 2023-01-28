@@ -21,10 +21,6 @@ namespace CSharks.Aplication.Controllers
         {
             return View();
         }
-        public IActionResult ContactUs()
-        {
-            return View();
-        }
         public IActionResult Index1()
         {
             return View();

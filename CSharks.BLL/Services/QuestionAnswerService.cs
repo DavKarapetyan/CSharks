@@ -94,15 +94,6 @@ namespace CSharks.BLL.Services
                 _translatorService.Fill(model, cultureType, tablename, model.Id);
             }
             _uow.Save();
-            //var questionAnswer = new QuestionAnswer
-            //{
-            //    Id = model.Id,
-            //    Text = model.Text,
-            //    IsCorrect= model.IsCorrect,
-            //    QuestionId= model.QuestionId,
-            //};
-            //_questionAnswerRepository.Update(questionAnswer);
-            //_uow.Save();
         }
     }
 }

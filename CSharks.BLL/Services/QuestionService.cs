@@ -55,7 +55,17 @@ namespace CSharks.BLL.Services
             }).ToList();
             return question;
         }
-
+        public List<Question> GetQuestionByQuizTypeId(int quizTypeId)//stexcel vm
+        {
+            var questions = _questionRepository.GetAll().Where(q => q.QuizTypeId == quizTypeId).Select(q => new Question 
+            {
+                Id = q.Id,
+                Text = q.Text,
+                QuizTypeId = quizTypeId,
+                Answers = q.Answers
+            }).ToList();
+            return questions;
+        }
         public void Update(QuestionAddEditVM model, CultureType cultureType)
         {
             var entity = _questionRepository.GetForEdit(model.Id);
@@ -71,14 +81,6 @@ namespace CSharks.BLL.Services
                 _translatorService.Fill(model, cultureType, tablename, model.Id);
             }
             _unitOfWork.Save();
-            //var question = new Question
-            //{
-            //    Id = model.Id,
-            //    Text=model.Text,
-            //    QuizTypeId = model.QuizTypeId
-            //};
-            //_questionRepository.Update(question);
-            //_unitOfWork.Save();
         }
 
         public QuestionAddEditVM GetQuestionForEdit(int id)

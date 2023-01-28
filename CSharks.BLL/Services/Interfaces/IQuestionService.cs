@@ -14,6 +14,7 @@ namespace CSharks.BLL.Services.Interfaces
         public List<QuestionVM> GetAllQuestion();
         public QuestionVM GetQuestionById(int id);
         public QuestionAddEditVM GetQuestionForEdit(int id);
+        public List<Question> GetQuestionByQuizTypeId(int quizTypeId);
         public void Add(QuestionAddEditVM model);
         public void Update(QuestionAddEditVM model, CultureType cultureType);
         public void Delete(int id);

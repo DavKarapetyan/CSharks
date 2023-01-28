@@ -1,0 +1,22 @@
+﻿@using CSharks.DAL.Entities;
+@model List<Question>
+
+<div class="container" style="margin-top:250px;">
+    @foreach (var item in Model)
+    {
+        <h3 style="text-align:center;" class="mt-3">@item.Text</h3>
+        <div class="container justify-content-center">
+            <div class="row flex-lg-row align-items-center">
+                @foreach (var item1 in item.Answers)
+                {
+                    <div class="col-lg-6 mt-3">
+                        <button class="submit-btn w-100" onclick="@(item1.IsCorrect == true ? "Swal.fire('Good job!',  'You clicked the button!', 'success')" : "Swal.fire('Oops!!', 'You clicked the button!', 'error')")">
+                            @item1.Text
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

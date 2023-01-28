@@ -6038,7 +6038,7 @@
 }
 
 
-h2 {
+.text-anim {
     transition: all 0.5s;
     -webkit-text-stroke: 4px #d6f4f4;
     font-variation-settings: "wght" 900, "ital" 1;
@@ -6050,13 +6050,13 @@ h2 {
     cursor: pointer;
 }
 
-    h2:hover {
-        font-variation-settings: "wght" 100, "ital" 0;
-        text-shadow: none;
-    }
+text-anim:hover {
+    font-variation-settings: "wght" 100, "ital" 0;
+    text-shadow: none;
+}
 
 @media only screen and (max-width: 600px) {
-    h2 {
+    text-anim {
         font-variation-settings: "wght" 200, "ital" 0;
         text-shadow: none;
     }
