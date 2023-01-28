@@ -34,7 +34,12 @@ namespace CSharks.DAL.Repositories
                 Name = c.Name,
                 Id = c.Id,
                 ImageFile = c.ImageFile,
-                DateOfPublication = c.DateOfPublication
+                DateOfPublication = c.DateOfPublication,
+                Price = c.Price,
+                NewPrice= c.NewPrice,
+                Discount = c.Discount,
+                 HaveDiscount= c.HaveDiscount,
+                
             }).AsNoTracking().ToList();
             return data;
         }
@@ -58,6 +63,10 @@ namespace CSharks.DAL.Repositories
             data.Name = model.Name;
             data.ImageFile = model.ImageFile;
             data.DateOfPublication = model.DateOfPublication;
+            data.Price = model.Price;
+            data.NewPrice = model.NewPrice;
+            data.Discount = model.Discount;
+            data.HaveDiscount = model.HaveDiscount;
         }
     }
 }

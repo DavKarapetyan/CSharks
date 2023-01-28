@@ -100,7 +100,7 @@ namespace CSharks.Areas.Admin.Controllers
 
                 await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
-                return RedirectToAction("UserList");//poxelua
+                return RedirectToAction("UserList");//poxelu e
             }
             return NotFound();
         }

@@ -3463,11 +3463,14 @@ span.is-active:after {
   color: #54518d; }
   .google-btn img {
     margin-right: 10px; }
-
+.NEWlogo{
+    width:125px;
+}
 /* account area css end */
 /* sidebar css start */
 .widget + .widget {
-  margin-top: 30px; }
+    margin-top: 30px;
+}
 
 .widget {
   padding: 30px;
