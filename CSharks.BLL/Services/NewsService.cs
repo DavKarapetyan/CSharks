@@ -32,7 +32,7 @@ namespace CSharks.BLL.Services
                 ImageFile = model.ImageFile,
                 NewsType = model.NewsType,
                 Title = model.Title,
-                CreateDate = DateTime.Now
+                CreateDate = DateTime.Now,
             };
             _newsRepository.Add(news);
             _uow.Save();
