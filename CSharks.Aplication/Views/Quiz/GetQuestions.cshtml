@@ -10,7 +10,7 @@
                 @foreach (var item1 in item.Answers)
                 {
                     <div class="col-lg-6 mt-3">
-                        <button class="submit-btn w-100" onclick="@(item1.IsCorrect == true ? "Swal.fire('Good job!',  'You clicked the button!', 'success')" : "Swal.fire('Oops!!', 'You clicked the button!', 'error')")">
+                        <button class="submit-btn w-100" id="btn" onclick="@(item1.IsCorrect == true ? "Swal.fire('Good job!',  'You clicked the button!', 'success')" : "Swal.fire('Oops!!', 'You clicked the button!', 'error')")">
                             @item1.Text
                         </button>
                     </div>

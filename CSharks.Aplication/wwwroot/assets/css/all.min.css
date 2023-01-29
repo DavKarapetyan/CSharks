@@ -6041,8 +6041,8 @@
 .text-anim {
     transition: all 0.5s;
     -webkit-text-stroke: 4px #d6f4f4;
-    font-variation-settings: "wght" 900, "ital" 1;
-    font-size: 12rem;
+    font-variation-settings: "wght" 600, "ital" 1;
+    font-size: 6rem;
     text-align: left;
     color: transparent;
     font-family: "Meta", sans-serif;
@@ -6050,13 +6050,13 @@
     cursor: pointer;
 }
 
-text-anim:hover {
+.text-anim:hover {
     font-variation-settings: "wght" 100, "ital" 0;
     text-shadow: none;
 }
 
 @media only screen and (max-width: 600px) {
-    text-anim {
+    .text-anim {
         font-variation-settings: "wght" 200, "ital" 0;
         text-shadow: none;
     }
