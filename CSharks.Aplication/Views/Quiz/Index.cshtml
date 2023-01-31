@@ -1,9 +1,9 @@
 ﻿@model List<QuizTypeVM>
 
-<div class="container" style="margin-top:100px;">
+<div class="container" style="margin-top:150px;">
     <h2 style="text-align:center;" class="text-anim">Select Quiz Type</h2>
     @foreach (var item in Model)
     {
-        <a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id" class="submit-btn mt-2 btn" style="color:white;">@item.Title</a>
+        <a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id" asp-route-QuizType="@item.Title" class="submit-btn mt-5 btn" style="color:white;">@item.Title</a>
        }
 </div>

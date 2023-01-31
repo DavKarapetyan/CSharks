@@ -22,10 +22,29 @@ namespace CSharks.Aplication.Controllers
             var data = _quizTypeService.GetQuizTypes();
             return View(data);
         }
-        public IActionResult GetQuestions(int quizTypeId) 
+        public IActionResult GetQuestions(int quizTypeId,string QuizType) 
         {
             var data = _questionService.GetQuestionByQuizTypeId(quizTypeId);
+            ViewBag.QuizType = QuizType;
             return View(data);
+        }
+        public JsonResult GetData()
+        {
+            var data = _questionService.GetQuestionByQuizTypeId(2);
+            return Json(data);
+        }
+
+        public IActionResult Question (int prev, int quizType)
+        {
+            //get next question by prev and pass model to view
+            var data = _questionService.GetQuestionByQuizTypeId(quizType);
+            var item = data.FirstOrDefault();
+            return PartialView("_Question",item);
+        }
+        public JsonResult CheckAnswer(int questionAnswerId)
+        {
+            bool isRight = _questionAnswerService.GetQuestionAnswer(questionAnswerId).IsCorrect;
+            return Json(isRight);
         }
     }
 }

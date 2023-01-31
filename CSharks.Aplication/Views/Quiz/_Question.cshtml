@@ -1,0 +1,10 @@
+﻿@model QuestionVM
+
+@foreach (var item in Model.Answers)
+{
+    <div class="col-lg-6 mt-3">
+        <button class="submit-btn w-100" id="btn">
+            @item.Text
+        </button>
+    </div>
+}

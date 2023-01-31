@@ -994,7 +994,7 @@ a:hover {
     padding: 16px 50px;
     background-color: #220a81;
     position: relative;
-    z-index: 9;
+    z-index: 0;
     text-transform: uppercase;
     color: #ffffff;
     border-radius: 999px;

@@ -55,14 +55,14 @@ namespace CSharks.BLL.Services
             }).ToList();
             return question;
         }
-        public List<Question> GetQuestionByQuizTypeId(int quizTypeId)//stexcel vm
+        public List<QuestionVM> GetQuestionByQuizTypeId(int quizTypeId)//stexcel vm
         {
-            var questions = _questionRepository.GetAll().Where(q => q.QuizTypeId == quizTypeId).Select(q => new Question 
+            var questions = _questionRepository.GetAll().Where(q => q.QuizTypeId == quizTypeId).Select(q => new QuestionVM 
             {
                 Id = q.Id,
                 Text = q.Text,
                 QuizTypeId = quizTypeId,
-                Answers = q.Answers
+                Answers = q.Answers.OrderBy(a => Guid.NewGuid()).ToList(),
             }).ToList();
             return questions;
         }
