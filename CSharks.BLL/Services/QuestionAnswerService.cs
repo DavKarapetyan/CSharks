@@ -95,5 +95,10 @@ namespace CSharks.BLL.Services
             }
             _uow.Save();
         }
+        public bool IsCorrect(int id)
+        { 
+            var entity = _questionAnswerRepository.GetById(id);
+            return entity.IsCorrect;
+        }
     }
 }

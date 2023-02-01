@@ -33,9 +33,8 @@ namespace CSharks.BLL.Services
                 ImageFile = model.ImageFile,
                 Name = model.Name,
                 Price = model.Price,
-                NewPrice=model.NewPrice,
+                NewPrice=model.NewPrice.GetValueOrDefault(),
                 Discount=model.Discount,
-                HaveDiscount=model.HaveDiscount
                 
             };
             _comicsRepository.Add(comics);
@@ -62,7 +61,9 @@ namespace CSharks.BLL.Services
                 ImageFile = c.ImageFile,
                 Name = c.Name,
                 Id = c.Id,
-
+                Discount = c.Discount,
+                NewPrice = c.NewPrice,
+                Price = c.Price,
             }).ToList();
             return list;
         }
@@ -80,7 +81,10 @@ namespace CSharks.BLL.Services
                 Description = comics.Description,
                 ImageFile = comics.ImageFile,
                 Name = comics.Name,
-                Id = Id
+                Id = Id,
+                Discount = comics.Discount,
+                NewPrice = comics.NewPrice,
+                Price = comics.Price,
             };
             return comicsVM;
         }

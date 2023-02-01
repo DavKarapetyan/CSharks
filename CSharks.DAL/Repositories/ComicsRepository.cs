@@ -38,7 +38,6 @@ namespace CSharks.DAL.Repositories
                 Price = c.Price,
                 NewPrice= c.NewPrice,
                 Discount = c.Discount,
-                 HaveDiscount= c.HaveDiscount,
                 
             }).AsNoTracking().ToList();
             return data;
@@ -66,7 +65,6 @@ namespace CSharks.DAL.Repositories
             data.Price = model.Price;
             data.NewPrice = model.NewPrice;
             data.Discount = model.Discount;
-            data.HaveDiscount = model.HaveDiscount;
         }
     }
 }

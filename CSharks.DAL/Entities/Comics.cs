@@ -15,7 +15,7 @@ namespace CSharks.DAL.Entities
         public string ImageFile { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
-        public int Discount { get; set; }
+        public int? Discount { get; set; }
         public double NewPrice
         {
             get 
@@ -24,11 +24,8 @@ namespace CSharks.DAL.Entities
             }
             set
             {
-                NewPrice = Math.Ceiling((double)Price * Discount / 100); 
+                NewPrice = Math.Ceiling((double)Price * Discount.Value / 100); 
             }
         }
-        public bool HaveDiscount { get; set; }
-        
-
     }
 }

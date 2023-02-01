@@ -20,9 +20,23 @@
 
 $("#load").on("click", function () {
     $.get("/Quiz/Question?prev=10&quizType=2", function (response) {
-        $("#add").html(response);
-        $.post("/Quiz/CheckAnswer?questionAnswerId=1", function (response) {
-            console.log(response);
-        })
-    })
+        $("#add").html(response)
+    });
 });
+
+function check(a) {
+    $.post("/Quiz/CheckAnswer?questionAnswerId=" + a, function (response1) {
+        if (response1) {
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+            }).then(function () {
+                window.location = "/Home/Index";
+            });
+        }
+        else {
+            swal("Oops", "Something went wrong!", "error")
+        }
+    })
+}

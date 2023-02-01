@@ -16,8 +16,7 @@ namespace CSharks.BLL.ViewModels
         public string Description { get; set; }
         public CultureType CultureType { get; set; }
         public int Price { get; set; }
-        public bool HaveDiscount { get; set; }
-        public double NewPrice { get; set; }
-        public int Discount { get; set; }
+        public double? NewPrice { get; set; }
+        public int? Discount { get; set; }
     }
 }

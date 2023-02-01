@@ -41,10 +41,10 @@ namespace CSharks.Aplication.Controllers
             var item = data.FirstOrDefault();
             return PartialView("_Question",item);
         }
-        public JsonResult CheckAnswer(int questionAnswerId)
+        public bool CheckAnswer(int questionAnswerId)
         {
-            bool isRight = _questionAnswerService.GetQuestionAnswer(questionAnswerId).IsCorrect;
-            return Json(isRight);
+            bool isRight = _questionAnswerService.IsCorrect(questionAnswerId);
+            return isRight;
         }
     }
 }

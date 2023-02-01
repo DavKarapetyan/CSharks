@@ -1643,7 +1643,6 @@ span.is-active:after {
       .hero__sub-title {
         font-size: 16px; } }
   .hero__title {
-    font-size: 80px;
     color: #ffffff;
     text-transform: uppercase;
     font-weight: 700;
