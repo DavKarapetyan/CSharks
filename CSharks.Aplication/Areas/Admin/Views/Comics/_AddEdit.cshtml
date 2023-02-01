@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="Name" class="form-label">Name</label>
-                    <input type="text" class="form-control" placeholder="Enter title" asp-for="Name">
+                    <input type="text" class="form-control" placeholder="Enter title" asp-for="Name"/>
                 </div>
             </div>
             <div class="row">
@@ -27,25 +27,31 @@
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="ImageFile" class="form-label">ImageFile</label>
-                    <input type="file" class="form-control" placeholder="Enter Image" name="fileName">
+                    <input type="file" class="form-control" placeholder="Enter Image" name="fileName"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="Price" class="form-label">Price</label>
-                    <input class="form-control" asp-for="Price">
+                    <input class="form-control" asp-for="Price"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="Discount" class="form-label">Discount</label>
-                    <input class="form-control" asp-for="Discount">
+                    <input class="form-control" asp-for="Discount"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="NewPrice" class="form-label">New Price</label>
+                    <input class="form-control" asp-for="NewPrice" />
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="DateOfPublication" class="form-label">Date Of Publication</label>
-                    <input class="form-control" asp-for="DateOfPublication">
+                    <input class="form-control" asp-for="DateOfPublication"/>
                 </div>
             </div>
             <input asp-for="CultureType" hidden />

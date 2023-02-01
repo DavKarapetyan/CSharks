@@ -19,7 +19,7 @@
 //});
 
 $("#load").on("click", function () {
-    $.get("/Quiz/Question?prev=10&quizType=2", function (response) {
+    $.get("/Quiz/Question?prev=10&quizType=1", function (response) {
         $("#add").html(response)
     });
 });

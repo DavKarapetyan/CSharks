@@ -38,7 +38,6 @@ namespace CSharks.DAL.Repositories
                 Price = c.Price,
                 NewPrice= c.NewPrice,
                 Discount = c.Discount,
-                
             }).AsNoTracking().ToList();
             return data;
         }
