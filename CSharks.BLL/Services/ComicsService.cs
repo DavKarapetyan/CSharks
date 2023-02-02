@@ -61,7 +61,7 @@ namespace CSharks.BLL.Services
                 ImageFile = c.ImageFile,
                 Name = c.Name,
                 Id = c.Id,
-                Discount = c.Discount,
+                Discount = c.Discount.GetValueOrDefault(),
                 NewPrice = c.NewPrice,
                 Price = c.Price,
             }).ToList();
@@ -82,7 +82,7 @@ namespace CSharks.BLL.Services
                 ImageFile = comics.ImageFile,
                 Name = comics.Name,
                 Id = Id,
-                Discount = comics.Discount,
+                Discount = comics.Discount.GetValueOrDefault(),
                 NewPrice = comics.NewPrice,
                 Price = comics.Price,
             };

@@ -24,7 +24,7 @@ namespace CSharks.DAL.Entities
             }
             set
             {
-                NewPrice = Math.Ceiling((double)Price * Discount.Value / 100); 
+                NewPrice = Math.Ceiling((double)Price * Discount.GetValueOrDefault() / 100); 
             }
         }
     }
