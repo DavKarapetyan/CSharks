@@ -33,7 +33,7 @@ namespace CSharks.BLL.Services
                 ImageFile = model.ImageFile,
                 Name = model.Name,
                 Price = model.Price,
-                NewPrice=model.NewPrice.GetValueOrDefault(),
+                NewPrice=model.NewPrice.GetValueOrDefault() ,
                 Discount=model.Discount,
                 
             };
