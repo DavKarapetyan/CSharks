@@ -55,7 +55,7 @@ namespace CSharks.BLL.Services
             }).ToList();
             return question;
         }
-        public List<QuestionVM> GetQuestionByQuizTypeId(int quizTypeId)//stexcel vm
+        public List<QuestionVM> GetQuestionByQuizTypeId(int quizTypeId)
         {
             var questions = _questionRepository.GetAll().Where(q => q.QuizTypeId == quizTypeId).Select(q => new QuestionVM 
             {

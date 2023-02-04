@@ -5,9 +5,9 @@
 
 <div class="container" style="margin-top:250px;">
     <h2 class="text-anim">@ViewBag.QuizType</h2>
-    <button class="btn btn-success" id="load">Show</button>
     @foreach (var item in Model)
     {
+        <button data-id="@item.QuizTypeId" class="btn submit-btn" id="load">Start</button>
         <h3 style="text-align:center;" class="mt-3">@item.Text</h3>
         <div class="container justify-content-center">
             <div class="row flex-lg-row align-items-center" id="add">

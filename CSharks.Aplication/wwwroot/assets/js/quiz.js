@@ -18,9 +18,15 @@
 //    });
 //});
 
-$("#load").on("click", function () {
-    $.get("/Quiz/Question?prev=10&quizType=1", function (response) {
-        $("#add").html(response)
+$(document).ready(function () {
+    var a;
+
+    $("#load").click(function () {
+        a = $("#load").data("id");
+        console.log(a);
+        $.get("/Quiz/Question?prev=10&quizType=" + a, function (response) {
+            $("#add").html(response)
+        });
     });
 });
 

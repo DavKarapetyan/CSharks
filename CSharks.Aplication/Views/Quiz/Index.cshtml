@@ -4,6 +4,9 @@
     <h2 style="text-align:center;" class="text-anim">Select Quiz Type</h2>
     @foreach (var item in Model)
     {
-        <a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id" asp-route-QuizType="@item.Title" class="submit-btn mt-5 btn" style="color:white;">@item.Title</a>
+        <a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id" onclick="getId('@item.Id')" asp-route-QuizType="@item.Title" class="submit-btn mt-5 btn" style="color:white;">@item.Title</a>
        }
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="~/assets/js/quiz.js"></script>

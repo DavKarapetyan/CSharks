@@ -12,9 +12,11 @@ namespace CSharks.Areas.Admin.Controllers
     public class QuestionAnswerController : Controller
     {
         private readonly IQuestionAnswerService _questionAnswerService;
-        public QuestionAnswerController(IQuestionAnswerService questionAnswerService)
+        private readonly IQuestionService _questionService;
+        public QuestionAnswerController(IQuestionAnswerService questionAnswerService,IQuestionService questionService)
         {
             _questionAnswerService = questionAnswerService;
+            _questionService = questionService;
         }
         public IActionResult Index()
         {
@@ -23,8 +25,9 @@ namespace CSharks.Areas.Admin.Controllers
         }
         [HttpGet]
         public IActionResult AddEdit(int? id, int? questionId,CultureType culture) {
-            QuestionAnswerAddEditVM model = id.HasValue ? _questionAnswerService.GetForEdit(id.Value) : new QuestionAnswerAddEditVM() { Id = 0,QuestionId = questionId.Value};
+            QuestionAnswerAddEditVM model = id.HasValue ? _questionAnswerService.GetForEdit(id.Value) : new QuestionAnswerAddEditVM() { Id = 0,QuestionId = questionId.HasValue ? questionId.Value : 0};
             model.Culture = culture;
+            ViewBag.Questions = _questionService.GetAllQuestion();
             return PartialView("_AddEdit",model);
         }
         [HttpPost]

@@ -29,7 +29,13 @@
                     @if(Model.QuestionId == 0)
                     {
                         <label asp-for="QuestionId" class="form-label">Question Id</label>
-                        <input class="form-control" asp-for="QuestionId">
+                        <select class="form-control" asp-for="QuestionId">
+                            <option>Please Select Question</option>
+                            @foreach(var item in ViewBag.Questions)
+                            {
+                                <option value="@item.Id">@item.Text</option>
+                            }
+                        </select>
                     }else
                     {
                         <input hidden asp-for="QuestionId" />
