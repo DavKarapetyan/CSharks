@@ -1,24 +1,4 @@
-﻿//$(document).ready(() => {
-//    $("#load").on("click", function () {
-//        $.ajax({
-//            url: "/Quiz/GetData",
-//            success: function (data) {
-//                console.log(data);
-//                for (let i = 0; i < data.length; i++) {
-//                    for (let j = 0; j < data[i].answers.length; j++) {
-//                        document.getElementById("add").innerHTML += "<div class='col-lg-6 mt-3'> <button class='submit-btn w-100' id='btn' onclick='alert("
-//                            + data[i].answers[j].isCorrect + ");'>" + data[i].answers[j].text + "</button></div>"
-//                    }
-//                }
-//            },
-//            error: function (er) {
-//                console.log(er);
-//            }
-//        })
-//    });
-//});
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     var a;
 
     $("#load").click(function () {

@@ -3,6 +3,6 @@
 @foreach (var item in Model.Answers)
 {
     <div class="col-lg-6 mt-3">
-        <button type="button" class="submit-btn w-100" id="btn" data-id="@item.Id" onclick="check('@item.Id')">@item.Text</button>
+        <button type="button" class="submit-btn w-100" onclick="check('@item.Id')">@item.Text</button>
     </div>
 }

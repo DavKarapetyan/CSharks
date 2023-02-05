@@ -28,12 +28,6 @@ namespace CSharks.Aplication.Controllers
             ViewBag.QuizType = QuizType;
             return View(data);
         }
-        public JsonResult GetData()
-        {
-            var data = _questionService.GetQuestionByQuizTypeId(2);
-            return Json(data);
-        }
-
         public IActionResult Question (int prev, int quizType)
         {
             //get next question by prev and pass model to view
