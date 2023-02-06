@@ -1,8 +1,15 @@
 ﻿@model QuestionVM
 
-@foreach (var item in Model.Answers)
-{
-    <div class="col-lg-6 mt-3">
-        <button type="button" class="submit-btn w-100" onclick="check('@item.Id')">@item.Text</button>
+
+<h3 style="text-align:center;" class="mt-3">@Model.Text</h3>
+<div class="container justify-content-center">
+    <div class="row flex-lg-row align-items-center">
+        @foreach (var item in Model.Answers)
+        {
+            <div class="col-lg-6 mt-3">
+                <button type="button" class="submit-btn w-100" onclick="check('@item.Id')">@item.Text</button>
+            </div>
+        }
     </div>
-}
+</div>
+

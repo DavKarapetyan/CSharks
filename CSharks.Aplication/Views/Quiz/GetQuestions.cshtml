@@ -5,23 +5,10 @@
 
 <div class="container" style="margin-top:250px;">
     <h2 class="text-anim">@ViewBag.QuizType</h2>
-    @foreach (var item in Model)
-    {
-        <button data-id="@item.QuizTypeId" class="btn submit-btn" id="load">Start</button>
-        <h3 style="text-align:center;" class="mt-3">@item.Text</h3>
-        <div class="container justify-content-center">
-            <div class="row flex-lg-row align-items-center" id="add">
-                @*@foreach (var item1 in item.Answers)
-                {
-                    <div class="col-lg-6 mt-3">
-                        <button class="submit-btn w-100" id="btn" onclick="@(item1.IsCorrect ? "Swal.fire('Good job!',  'You clicked the button!', 'success')" : "Swal.fire('Oops!!', 'You clicked the button!', 'error')")">
-                            @item1.Text
-                        </button>
-                    </div>
-                }*@
-            </div>
-        </div>
-    }
+
+    <button data-id="@Model.FirstOrDefault().QuizTypeId" class="btn submit-btn" id="load">Start</button>
+    <div class="container" id="add">
+    </div>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
