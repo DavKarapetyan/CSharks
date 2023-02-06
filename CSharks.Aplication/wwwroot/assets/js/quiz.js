@@ -4,7 +4,7 @@
     $("#load").click(function () {
         a = $("#load").data("id");
         console.log(a);
-        $.get("/Quiz/Question?prev=10&quizType=" + a, function (response) {
+        $.get("/Quiz/Question?prev=0&quizType=" + a, function (response) {
             $("#add").html(response)
         });
     });

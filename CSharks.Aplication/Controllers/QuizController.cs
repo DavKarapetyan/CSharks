@@ -22,7 +22,7 @@ namespace CSharks.Aplication.Controllers
             var data = _quizTypeService.GetQuizTypes();
             return View(data);
         }
-        public IActionResult GetQuestions(int quizTypeId,string QuizType) 
+        public IActionResult GetQuestions(int quizTypeId,string QuizType, int prev) 
         {
             var data = _questionService.GetQuestionByQuizTypeId(quizTypeId);
             ViewBag.QuizType = QuizType;
@@ -32,7 +32,7 @@ namespace CSharks.Aplication.Controllers
         {
             //get next question by prev and pass model to view
             var data = _questionService.GetQuestionByQuizTypeId(quizType);
-            var item = data.FirstOrDefault();
+            var item = data.ElementAt(prev);
             return PartialView("_Question",item);
         }
         public bool CheckAnswer(int questionAnswerId)
