@@ -117,40 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bigText1" xml:space="preserve">
-    <value>ՆԵՐԳՐԱՎՈՐՈՒՄ ԽԱՂԻ ՄԻՋՈՑՈՎ</value>
+  <data name="BigText1" xml:space="preserve">
+    <value>About Us</value>
   </data>
-  <data name="bigText2" xml:space="preserve">
-    <value>Կոմիքսներ</value>
+  <data name="Text1" xml:space="preserve">
+    <value>We bring unforgettable characters and unique stories to market as a game studio focused on games with cross-media potential.We make games that millions of people around the world play every single day.</value>
   </data>
-  <data name="bigText3" xml:space="preserve">
-    <value>Մենք կենտրոնանում ենք որակյալ ժամանցի վրա</value>
+  <data name="Text10" xml:space="preserve">
+    <value>Arman Bagdasaryan</value>
   </data>
-  <data name="bigText4" xml:space="preserve">
-    <value>Լուրեր</value>
+  <data name="Text11" xml:space="preserve">
+    <value>CEO</value>
   </data>
-  <data name="learnMore" xml:space="preserve">
-    <value>ԻՄԱՑԵՔ ԱՎԵԼԻՆ</value>
+  <data name="Text12" xml:space="preserve">
+    <value>Julia Simonyan</value>
   </data>
-  <data name="play" xml:space="preserve">
-    <value>ԽԱՂԱԼ ՀԻՄԱ</value>
+  <data name="Text13" xml:space="preserve">
+    <value>CTO</value>
   </data>
-  <data name="text1" xml:space="preserve">
-    <value>ԽԱՂԱՅԻՆ ՍՏՈՒԴԻԱ</value>
+  <data name="Text14" xml:space="preserve">
+    <value>Davit Karapetyan</value>
   </data>
-  <data name="text2" xml:space="preserve">
-    <value>Մեր խաղերը զվարճացնում են միլիոնավոր մարդկանց ամեն օր, ամենուր</value>
+  <data name="Text15" xml:space="preserve">
+    <value>VP, Lottery Operations</value>
   </data>
-  <data name="text3" xml:space="preserve">
-    <value>ՎԵՐՋԻՆ ԿՈՄԻՔՍ</value>
+  <data name="Text16" xml:space="preserve">
+    <value>Get In Touch</value>
   </data>
-  <data name="text4" xml:space="preserve">
-    <value>Մեր հիմնական նպատակն է ապահովել լավագույն ժամանցը մեր խաղացողների համար: Մենք հիմնական շեշտը դնում ենք ամեն կերպ բարձր որակի խաղեր ստեղծելու վրա: Սա նշանակում է, որ մենք երաշխավորում ենք, որ մեր խաղերի բոլոր թեմաները գրավիչ են, մեր առանձնահատկությունները՝ եզակի և գրավիչ, իսկ մեր արվեստը՝ ցնցող և ճշգրիտ: Մենք չենք կտրում անկյունները և անում ենք այն ամենը, ինչ անհրաժեշտ է՝ հիշարժան խաղային փորձ առաջարկելու համար:</value>
+  <data name="Text17" xml:space="preserve">
+    <value>If you have a question or general enquiry, we’re here to help. Complete the form below and we will get back to you as soon as we can.</value>
   </data>
-  <data name="text5" xml:space="preserve">
-    <value>ՎԵՐՋԻՆ ԳՐԱՌՈՒՄՆԵՐ</value>
+  <data name="Text18" xml:space="preserve">
+    <value>Your Full Name</value>
   </data>
-  <data name="viewAll" xml:space="preserve">
-    <value>ԴԻՏԵՔ ԲՈԼՈՐԸ</value>
+  <data name="Text19" xml:space="preserve">
+    <value>Enter Your Full Name</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Passionate Team</value>
+  </data>
+  <data name="Text20" xml:space="preserve">
+    <value>Your Email</value>
+  </data>
+  <data name="Text21" xml:space="preserve">
+    <value>Enter Yourl Email</value>
+  </data>
+  <data name="Text22" xml:space="preserve">
+    <value>Mesaage</value>
+  </data>
+  <data name="Text23" xml:space="preserve">
+    <value>Enter Yourl Mesaage</value>
+  </data>
+  <data name="Text24" xml:space="preserve">
+    <value>I agree to receive emails, newsletters and promotional messages</value>
+  </data>
+  <data name="Text25" xml:space="preserve">
+    <value>SEND MASSAGE</value>
+  </data>
+  <data name="Text26" xml:space="preserve">
+    <value>Have questions?</value>
+  </data>
+  <data name="Text27" xml:space="preserve">
+    <value>Have questions about payments or price plans? We have answers!</value>
+  </data>
+  <data name="Text28" xml:space="preserve">
+    <value>Email Us</value>
+  </data>
+  <data name="Text29" xml:space="preserve">
+    <value>[email protected]</value>
+  </data>
+  <data name="Text3" xml:space="preserve">
+    <value>Though our team has grown over the months and includes a mix of talent, our leaders have been in game development for over 30 years.</value>
+  </data>
+  <data name="Text30" xml:space="preserve">
+    <value>Call Us</value>
+  </data>
+  <data name="Text31" xml:space="preserve">
+    <value>Visit Us</value>
+  </data>
+  <data name="Text32" xml:space="preserve">
+    <value>4293 Euclid Avenue, Los Angeles,CA 90012</value>
+  </data>
+  <data name="Text33" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Text34" xml:space="preserve">
+    <value>If you have a question or general enquiry, we’re here to help. Complete the form below and we will get back to you as soon as we can.</value>
+  </data>
+  <data name="Text35" xml:space="preserve">
+    <value>GOT A QUESTION?</value>
+  </data>
+  <data name="Text36" xml:space="preserve">
+    <value>We've Got Answers.</value>
+  </data>
+  <data name="Text4" xml:space="preserve">
+    <value>Artyush Varderesyan</value>
+  </data>
+  <data name="Text5" xml:space="preserve">
+    <value>CEO</value>
+  </data>
+  <data name="Text6" xml:space="preserve">
+    <value>Yeranuhi Ter-Movsisyan</value>
+  </data>
+  <data name="Text7" xml:space="preserve">
+    <value>CTO</value>
+  </data>
+  <data name="Text8" xml:space="preserve">
+    <value>Samvel Hovsepyan</value>
+  </data>
+  <data name="Text9" xml:space="preserve">
+    <value>VP, Lottery Operations</value>
   </data>
 </root>

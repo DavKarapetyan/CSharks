@@ -117,40 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="bigText1" xml:space="preserve">
-    <value>ՆԵՐԳՐԱՎՈՐՈՒՄ ԽԱՂԻ ՄԻՋՈՑՈՎ</value>
+  <data name="BigText1" xml:space="preserve">
+    <value>О нас</value>
   </data>
-  <data name="bigText2" xml:space="preserve">
-    <value>Կոմիքսներ</value>
+  <data name="Text1" xml:space="preserve">
+    <value>Мы выпускаем на рынок незабываемых персонажей и уникальные истории как игровая студия, ориентированная на игры с кросс-медийным потенциалом. Мы делаем игры, в которые миллионы людей по всему миру играют каждый день.</value>
   </data>
-  <data name="bigText3" xml:space="preserve">
-    <value>Մենք կենտրոնանում ենք որակյալ ժամանցի վրա</value>
+  <data name="Text10" xml:space="preserve">
+    <value>Арман Багдасарян</value>
   </data>
-  <data name="bigText4" xml:space="preserve">
-    <value>Լուրեր</value>
+  <data name="Text11" xml:space="preserve">
+    <value>Генеральный директор</value>
   </data>
-  <data name="learnMore" xml:space="preserve">
-    <value>ԻՄԱՑԵՔ ԱՎԵԼԻՆ</value>
+  <data name="Text12" xml:space="preserve">
+    <value>Джульетта Симоньян</value>
   </data>
-  <data name="play" xml:space="preserve">
-    <value>ԽԱՂԱԼ ՀԻՄԱ</value>
+  <data name="Text13" xml:space="preserve">
+    <value>Технический директор</value>
   </data>
-  <data name="text1" xml:space="preserve">
-    <value>ԽԱՂԱՅԻՆ ՍՏՈՒԴԻԱ</value>
+  <data name="Text14" xml:space="preserve">
+    <value>Давид Карапетян</value>
   </data>
-  <data name="text2" xml:space="preserve">
-    <value>Մեր խաղերը զվարճացնում են միլիոնավոր մարդկանց ամեն օր, ամենուր</value>
+  <data name="Text15" xml:space="preserve">
+    <value>Вице-президент</value>
   </data>
-  <data name="text3" xml:space="preserve">
-    <value>ՎԵՐՋԻՆ ԿՈՄԻՔՍ</value>
+  <data name="Text16" xml:space="preserve">
+    <value>Связаться с нами</value>
   </data>
-  <data name="text4" xml:space="preserve">
-    <value>Մեր հիմնական նպատակն է ապահովել լավագույն ժամանցը մեր խաղացողների համար: Մենք հիմնական շեշտը դնում ենք ամեն կերպ բարձր որակի խաղեր ստեղծելու վրա: Սա նշանակում է, որ մենք երաշխավորում ենք, որ մեր խաղերի բոլոր թեմաները գրավիչ են, մեր առանձնահատկությունները՝ եզակի և գրավիչ, իսկ մեր արվեստը՝ ցնցող և ճշգրիտ: Մենք չենք կտրում անկյունները և անում ենք այն ամենը, ինչ անհրաժեշտ է՝ հիշարժան խաղային փորձ առաջարկելու համար:</value>
+  <data name="Text17" xml:space="preserve">
+    <value>Если у вас есть вопросы , мы здесь, чтобы помочь. Заполните форму ниже, и мы свяжемся с вами, как только сможем.</value>
   </data>
-  <data name="text5" xml:space="preserve">
-    <value>ՎԵՐՋԻՆ ԳՐԱՌՈՒՄՆԵՐ</value>
+  <data name="Text18" xml:space="preserve">
+    <value>Ваше полное имя</value>
   </data>
-  <data name="viewAll" xml:space="preserve">
-    <value>ԴԻՏԵՔ ԲՈԼՈՐԸ</value>
+  <data name="Text19" xml:space="preserve">
+    <value>Введите свое полное имя</value>
+  </data>
+  <data name="Text2" xml:space="preserve">
+    <value>Увлеченная команда</value>
+  </data>
+  <data name="Text20" xml:space="preserve">
+    <value>Ваш адрес электронной почты</value>
+  </data>
+  <data name="Text21" xml:space="preserve">
+    <value>Введите свой адрес электронной почты</value>
+  </data>
+  <data name="Text22" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="Text23" xml:space="preserve">
+    <value>Введите ваше сообщение</value>
+  </data>
+  <data name="Text24" xml:space="preserve">
+    <value>Я согласен получать электронные письма, информационные бюллетени и рекламные сообщения</value>
+  </data>
+  <data name="Text25" xml:space="preserve">
+    <value>Отправить сообщение</value>
+  </data>
+  <data name="Text26" xml:space="preserve">
+    <value>Есть вопросы?</value>
+  </data>
+  <data name="Text27" xml:space="preserve">
+    <value>Есть вопросы по платежам или тарифным планам? У нас есть ответы!</value>
+  </data>
+  <data name="Text28" xml:space="preserve">
+    <value>Свяжитесь с нами по электронной почте</value>
+  </data>
+  <data name="Text29" xml:space="preserve">
+    <value>[электронная почта защищена]</value>
+  </data>
+  <data name="Text3" xml:space="preserve">
+    <value>Наша команда выросла за эти месяцы и включает в себя множество талантов</value>
+  </data>
+  <data name="Text30" xml:space="preserve">
+    <value>Позвоните нам</value>
+  </data>
+  <data name="Text31" xml:space="preserve">
+    <value>Посетите нас</value>
+  </data>
+  <data name="Text32" xml:space="preserve">
+    <value>4293 Евклид Авеню, Лос-Анджелес, Калифорния 90012</value>
+  </data>
+  <data name="Text33" xml:space="preserve">
+    <value>Часто задаваемые вопросы</value>
+  </data>
+  <data name="Text34" xml:space="preserve">
+    <value>Если у вас есть вопросы , мы здесь, чтобы помочь. Заполните форму ниже, и мы свяжемся с вами, как только сможем.</value>
+  </data>
+  <data name="Text35" xml:space="preserve">
+    <value>ЕСТЬ ВОПРОСЫ?</value>
+  </data>
+  <data name="Text36" xml:space="preserve">
+    <value>У нас есть ответы.</value>
+  </data>
+  <data name="Text4" xml:space="preserve">
+    <value>Артюш Вардересян</value>
+  </data>
+  <data name="Text5" xml:space="preserve">
+    <value>Генеральный директор</value>
+  </data>
+  <data name="Text6" xml:space="preserve">
+    <value>Ерануи Тер-Мовсисян</value>
+  </data>
+  <data name="Text7" xml:space="preserve">
+    <value>Технический директор</value>
+  </data>
+  <data name="Text8" xml:space="preserve">
+    <value>Самвел Овсепян</value>
+  </data>
+  <data name="Text9" xml:space="preserve">
+    <value>Вице-президент</value>
   </data>
 </root>
