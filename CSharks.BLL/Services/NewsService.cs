@@ -51,11 +51,7 @@ namespace CSharks.BLL.Services
             {
                 news = _translateService.Convert(news, "News", 0, cultureType, news.Select(n => n.Id).ToList()) as List<News>;
             }
-            var baseQuery = _newsRepository.GetAll().Where(n => (
-            (text == null || n.Title.ToLower().Contains(text.ToLower()))
-                       && (newsType == null || n.NewsType == newsType)));
-
-            var list = baseQuery.Select(n => new NewsVM
+            var list = news.Select(n => new NewsVM
             {
                 Description = n.Description,
                 ImageFile = n.ImageFile,

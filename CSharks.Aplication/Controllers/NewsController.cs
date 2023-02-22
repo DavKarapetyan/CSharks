@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CSharks.Aplication.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {
         private readonly INewsService _newsService;
         public NewsController(INewsService newsService)
@@ -14,12 +14,12 @@ namespace CSharks.Aplication.Controllers
 
         public IActionResult Index(string? text,NewsType? newsType)
         {
-            var AllNews = _newsService.GetAllNews(CultureType.en, text, newsType);
+            var AllNews = _newsService.GetAllNews(CurrentCulture, text, newsType);
             return View(AllNews);
         }
         public IActionResult NewsSingle(int id)
         {
-            var data = _newsService.GetNewsById(id, CultureType.en);
+            var data = _newsService.GetNewsById(id, CurrentCulture);
             return View(data);
         }
     }

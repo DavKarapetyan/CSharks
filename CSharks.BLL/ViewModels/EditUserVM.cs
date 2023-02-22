@@ -11,5 +11,7 @@ namespace CSharks.BLL.ViewModels
         public string Id { get; set; }
         public string Email { get; set; }
         public DateTime DOB { get; set; }
+        public string NickName { get; set; }
+        public string AvatarImage { get; set; }
     }
 }

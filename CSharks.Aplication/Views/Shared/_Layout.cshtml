@@ -122,7 +122,7 @@
         <!-- header-section start  -->
         <header class="header">
             <div class="header__bottom">
-                <div class="container">
+                <div>
                     <nav class="navbar navbar-expand-xl align-items-center">
                         <a class="site-logo site-title" asp-action="Index" asp-controller="Home">
                             <img src="~/assets/images/CSharksLogo.png" alt="site-logo" style="max-height:60px; padding:5px;"><span class="logo-icon"><i class="flaticon-fire"></i></span>
@@ -135,26 +135,28 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav main-menu ml-auto">
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="Home"><span class="underline">Home</span></a>
+                                    <a asp-action="Index" asp-controller="Home"><span class="underline">@Localizer["home"]</span></a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="Comics"><span class="underline">Comics</span></a>
+                                    <a asp-action="Index" asp-controller="Comics"><span class="underline">@Localizer["comics"]</span></a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="Game"><span class="underline">Games</span></a>
+                                    <a asp-action="Index" asp-controller="Game"><span class="underline">@Localizer["games"]</span></a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="Quiz"><span class="underline">Quiz</span></a>
+                                    <a asp-action="Index" asp-controller="Quiz"><span class="underline">@Localizer["quiz"]</span></a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="News"><span class="underline">News</span></a>
+                                    <a asp-action="Index" asp-controller="News"><span class="underline">@Localizer["news"]</span></a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="AboutUs" asp-controller="Home"><span class="underline">About Us</span></a>
+                                    <a asp-action="AboutUs" asp-controller="Home"><span class="underline">@Localizer["aboutUs"]</span></a>
                                 </li>
+                                @await Html.PartialAsync("~/Views/Shared/_SelectLanguagePartial.cshtml")
+
                             </ul>
                             <div class="nav-right">
-                                <a href="#0" data-toggle="modal" data-target="#loginModal" class="anim">join now</a>
+                                <a href="#0" data-toggle="modal" data-target="#loginModal" class="anim">@Localizer["join"]</a>
                             </div>
                         </div>
                     </nav>
@@ -169,12 +171,12 @@
                         <div class="subscribe-area">
                             <div class="obj"><img src="~/assets/robet only no bg-01.png" alt="image" style="max-width:482px; max-height:541px;"></div>
                             <div class="subscribe-content">
-                                <p class="title">Find Out About New Games!</p>
-                                <p class="mt-5">Subscribe to get updated on future game releases</p>
+                                <p class="title">@Localizer["text1"]</p>
+                                <p class="mt-5">@Localizer["text2"]</p>
                                 <p></p>
                                 <form class="subscribe-form">
-                                    <input type="email" name="subscribe_email" id="subscribe_email" placeholder="Enter Your Email">
-                                    <button type="submit">Subscribe</button>
+                                    <input type="email" name="subscribe_email" id="subscribe_email" placeholder="@Localizer["text4"]">
+                                    <button type="submit">@Localizer["text3"]</button>
                                 </form>
                             </div>
                         </div>

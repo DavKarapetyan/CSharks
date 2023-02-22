@@ -2,7 +2,7 @@
 
 namespace CSharks.Aplication.Controllers
 {
-    public class GameController : Controller
+    public class GameController : BaseController
     {
         public IActionResult Index()
         {

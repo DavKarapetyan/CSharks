@@ -30,7 +30,7 @@ namespace CSharks.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, DOB = model.DOB };
+                User user = new User { Email = model.Email, UserName = model.Email, DOB = model.DOB , NickName = model.NickName, AvatarImage = model.AvatarImage };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

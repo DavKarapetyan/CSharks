@@ -18,9 +18,14 @@ namespace CSharks.BLL.ViewModels
         public DateTime DOB { get; set; }
 
         [Required]
+        [Display(Name = "Nick Name")]
+        public string NickName { get; set; }
+        [Required]
+        [Display(Name = "Avatar")]
+        public string AvatarImage { get; set; }
+        [Required] 
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
         [Required]
         [Compare("Password", ErrorMessage = "Passwords are not same")]
         [DataType(DataType.Password)]

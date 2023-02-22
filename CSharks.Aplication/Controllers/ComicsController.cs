@@ -2,7 +2,7 @@
 
 namespace CSharks.Aplication.Controllers
 {
-    public class ComicsController : Controller
+    public class ComicsController : BaseController
     {
         public IActionResult Index()
         {

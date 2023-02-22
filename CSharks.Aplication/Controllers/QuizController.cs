@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CSharks.Aplication.Controllers
 {
-    public class QuizController : Controller
+    public class QuizController : BaseController
     {
         private readonly IQuizTypeService _quizTypeService;
         private readonly IQuestionService _questionService;

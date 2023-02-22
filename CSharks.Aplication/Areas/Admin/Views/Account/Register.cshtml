@@ -24,6 +24,16 @@
         <input asp-for="PasswordConfirm" class="form-control"/>
         <span asp-validation-for="PasswordConfirm"></span>
     </div>
+    <div class="mb-3">
+        <label asp-for="AvatarImage" class="form-label"></label><br />
+        <input asp-for="AvatarImage" class="form-control"/>
+        <span asp-validation-for="AvatarImage"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="NickName" class="form-label"></label><br />
+        <input asp-for="NickName" class="form-control" />
+        <span asp-validation-for="NickName"></span>
+    </div>
     <div>
         <input type="submit" value="Submit" class="btn btn-success w-100" />
     </div>

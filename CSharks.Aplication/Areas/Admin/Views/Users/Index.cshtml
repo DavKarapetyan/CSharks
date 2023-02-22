@@ -8,15 +8,19 @@
 
 <table class="table">
     <tr>
+        <th>Avatar</th>
         <th>Email</th>
         <th>Year</th>
+        <th>Nick Name</th>
         <th></th>
     </tr>
     @foreach(var user in Model)
     {
         <tr>
+            <td><img src="@user.AvatarImage" class="img-fluid" style="max-width:50px;"/></td>
             <td>@user.Email</td>
             <td>@user.DOB</td>
+            <td>@user.NickName</td>
             <td>
                 <form asp-action="Delete" asp-route-id="@user.Id" method="post">
                     <a class="btn btn-sm btn-primary modal-open" asp-action="Edit" asp-route-id="@user.Id">Edit</a>

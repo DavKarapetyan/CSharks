@@ -5,7 +5,9 @@ using CSharks.DAL.Entities;
 using CSharks.DAL.Repositories;
 using CSharks.DAL.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace CSharks.Aplication
 {
@@ -16,7 +18,8 @@ namespace CSharks.Aplication
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+            builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization().AddViewLocalization();
             builder.Services.AddDbContext<CSharksDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CSharksDatabase")));
             builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
             builder.Services.AddScoped<ICommentRepository, CommentRepository>();
@@ -42,6 +45,19 @@ namespace CSharks.Aplication
                 opts.ClientId = "17087847832-pkvell0hnehc49539di4ahj4a3pcr97t.apps.googleusercontent.com";
                 opts.ClientSecret = "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";
                 opts.SignInScheme = IdentityConstants.ExternalScheme;
+            });
+            builder.Services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var suportedCultures = new[]
+                {
+                    new CultureInfo("am"),
+                    new CultureInfo("ru"),
+                    new CultureInfo("en")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("en");
+                options.SupportedCultures = suportedCultures;
+                options.SupportedUICultures = suportedCultures;
             });
 
             var app = builder.Build();
