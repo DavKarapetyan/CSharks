@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-title text-anim">Our News</h2>
+                <h2 class="page-title text-anim">@Localizer["Text1"]</h2>
             </div>
         </div>
     </div>
@@ -41,14 +41,14 @@
             <div class="col-lg-4 mt-lg-0 mt-5">
                 <div class="sidebar">
                     <div class="widget">
-                        <h3 class="widget__title">Search</h3>
+                        <h3 class="widget__title">@Localizer["Text2"]</h3>
                         <form class="widget__search" method="get">
-                            <input type="search" name="text" placeholder="Enter your Search Content" class="form-control">
-                            <button type="submit"><i class="fas fa-search"></i> search</button>
+                            <input type="search" name="text" placeholder="@Localizer["Text3"]" class="form-control">
+                            <button type="submit"><i class="fas fa-search"></i> @Localizer["Text4"]</button>
                         </form>
                     </div><!-- widget end -->
                     <div class="widget">
-                        <h3 class="widget__title">Latest Posts</h3>
+                        <h3 class="widget__title">@Localizer["Text5"]</h3>
                         <div class="small-post-slider">
                             @foreach (var item in Model)
                             {
@@ -62,7 +62,7 @@
                         </div><!-- small-post-slider end -->
                     </div><!-- widget end -->
                     <div class="widget">
-                        <h3 class="widget__title">Follow Us</h3>
+                        <h3 class="widget__title">@Localizer["Text6"]</h3>
                         <ul class="social-links">
                             <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#0"><i class="fab fa-twitter"></i></a></li>
@@ -72,24 +72,24 @@
                         </ul>
                     </div><!-- widget end -->
                     <div class="widget">
-                        <h3 class="widget__title">Categories</h3>
+                        <h3 class="widget__title">@Localizer["Text7"]</h3>
                         <ul class="category-list">
                             <li>
                                 <form asp-action="Index" asp-controller="News" method="get">
                                     <button class="caption" value="@NewsType.Game" name="newsType" onclick="this.form.submit();">
-                                        Game
+                                        @Localizer["Text8"]
                                     </button>
                                     <button class="caption" value="@NewsType.Quiz" name="newsType" onclick="this.form.submit();">
-                                        Quiz
+                                        @Localizer["Text9"]
                                     </button>
                                     <button class="caption" value="@NewsType.Comics" name="newsType" onclick="this.form.submit();">
-                                        Comics
+                                        @Localizer["Text10"]
                                     </button>
                                     <button class="caption" value="@NewsType.MediaLiteracy" name="newsType" onclick="this.form.submit();">
-                                        Media Literacy
+                                        @Localizer["Text11"]
                                     </button>
                                     <button class="caption" value="@NewsType.AboutTeam" name="newsType" onclick="this.form.submit();">
-                                        About Team
+                                        @Localizer["Text12"]
                                     </button>
                                 </form>
                             </li>
