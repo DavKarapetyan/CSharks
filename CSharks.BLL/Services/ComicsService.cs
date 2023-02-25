@@ -33,7 +33,6 @@ namespace CSharks.BLL.Services
                 ImageFile = model.ImageFile,
                 Name = model.Name,
                 Price = model.Price,
-                NewPrice=model.NewPrice.GetValueOrDefault(),
                 Discount=model.Discount,
                 
             };
@@ -62,7 +61,6 @@ namespace CSharks.BLL.Services
                 Name = c.Name,
                 Id = c.Id,
                 Discount = c.Discount.GetValueOrDefault(),
-                NewPrice = c.NewPrice,
                 Price = c.Price,
             }).ToList();
             return list;
@@ -83,7 +81,6 @@ namespace CSharks.BLL.Services
                 Name = comics.Name,
                 Id = Id,
                 Discount = comics.Discount.GetValueOrDefault(),
-                NewPrice = comics.NewPrice,
                 Price = comics.Price,
             };
             return comicsVM;

@@ -36,7 +36,6 @@ namespace CSharks.DAL.Repositories
                 ImageFile = c.ImageFile,
                 DateOfPublication = c.DateOfPublication,
                 Price = c.Price,
-                NewPrice= c.NewPrice,
                 Discount = c.Discount,
             }).AsNoTracking().ToList();
             return data;
@@ -62,7 +61,6 @@ namespace CSharks.DAL.Repositories
             data.ImageFile = model.ImageFile;
             data.DateOfPublication = model.DateOfPublication;
             data.Price = model.Price;
-            data.NewPrice = model.NewPrice;
             data.Discount = model.Discount;
         }
     }

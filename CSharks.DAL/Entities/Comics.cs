@@ -16,16 +16,5 @@ namespace CSharks.DAL.Entities
         public string Description { get; set; }
         public int Price { get; set; }
         public int? Discount { get; set; }
-        public double NewPrice
-        {
-            get 
-            {
-                return NewPrice;
-            }
-            set
-            {
-                NewPrice = Math.Ceiling((double)Price * Discount.GetValueOrDefault() / 100); 
-            }
-        }
     }
 }
