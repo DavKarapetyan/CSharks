@@ -19,7 +19,7 @@
         <tr>
             <td><img src="@user.AvatarImage" class="img-fluid" style="max-width:50px;"/></td>
             <td>@user.Email</td>
-            <td>@user.DOB</td>
+            <td>@user.DOB.ToString("MM.dd.yyyy")</td>
             <td>@user.NickName</td>
             <td>
                 <form asp-action="Delete" asp-route-id="@user.Id" method="post">

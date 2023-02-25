@@ -25,7 +25,7 @@ namespace CSharks.Aplication.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? id, CultureType culture)
         {
-            CharacterVM model = id.HasValue ? _characterService.GetCharacterForEdit(id.Value, CultureType.en) : new CharacterVM() { Id = 0 };
+            CharacterVM model = id.HasValue ? _characterService.GetCharacterForEdit(id.Value, culture) : new CharacterVM() { Id = 0 };
             model.CultureType = culture;
             return PartialView("_AddEdit", model);
         }

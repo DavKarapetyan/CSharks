@@ -29,7 +29,7 @@
                 @foreach (var item in cultureItems)
                 {
                     <button value="@item.Value" onclick="this.form.submit();" name="culture" class="dropdown-item">
-                        @item.Value
+                        @item.Value.ToString()
                     </button>
                 }
             </form>

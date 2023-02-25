@@ -26,7 +26,7 @@ namespace CSharks.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? newsId,CultureType culture)
         {
-            NewsVM model = newsId.HasValue ? _newsService.GetNewsById(newsId.Value,CultureType.en) : new NewsVM() { Id = 0 };
+            NewsVM model = newsId.HasValue ? _newsService.GetNewsById(newsId.Value,culture) : new NewsVM() { Id = 0 };
             model.CultureType = culture;
             return PartialView("_AddEdit", model);
         }
