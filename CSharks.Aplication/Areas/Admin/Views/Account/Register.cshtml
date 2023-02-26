@@ -2,32 +2,70 @@
 @{
     Layout = "~/Areas/Admin/Views/_Layout.cshtml";
 }
-<form method="post" asp-controller="Account" asp-action="Register">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.2.2/css/tom-select.default.min.css" integrity="sha512-+k6L1rcaTY8EY8hPjjh4Gfie0pUFGZxpofzDrEFV6oN/4UbzXWMIZBdUVJVg0v6vYmAN2EUuYZwRCNkAqzDOVw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<form method="post" asp-controller="Account" asp-action="Register" class="mt-5">
     <div asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3">
+        <label asp-for="AvatarImage" class="form-label"></label><br />
+        @*<input asp-for="AvatarImage" type="radio" id="radiobtn1" name="item" class="Send_data  input-hidden" value="/Avatars/avatars-01.png" />
+        <label for="radiobtn1">
+            <img src="~/Avatars/avatars-01.png" style="width:130px;border-radius:20px;" />
+            <br><br>
+            <span>Apliance Repair</span>
+        </label>
+        <input asp-for="AvatarImage" type="radio" id="radiobtn2" name="item" class="Send_data  input-hidden" value="/Avatars/avatars-02.png" />
+        <label for="radiobtn2">
+            <img src="~/Avatars/avatars-02.png" style="width:130px;border-radius:20px;" />
+            <br><br>
+            <span>Electrician</span>
+        </label>
+        <input asp-for="AvatarImage" type="radio" id="radiobtn3" name="item" class="Send_data  input-hidden" value="/Avatars/avatars-03.png" />
+        <label for="radiobtn3">
+            <img src="~/Avatars/avatars-03.png" style="width:130px;border-radius:20px;" />
+            <br><br>
+            <span>Mason</span>
+        </label>
+        <input asp-for="AvatarImage" type="radio" id="radiobtn4" name="item" class="Send_data  input-hidden" value="/Avatars/avatars-04.png" />
+        <label for="radiobtn4">
+            <img src="~/Avatars/avatars-04.png" style="width:130px;border-radius:20px;" />
+            <br><br>
+            <span>Plumber</span>
+        </label>
+        <input asp-for="AvatarImage" type="radio" id="radiobtn5" name="item" class="Send_data  input-hidden" value="/Avatars/avatars-05.png" />
+        <label for="radiobtn5">
+            <img src="~/Avatars/avatars-05.png" style="width:130px;border-radius:20px;" />
+            <br><br>
+            <span>asdasd</span>
+        </label>*@
+        <select asp-for="AvatarImage" class="form-control">
+            <option value="/Avatars/avatars-01.png" data-src="/Avatars/avatars-01.png">Avatar 1</option>
+            <option value="/Avatars/avatars-02.png" data-src="/Avatars/avatars-02.png">Avatar 2</option>
+            <option value="/Avatars/avatars-03.png" data-src="/Avatars/avatars-03.png">Avatar 3</option>
+            <option value="/Avatars/avatars-04.png" data-src="/Avatars/avatars-04.png">Avatar 4</option>
+            <option value="/Avatars/avatars-05.png" data-src="/Avatars/avatars-05.png">Avatar 5</option>
+        </select>
+        <span asp-validation-for="AvatarImage"></span>
+    </div>
+
     <div class="mb-3">
         <label asp-for="Email" class="form-label"></label><br />
-        <input asp-for="Email" class="form-control"/>
+        <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email"></span>
     </div>
     <div class="mb-3">
         <label asp-for="DOB" class="form-label"></label><br />
-        <input asp-for="DOB" class="form-control"/>
+        <input asp-for="DOB" class="form-control" />
         <span asp-validation-for="DOB"></span>
     </div>
     <div class="mb-3">
         <label asp-for="Password" class="form-label"></label><br />
-        <input asp-for="Password" class="form-control"/>
+        <input asp-for="Password" class="form-control" />
         <span asp-validation-for="Password"></span>
     </div>
     <div class="mb-3">
         <label asp-for="PasswordConfirm" class="form-label"></label><br />
-        <input asp-for="PasswordConfirm" class="form-control"/>
+        <input asp-for="PasswordConfirm" class="form-control" />
         <span asp-validation-for="PasswordConfirm"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="AvatarImage" class="form-label"></label><br />
-        <input asp-for="AvatarImage" class="form-control"/>
-        <span asp-validation-for="AvatarImage"></span>
     </div>
     <div class="mb-3">
         <label asp-for="NickName" class="form-label"></label><br />
@@ -38,3 +76,45 @@
         <input type="submit" value="Submit" class="btn btn-success w-100" />
     </div>
 </form>
+<style>
+    .input-hidden {
+        /* For Hiding Radio Button Circles */
+        position: absolute;
+        left: -9999px;
+    }
+
+    input[type="radio"]:checked + label > img {
+        border: 1px solid rgb(157, 255, 0);
+        box-shadow: 0 0 3px 3px #9e00e2;
+    }
+
+    input[type="radio"] + label > img {
+        border: 1px rgb(0, 0, 0);
+        padding: 10px;
+        transition: 500ms all;
+    }
+
+    input[type="radio"]:checked + label > img {
+        transform: rotateZ(-10deg) rotateX(10deg);
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $(".Send_data").click(function (e) {
+            if ($("input[type=radio][name=item]:checked").length == 0) {
+                // alert("Please select atleast one");
+                return false;
+            } else {
+                var item = $("input[type=radio][name=item]:checked").val();
+                //  window.alert("You Selected")
+                window.setTimeout(function () {
+                    // do whatever you want to do
+                    $("#loading").html("You Selected : " + item);
+                }, 600);
+                $("#loading").html(
+                    '<br><span class="spinner-border fast"  style="width: 2rem; height: 2rem;color:green;"  role="status"></span>'
+                );
+            }
+        });
+    });
+</script>
