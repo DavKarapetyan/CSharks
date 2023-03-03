@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CSharks.DAL.Enums;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace CSharks.DAL.Entities
     {
         public DateTime DOB { get; set; }
         public string NickName { get; set; }
-        public string AvatarImage { get; set; }
+        public Avatar Avatar { get; set; }
     }
 }

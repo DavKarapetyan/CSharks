@@ -17,7 +17,7 @@
     @foreach(var user in Model)
     {
         <tr>
-            <td><img src="@user.AvatarImage" class="img-fluid" style="max-width:50px;"/></td>
+            <td><img src="@($"/Avatars/{user.Avatar}.png")" class="img-fluid" style="max-width:50px;"/></td>
             <td>@user.Email</td>
             <td>@user.DOB.ToString("MM.dd.yyyy")</td>
             <td>@user.NickName</td>

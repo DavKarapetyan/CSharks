@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharks.DAL.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace CSharks.BLL.ViewModels
         public string NickName { get; set; }
         [Required]
         [Display(Name = "Avatar")]
-        public string AvatarImage { get; set; }
+        public Avatar Avatar { get; set; }
         [Required] 
         [DataType(DataType.Password)]
         public string Password { get; set; }
