@@ -1,0 +1,18 @@
+﻿@model CommentAddEditVM
+<form asp-action="AddComment" asp-controller="News">
+    <input hidden asp-for="NewsId" />
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <input asp-for="Name" type="text" class="form-control" placeholder="Your Name*">
+        </div>
+        <div class="col-md-6 form-group">
+            <input asp-for="Email" type="text" class="form-control" placeholder="Your Email*">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col form-group">
+            <textarea asp-for="CommentText" class="form-control" placeholder="Your Comment*"></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Post Comment</button>
+</form>
