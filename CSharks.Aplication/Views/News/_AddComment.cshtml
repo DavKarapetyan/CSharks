@@ -1,21 +1,25 @@
 ﻿@model CommentAddEditVM
-<form asp-action="AddComment" asp-controller="News" class="contact-form">
-    <input hidden asp-for="NewsId" />
-    <div class="row pt-3">
-        <div class="col-md-6">
-            <label asp-for="Name">Your Name</label>
-            <input asp-for="Name" type="text" class="form-control style--two" placeholder="Your Name">
+
+<h2 class="section-title">@Localizer["String1"]</h2>
+<div class="justify-content-center contact-form-wrapper mt-5">
+    <form asp-action="AddComment" asp-controller="News" class="contact-form">
+        <input hidden asp-for="NewsId" />
+        <div class="row pt-3">
+            <div class="col-md-6">
+                <label asp-for="Name">@Localizer["String2"]</label>
+                <input asp-for="Name" type="text" class="form-control style--two" placeholder="@Localizer["String2"]">
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Email">@Localizer["String3"]</label>
+                <input asp-for="Email" type="text" class="form-control style--two" placeholder="@Localizer["String3"]">
+            </div>
         </div>
-        <div class="col-md-6">
-            <label asp-for="Email">Your Email</label>
-            <input asp-for="Email" type="text" class="form-control style--two" placeholder="Your Email">
+        <div class="row pt-3">
+            <div class="col">
+                <label asp-for="CommentText">@Localizer["String4"]</label>
+                <textarea asp-for="CommentText" class="form-control style--two" placeholder="@Localizer["String4"]"></textarea>
+            </div>
         </div>
-    </div>
-    <div class="row pt-3">
-        <div class="col">
-            <label asp-for="CommentText">Your Comment Text</label>
-            <textarea asp-for="CommentText" class="form-control style--two" placeholder="Your Comment"></textarea>
-        </div>
-    </div>
-    <button type="submit" class="submit-btn mt-3">Post Comment</button>
-</form>
+        <button type="submit" class="submit-btn mt-3">@Localizer["String5"]</button>
+    </form>
+</div>
