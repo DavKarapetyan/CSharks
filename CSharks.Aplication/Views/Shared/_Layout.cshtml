@@ -152,6 +152,20 @@
                                 <li class="menu">
                                     <a asp-action="AboutUs" asp-controller="Home"><span class="underline">@Localizer["aboutUs"]</span></a>
                                 </li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li class="menu menu_has_children">
+                                        <a>Profile</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a asp-action="Index" asp-controller="Profile"><span class="underline">Edit Profile</span></a>
+                                                <form asp-action="Logout" asp-controller="Account" asp-area="Admin" id="logout_form">
+                                                    <a style="cursor:pointer;" id="logout"><span class="underline">Logout</span></a>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                }
                                 @await Html.PartialAsync("~/Views/Shared/_SelectLanguagePartial.cshtml")
 
                             </ul>
@@ -266,6 +280,12 @@
 
     <!-- custom js -->
     <script src="~/assets/js/app.js"></script>
+    <script>
+        var form = document.getElementById("logout_form");
+        document.getElementById("logout").addEventListener("click", function () {
+            form.submit();
+        });
+    </script>
 </body>
 
 </html>

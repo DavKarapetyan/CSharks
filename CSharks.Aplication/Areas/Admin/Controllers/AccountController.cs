@@ -80,7 +80,7 @@ namespace CSharks.Areas.Admin.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return Redirect("https://localhost:44349/");
+            return Redirect("/");
         }
 
         [AllowAnonymous]
