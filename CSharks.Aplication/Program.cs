@@ -36,9 +36,10 @@ namespace CSharks.Aplication
             builder.Services.AddScoped<IQuestionService, QuestionService>();
             builder.Services.AddScoped<IQuizTypeService, QuizTypeService>();
             builder.Services.AddScoped<ITranslateService, TranslateService>();
-            builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<CSharksDbContext>();
+            builder.Services.AddIdentity<User, IdentityRole<int>>().AddEntityFrameworkStores<CSharksDbContext>().AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
             builder.Services.AddScoped<IComicsRepository, ComicsRepository>();
             builder.Services.AddScoped<IComicsService, ComicsService>();
+            builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddAuthentication()
             .AddGoogle(opts =>
             {

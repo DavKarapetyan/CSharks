@@ -45,79 +45,9 @@
     <!-- page-wrapper start -->
     <div class="page-wrapper">
         <!-- login modal -->
-        <div class="modal fade" id="loginModal" tabindex="1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content bg-transparent">
-                    <div class="modal-body">
-                        <div class="account-area">
-                            <h3 class="title mb-4">Welcome to Ophela</h3>
-                            <form class="account-form">
-                                <div class="form-group">
-                                    <label>Your Email </label>
-                                    <input type="email" name="login_email" placeholder="Enter Your Email" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password </label>
-                                    <input type="password" name="login_email" placeholder="Enter Your Password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <p>Forgot your password? <a href="#0">recover password</a></p>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="cmn-btn">Sign IN</button>
-                                </div>
-                            </form>
-                            <div class="or-devider mt-5"><span>OR</span></div>
-                            <div class="text-center mt-4">
-                                <p>Sign up with your work email</p>
-                                <a href="#0" class="google-btn mt-4 mb-3">
-                                    <img src="~/assets/images/icon/google.png" alt="image">Sign Up
-                                    with Google
-                                </a>
-                                <p>
-                                    Don't have an account? <a href="#0" data-dismiss="modal" data-toggle="modal"
-                                                              data-target="#signupModal">Sign up here</a>
-                                </p>
-                            </div>
-                        </div><!-- account-area end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <partial name="_LoginModalPartial" model="new LoginVM(){}"></partial>
         <!-- Sign Up modal -->
-        <div class="modal fade" id="signupModal" tabindex="1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content bg-transparent">
-                    <div class="modal-body">
-                        <div class="account-area">
-                            <h3 class="title mb-4">Let's get started</h3>
-                            <div class="text-center mt-4">
-                                <a href="#0" class="google-btn mt-4 mb-3">
-                                    <img src="~/assets/images/icon/google.png" alt="image">Sign Up
-                                    with Google
-                                </a>
-                            </div>
-                            <div class="or-devider mt-4"><span>OR</span></div>
-                            <p class="text-center mt-2 mb-4">Sign up with your work email</p>
-                            <form class="account-form">
-                                <div class="form-group">
-                                    <label>Your Email </label>
-                                    <input type="email" name="login_email" placeholder="Enter Your Email" class="form-control">
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="cmn-btn">Try It Now</button>
-                                </div>
-                            </form>
-                            <p class="text-center mt-3">
-                                Already have an account?<a href="#0" data-dismiss="modal" data-toggle="modal"
-                                                           data-target="#loginModal">Sign In</a>
-                            </p>
-                        </div><!-- account-area end -->
-                    </div>
-                </div>
-            </div>
-        </div>
+        <partial name="_RegisterModalPartial" model="new RegisterVM(){}"></partial>
 
         <!-- header-section start  -->
         <header class="header">
