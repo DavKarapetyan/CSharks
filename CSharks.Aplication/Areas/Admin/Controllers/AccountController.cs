@@ -98,7 +98,7 @@ namespace CSharks.Areas.Admin.Controllers
                 }
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code}, protocol: HttpContext.Request.Scheme);
-                await _emailService.SendEmailAsync(model.Email, "Reset Password", $"For password reset go to: <a href='{callbackUrl}'>link<a/>");
+                await _emailService.SendEmailAsync(model.Email, "Reset Password", $"For password reset go to:", $"<a href='{callbackUrl}'>link<a/>");
                 return View("ForgotPasswordConfirmation");
             }
             return View(model);

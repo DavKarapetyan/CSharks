@@ -1,5 +1,6 @@
 ﻿var prev = 0;
 var a;
+var points = 0;
 $(document).ready(function () {
     $("#load").click(function () {
         a = $("#load").data("id");
@@ -14,26 +15,16 @@ function check(b) {
     $.post("/Quiz/CheckAnswer?questionAnswerId=" + b, function (response1) {
         prev += 1;
         if (response1 && prev < 2) {
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                icon: "success",
-            }).then(function () {
-                $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
-                    $("#add").html(response)
-                });
+            $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
+                $("#add").html(response)
             });
+            points += 100;
         }
         else if (!response1 && prev < 2) {
-            swal({
-                title: "Oops",
-                text: "You clicked the button!",
-                icon: "error",
-            }).then(function () {
-                $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
-                    $("#add").html(response)
-                });
+            $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
+                $("#add").html(response)
             });
+            points -= 10;
         }
         else {
             swal({
@@ -41,7 +32,8 @@ function check(b) {
                 text: "You Finished the quiz!",
                 icon: "success",
             }).then(function () {
-                location.href = "/Home/Index"
+                console.log(points);
+                //location.href = "/Home/Index"
             });
         }
     })
