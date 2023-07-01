@@ -1,0 +1,67 @@
+﻿@using CSharks.DAL.Entities;
+@model QuizScoreAddEditVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="QuizScore">
+        <input asp-for="Id" hidden />
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Score" class="form-label">Score</label>
+                    <input class="form-control" placeholder="Enter Score" asp-for="Score">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="UserId" class="form-label">User Id</label>
+                    <select class="form-select" asp-for="UserId">
+                        @foreach (var item in ViewBag.Users)
+                        {
+                            <option value="@item.Id">@item.NickName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="QuestionId" class="form-label">Question</label>
+                    <select class="form-select" asp-for="QuestionId">
+                        @foreach (var item in ViewBag.Questions)
+                        {
+                            <option value="@item.Id">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="QuestionAnswerId" class="form-label">Question Answer</label>
+                    <select class="form-select" asp-for="QuestionAnswerId">
+                        @foreach (var item in ViewBag.QuestionAnswers)
+                        {
+                            <option value="@item.Id">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="QuizTypeId" class="form-label">Quiz Type</label>
+                    <select class="form-select" asp-for="QuizTypeId">
+                        @foreach (var item in ViewBag.QuizTypes)
+                        {
+                            <option value="@item.Id">@item.Title</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

@@ -40,6 +40,8 @@ namespace CSharks.Aplication
             builder.Services.AddScoped<IComicsRepository, ComicsRepository>();
             builder.Services.AddScoped<IComicsService, ComicsService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<IQuizScoreRepository, QuizScoreRepository>();
+            builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
             builder.Services.AddAuthentication()
             .AddGoogle(opts =>
             {

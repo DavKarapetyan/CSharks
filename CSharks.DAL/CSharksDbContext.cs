@@ -22,6 +22,7 @@ namespace CSharks.DAL
         public DbSet<QuizType> QuizTypes { get; set; }
         public DbSet<Translate> Translates { get; set; }
         public DbSet<Comics> Comics { get; set; }
+        public DbSet<QuizScore> QuizScores { get; set; }
     }
     
 }

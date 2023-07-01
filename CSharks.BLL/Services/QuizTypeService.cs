@@ -36,7 +36,7 @@ namespace CSharks.BLL.Services
 
         public void Delete(int id)
         {
-          _quizTypeRepository.Delete(id);
+            _quizTypeRepository.Delete(id);
             _uow.Save();
         }
 
@@ -70,6 +70,7 @@ namespace CSharks.BLL.Services
             {
                 entity.Description = model.Description;
                 entity.Title = model.Title;
+                _quizTypeRepository.Update(entity);
             }
             else
             {
