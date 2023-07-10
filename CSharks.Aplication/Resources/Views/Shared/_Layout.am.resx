@@ -123,6 +123,9 @@
   <data name="comics" xml:space="preserve">
     <value>ԿՈՄԻՔՍՆԵՐ</value>
   </data>
+  <data name="editProfile" xml:space="preserve">
+    <value>խմբագրել պրոֆիլը</value>
+  </data>
   <data name="games" xml:space="preserve">
     <value>ԽԱՂԵՐ</value>
   </data>
@@ -132,8 +135,14 @@
   <data name="join" xml:space="preserve">
     <value>ՄԻԱՑԻՐ ՀԻՄԱ</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>Դուրս գալ</value>
+  </data>
   <data name="news" xml:space="preserve">
     <value>ԼՈՒՐԵՐ</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>Պրոֆիլ</value>
   </data>
   <data name="quiz" xml:space="preserve">
     <value>ՎԻԿՏՈՐԻՆԱ</value>

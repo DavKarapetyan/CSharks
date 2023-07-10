@@ -1,6 +1,7 @@
 ﻿using CSharks.BLL.Services.Interfaces;
 using CSharks.BLL.ViewModels;
 using CSharks.DAL.Entities;
+using CSharks.DAL.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,9 +34,9 @@ namespace CSharks.Aplication.Areas.Admin.Controllers
         {
             QuizScoreAddEditVM model = id.HasValue ? _quizScoreService.GetQuizScoreForEdit(id.Value) : new QuizScoreAddEditVM() { Id = 0};
             ViewBag.Users = _userManager.Users.ToList();
-            ViewBag.Questions = _questionService.GetAllQuestion();
-            ViewBag.QuestionAnswers = _questionAnswerService.GetQuestionAnswers();
-            ViewBag.QuizTypes = _quizTypeService.GetQuizTypes();
+            ViewBag.Questions = _questionService.GetAllQuestion(CultureType.en);
+            ViewBag.QuestionAnswers = _questionAnswerService.GetQuestionAnswers(CultureType.en);
+            ViewBag.QuizTypes = _quizTypeService.GetQuizTypes(CultureType.en);
             return PartialView("_AddEdit", model);
         }
 

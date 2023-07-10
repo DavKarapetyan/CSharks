@@ -42,9 +42,13 @@ namespace CSharks.BLL.Services
             _uow.Save();
         }
 
-        public QuestionAnswerAddEditVM GetForEdit(int id)
+        public QuestionAnswerAddEditVM GetForEdit(int id, CultureType cultureType)
         {
             var question = _questionAnswerRepository.GetForEdit(id);
+            if (cultureType != CultureType.en)
+            {
+                question = _translatorService.Convert(question, "QuestionAnswers", id, cultureType, new List<int> { id}) as QuestionAnswer;
+            }
             QuestionAnswerAddEditVM model = new QuestionAnswerAddEditVM()
             {
                 Id = id,
@@ -55,9 +59,13 @@ namespace CSharks.BLL.Services
             return model;
         }
 
-        public QuestionAnswerVM GetQuestionAnswer(int id)
+        public QuestionAnswerVM GetQuestionAnswer(int id, CultureType cultureType)
         {
             var questionAnswer = _questionAnswerRepository.GetById(id);
+            if (cultureType != CultureType.en)
+            {
+                questionAnswer = _translatorService.Convert(questionAnswer, "QuestionAnswers", id, cultureType, new List<int> { id}) as QuestionAnswer;
+            }
             QuestionAnswerVM question = new QuestionAnswerVM
             {
                 Id = id,
@@ -67,15 +75,20 @@ namespace CSharks.BLL.Services
             return question;
         }
 
-        public List<QuestionAnswerVM> GetQuestionAnswers()
+        public List<QuestionAnswerVM> GetQuestionAnswers(CultureType cultureType)
         {
-            var questionAnswers = _questionAnswerRepository.GetAll().Select(n => new QuestionAnswerVM
+            var questionAnswers = _questionAnswerRepository.GetAll();
+            if (cultureType != CultureType.en)
+            {
+                questionAnswers = _translatorService.Convert(questionAnswers, "QuestionAnswers", 0, cultureType, questionAnswers.Select(qa => qa.Id).ToList()) as List<QuestionAnswer>;
+            }
+            var list = questionAnswers.Select(n => new QuestionAnswerVM
             {
                 Id = n.Id,
                 IsCorrect = n.IsCorrect,
                 Text = n.Text,
             }).ToList();
-            return questionAnswers;
+            return list;
         }
 
         public void Update(QuestionAnswerAddEditVM model, CultureType cultureType)
@@ -99,6 +112,23 @@ namespace CSharks.BLL.Services
         { 
             var entity = _questionAnswerRepository.GetById(id);
             return entity.IsCorrect;
+        }
+
+        public List<QuestionAnswerVM> GetQuestionAnswersByQuestionId(int questionId, CultureType cultureType)
+        {
+            var questionAnswers = _questionAnswerRepository.GetAll().Where(qa => qa.QuestionId == questionId).ToList();
+            if (cultureType != CultureType.en)
+            {
+                questionAnswers = _translatorService.Convert(questionAnswers, "QuestionAnswers", 0, cultureType, questionAnswers.Select(qa => qa.Id).ToList()) as List<QuestionAnswer>;
+            }
+            var list = questionAnswers.Select(n => new QuestionAnswerVM
+            {
+                Id = n.Id,
+                IsCorrect = n.IsCorrect,
+                Text = n.Text,
+            }).ToList();
+
+            return list;
         }
     }
 }

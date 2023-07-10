@@ -11,9 +11,10 @@ namespace CSharks.BLL.Services.Interfaces
 {
     public interface IQuestionAnswerService
     {
-        public List<QuestionAnswerVM> GetQuestionAnswers();
-        public QuestionAnswerVM GetQuestionAnswer(int id);
-        public QuestionAnswerAddEditVM GetForEdit(int id);
+        public List<QuestionAnswerVM> GetQuestionAnswers(CultureType cultureType);
+        public QuestionAnswerVM GetQuestionAnswer(int id, CultureType cultureType);
+        public QuestionAnswerAddEditVM GetForEdit(int id, CultureType cultureType);
+        public List<QuestionAnswerVM> GetQuestionAnswersByQuestionId(int questionId, CultureType cultureType);
         public void Add(QuestionAnswerAddEditVM model);
         public void Update(QuestionAnswerAddEditVM model, CultureType cultureType);
         public void Delete(int id);

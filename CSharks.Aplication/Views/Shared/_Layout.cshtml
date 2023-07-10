@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
     <!-- fontawesome 5  -->
     <link rel="stylesheet" href="~/assets/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- line-awesome webfont -->
     <link rel="stylesheet" href="~/assets/css/line-awesome.min.css">
     <!-- custom select css -->
@@ -85,12 +86,12 @@
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <li class="menu menu_has_children">
-                                        <a>Profile</a>
+                                        <a>@Localizer["profile"]</a>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a asp-action="Index" asp-controller="Profile"><span class="underline">Edit Profile</span></a>
+                                                <a asp-action="Index" asp-controller="Profile"><span class="underline">@Localizer["editProfile"]</span></a>
                                                 <form asp-action="Logout" asp-controller="Account" asp-area="Admin" id="logout_form">
-                                                    <a style="cursor:pointer;" id="logout"><span class="underline">Logout</span></a>
+                                                    <a style="cursor:pointer;" id="logout"><span class="underline">@Localizer["logout"]</span></a>
                                                 </form>
                                             </li>
                                         </ul>
@@ -99,9 +100,12 @@
                                 @await Html.PartialAsync("~/Views/Shared/_SelectLanguagePartial.cshtml")
 
                             </ul>
-                            <div class="nav-right">
-                                <a href="#0" data-toggle="modal" data-target="#loginModal" class="anim">@Localizer["join"]</a>
-                            </div>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <div class="nav-right">
+                                    <a href="#0" data-toggle="modal" data-target="#loginModal" class="anim">@Localizer["join"]</a>
+                                </div>
+                            }
                         </div>
                     </nav>
                 </div>
@@ -192,6 +196,7 @@
     <!-- page-wrapper end -->
     <!-- jQuery library -->
     <script src="~/assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- bootstrap js -->
     <script src="~/assets/js/vendor/bootstrap.bundle.min.js"></script>
     <!-- custom select js -->

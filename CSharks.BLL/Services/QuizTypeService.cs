@@ -40,9 +40,13 @@ namespace CSharks.BLL.Services
             _uow.Save();
         }
 
-        public QuizTypeVM GetQuizTypeById(int id)
+        public QuizTypeVM GetQuizTypeById(int id, CultureType cultureType)
         {
             var quiz = _quizTypeRepository.GetById(id);
+            if (cultureType != CultureType.en)
+            {
+                quiz = _translatorService.Convert(quiz, "QuizTypes", id, cultureType, new List<int> { id}) as QuizType;
+            }
             QuizTypeVM quizVM = new QuizTypeVM
             {
                 Id = id,
@@ -52,15 +56,20 @@ namespace CSharks.BLL.Services
             return quizVM;
         }
 
-        public List<QuizTypeVM> GetQuizTypes()
+        public List<QuizTypeVM> GetQuizTypes(CultureType cultureType)
         {
-            var quiz = _quizTypeRepository.GetAll().Select(n => new QuizTypeVM
+            var quiz = _quizTypeRepository.GetAll();
+            if (cultureType != CultureType.en)
+            {
+                quiz = _translatorService.Convert(quiz, "QuizTypes", 0, cultureType, quiz.Select(n => n.Id).ToList()) as List<QuizType>;
+            }
+            var list = quiz.Select(n => new QuizTypeVM
             {
                 Id = n.Id,
                 Description = n.Description,
                 Title = n.Title,
             }).ToList();
-            return quiz;
+            return list;
         }
 
         public void Update(QuizTypeVM model, CultureType cultureType)

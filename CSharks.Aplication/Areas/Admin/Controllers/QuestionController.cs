@@ -21,13 +21,13 @@ namespace CSharks.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var data = _questionService.GetAllQuestion();
+            var data = _questionService.GetAllQuestion(CultureType.en);
             return View(data);
         }
         [HttpGet]
         public IActionResult AddEdit(int? id,CultureType culture) { 
-            QuestionAddEditVM model = id.HasValue ? _questionService.GetQuestionForEdit(id.Value) : new QuestionAddEditVM() {Id = 0};
-            ViewBag.QuestionTypes = _quizTypeService.GetQuizTypes();
+            QuestionAddEditVM model = id.HasValue ? _questionService.GetQuestionForEdit(id.Value, culture) : new QuestionAddEditVM() {Id = 0};
+            ViewBag.QuestionTypes = _quizTypeService.GetQuizTypes(CultureType.en);
             model.Culture = culture;
             return PartialView("_AddEdit",model);
         }

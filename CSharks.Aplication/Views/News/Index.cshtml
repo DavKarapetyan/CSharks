@@ -49,7 +49,7 @@
                     </div><!-- widget end -->
                     <div class="widget">
                         <h3 class="widget__title">@Localizer["Text5"]</h3>
-                        <br/>
+                        <br />
                         <div class="small-post-slider">
                             @foreach (var item in Model)
                             {
@@ -74,27 +74,25 @@
                     </div><!-- widget end -->
                     <div class="widget">
                         <h3 class="widget__title">@Localizer["Text7"]</h3>
-                        <ul class="category-list">
-                            <li>
-                                <form asp-action="Index" asp-controller="News" method="get">
-                                    <button class="caption" value="@NewsType.Game" name="newsType" onclick="this.form.submit();">
-                                        @Localizer["Text8"]
-                                    </button>
-                                    <button class="caption" value="@NewsType.Quiz" name="newsType" onclick="this.form.submit();">
-                                        @Localizer["Text9"]
-                                    </button>
-                                    <button class="caption" value="@NewsType.Comics" name="newsType" onclick="this.form.submit();">
-                                        @Localizer["Text10"]
-                                    </button>
-                                    <button class="caption" value="@NewsType.MediaLiteracy" name="newsType" onclick="this.form.submit();">
-                                        @Localizer["Text11"]
-                                    </button>
-                                    <button class="caption" value="@NewsType.AboutTeam" name="newsType" onclick="this.form.submit();">
-                                        @Localizer["Text12"]
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
+                        <div class="tags-list">
+                            <form asp-action="Index" asp-controller="News" method="get">
+                                <button value="@NewsType.Game" name="newsType" onclick="this.form.submit();">
+                                    @Localizer["Text8"]
+                                </button>
+                                <button value="@NewsType.Quiz" name="newsType" onclick="this.form.submit();">
+                                    @Localizer["Text9"]
+                                </button>
+                                <button value="@NewsType.Comics" name="newsType" onclick="this.form.submit();">
+                                    @Localizer["Text10"]
+                                </button>
+                                <button value="@NewsType.MediaLiteracy" name="newsType" onclick="this.form.submit();">
+                                    @Localizer["Text11"]
+                                </button>
+                                <button value="@NewsType.AboutTeam" name="newsType" onclick="this.form.submit();">
+                                    @Localizer["Text12"]
+                                </button>
+                            </form>
+                        </div>
                     </div>
 
                 </div>

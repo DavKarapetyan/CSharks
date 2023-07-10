@@ -4,9 +4,35 @@
     <h2 style="text-align:center;" class="text-anim">@Localizer["Text1"]</h2>
     @foreach (var item in Model)
     {
-        <a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id"  asp-route-QuizType="@item.Title" class="submit-btn mt-5 btn" style="color:white;">@item.Title</a>
-       }
+        //<a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id" asp-route-QuizType="@item.Title" class="submit-btn mt-5 btn" id="quizTypeBtn" style="color:white;">@item.Title</a>
+        <a class="submit-btn mt-5 btn" onclick="getInfo(@item.Id, '@item.Title')" style="color:white;">@item.Title</a>
+    }
 </div>
+<div class="container mt-2">
+    <table class="top-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Avatar</th>
+                <th>User Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.GroupedQuizScores as List<GroupedQuizScoreVM>)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Avatar</td>
+                    <td>@item.UserName</td>
+                    <td>@item.Score</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="~/assets/js/quiz.js"></script>

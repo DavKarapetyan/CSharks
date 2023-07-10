@@ -123,6 +123,9 @@
   <data name="comics" xml:space="preserve">
     <value>COMICS</value>
   </data>
+  <data name="editProfile" xml:space="preserve">
+    <value>EDIT PROFILE</value>
+  </data>
   <data name="games" xml:space="preserve">
     <value>games</value>
   </data>
@@ -132,8 +135,14 @@
   <data name="join" xml:space="preserve">
     <value>JOIN NOW</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>LOGOUT</value>
+  </data>
   <data name="news" xml:space="preserve">
     <value>NEWS</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>PROFILE</value>
   </data>
   <data name="quiz" xml:space="preserve">
     <value>QUIZ</value>

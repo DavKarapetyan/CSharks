@@ -12,6 +12,6 @@ namespace CSharks.BLL.ViewModels
         public int Id { get; set; }
         public string Text { get; set; }
         public int? QuizTypeId { get; set; }
-        public List<QuestionAnswer> Answers { get; set; }
+        public List<QuestionAnswerVM> Answers { get; set; }
     }
 }

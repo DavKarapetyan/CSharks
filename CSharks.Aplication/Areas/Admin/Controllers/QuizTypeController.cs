@@ -19,12 +19,12 @@ namespace CSharks.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var data = _quizTypeService.GetQuizTypes();
+            var data = _quizTypeService.GetQuizTypes(CultureType.en);
             return View(data);
         }
         [HttpGet]
         public IActionResult AddEdit(int? id,CultureType culture) {
-            QuizTypeVM model = id.HasValue ? _quizTypeService.GetQuizTypeById(id.Value) : new QuizTypeVM() { Id = 0 };
+            QuizTypeVM model = id.HasValue ? _quizTypeService.GetQuizTypeById(id.Value, culture) : new QuizTypeVM() { Id = 0 };
             model.Culture = culture;
             return PartialView("_AddEdit",model);
         }

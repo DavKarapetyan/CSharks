@@ -6,7 +6,7 @@
         @foreach (var item1 in Model.Answers)
         {
             <div class="col-lg-6 mt-3">
-                <button type="button" class="submit-btn w-100" onclick="check('@item1.Id')">@item1.Text</button>
+                <button type="button" class="submit-btn w-100" onclick="check('@item1.Id', '@Model.Id')">@item1.Text</button>
             </div>
         }
     </div>

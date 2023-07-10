@@ -10,6 +10,7 @@ namespace CSharks.BLL.Services.Interfaces
     public interface IQuizScoreService
     {
         List<QuizScoreVM> GetQuizScores();
+        List<GroupedQuizScoreVM> GetGroupedQuizScore();
         QuizScoreVM GetQuizScoreById(int id);
         QuizScoreAddEditVM GetQuizScoreForEdit(int id);
         void Add(QuizScoreAddEditVM model);

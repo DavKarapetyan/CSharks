@@ -123,6 +123,9 @@
   <data name="comics" xml:space="preserve">
     <value>КОМИКСЫ</value>
   </data>
+  <data name="editProfile" xml:space="preserve">
+    <value>Редактировать профиль</value>
+  </data>
   <data name="games" xml:space="preserve">
     <value>ИГРЫ</value>
   </data>
@@ -132,8 +135,14 @@
   <data name="join" xml:space="preserve">
     <value>ПРИСОЕДИНЯЙСЯ</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
   <data name="news" xml:space="preserve">
     <value>НОВОСТИ</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>Профиль</value>
   </data>
   <data name="quiz" xml:space="preserve">
     <value>ВИКТОРИНЫ</value>

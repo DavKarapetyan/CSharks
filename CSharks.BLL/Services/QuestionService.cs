@@ -14,12 +14,14 @@ namespace CSharks.BLL.Services
     public class QuestionService : IQuestionService
     {
         private readonly IQuestionRepository _questionRepository;
+        private readonly IQuestionAnswerService _questionAnswerService;
         private readonly ITranslateService _translatorService;
         private readonly IUnitOfWork _unitOfWork;
-        public QuestionService(IQuestionRepository questionRepository, IUnitOfWork unitOfWork, ITranslateService translatorService)
+        public QuestionService(IQuestionRepository questionRepository, IUnitOfWork unitOfWork,IQuestionAnswerService questionAnswerService,ITranslateService translatorService)
         {
             _questionRepository = questionRepository;
             _unitOfWork = unitOfWork;
+            _questionAnswerService = questionAnswerService;
             _translatorService = translatorService;
         }
 
@@ -35,9 +37,13 @@ namespace CSharks.BLL.Services
             _unitOfWork.Save();
         }
 
-        public QuestionVM GetQuestionById(int id)
+        public QuestionVM GetQuestionById(int id, CultureType cultureType)
         {
             var question = _questionRepository.GetById(id);
+            if (cultureType != CultureType.en)
+            {
+                question = _translatorService.Convert(question, "Questions", id, cultureType, new List<int> { id}) as Question;
+            }
             QuestionVM questionVM = new QuestionVM
             {
                 Id = id,
@@ -46,25 +52,35 @@ namespace CSharks.BLL.Services
             return questionVM;
         }
 
-        public List<QuestionVM> GetAllQuestion()
+        public List<QuestionVM> GetAllQuestion(CultureType cultureType)
         {
-            var question = _questionRepository.GetAll().Select(n => new QuestionVM
+            var question = _questionRepository.GetAll();
+            if (cultureType != CultureType.en)
+            {
+                question = _translatorService.Convert(question, "Questions", 0, cultureType, question.Select(q => q.Id).ToList()) as List<Question>;
+            }
+            var list = question.Select(n => new QuestionVM
             {
                 Id = n.Id,
                 Text = n.Text,
             }).ToList();
-            return question;
+            return list;
         }
-        public List<QuestionVM> GetQuestionByQuizTypeId(int quizTypeId)
+        public List<QuestionVM> GetQuestionByQuizTypeId(int quizTypeId, CultureType cultureType)
         {
-            var questions = _questionRepository.GetAll().Where(q => q.QuizTypeId == quizTypeId).Select(q => new QuestionVM 
+            var questions = _questionRepository.GetAll();
+            if (cultureType != CultureType.en)
+            {
+                questions = _translatorService.Convert(questions, "Questions", 0, cultureType, questions.Select(q => q.Id).ToList()) as List<Question>;
+            }
+            var list = questions.Where(q => q.QuizTypeId == quizTypeId).Select(q => new QuestionVM
             {
                 Id = q.Id,
                 Text = q.Text,
                 QuizTypeId = quizTypeId,
-                Answers = q.Answers.OrderBy(a => Guid.NewGuid()).ToList(),
+                Answers = _questionAnswerService.GetQuestionAnswersByQuestionId(q.Id, cultureType).OrderBy(a => Guid.NewGuid()).ToList()
             }).ToList();
-            return questions;
+            return list;
         }
         public void Update(QuestionAddEditVM model, CultureType cultureType)
         {
@@ -83,9 +99,13 @@ namespace CSharks.BLL.Services
             _unitOfWork.Save();
         }
 
-        public QuestionAddEditVM GetQuestionForEdit(int id)
+        public QuestionAddEditVM GetQuestionForEdit(int id, CultureType cultureType)
         {
             var question = _questionRepository.GetForEdit(id);
+            if (cultureType != CultureType.en)
+            {
+                question = _translatorService.Convert(question, "Questions", id, cultureType, new List<int> { id}) as Question;
+            }
             QuestionAddEditVM model = new QuestionAddEditVM
             {
                 Id = id,

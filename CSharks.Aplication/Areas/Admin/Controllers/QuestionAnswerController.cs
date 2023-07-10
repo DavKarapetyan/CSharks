@@ -20,14 +20,14 @@ namespace CSharks.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var data = _questionAnswerService.GetQuestionAnswers();
+            var data = _questionAnswerService.GetQuestionAnswers(CultureType.en);
             return View(data);
         }
         [HttpGet]
         public IActionResult AddEdit(int? id, int? questionId,CultureType culture) {
-            QuestionAnswerAddEditVM model = id.HasValue ? _questionAnswerService.GetForEdit(id.Value) : new QuestionAnswerAddEditVM() { Id = 0,QuestionId = questionId.HasValue ? questionId.Value : 0};
+            QuestionAnswerAddEditVM model = id.HasValue ? _questionAnswerService.GetForEdit(id.Value, culture) : new QuestionAnswerAddEditVM() { Id = 0,QuestionId = questionId.HasValue ? questionId.Value : 0};
             model.Culture = culture;
-            ViewBag.Questions = _questionService.GetAllQuestion();
+            ViewBag.Questions = _questionService.GetAllQuestion(CultureType.en);
             return PartialView("_AddEdit",model);
         }
         [HttpPost]

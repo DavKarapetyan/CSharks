@@ -1,7 +1,11 @@
 ﻿using CSharks.BLL.Services.Interfaces;
+using CSharks.BLL.ViewModels;
+using CSharks.DAL.Migrations;
 using CSharks.DAL.Repositories.Interfaces;
 using jdk.nashorn.@internal.ir;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace CSharks.Aplication.Controllers
 {
@@ -10,30 +14,47 @@ namespace CSharks.Aplication.Controllers
         private readonly IQuizTypeService _quizTypeService;
         private readonly IQuestionService _questionService;
         private readonly IQuestionAnswerService _questionAnswerService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IQuizScoreService _quizScoreService;
 
-        public QuizController(IQuizTypeService quizTypeService,IQuestionService questionService, IQuestionAnswerService questionAnswerService)
+        public QuizController(IQuizTypeService quizTypeService, IQuestionService questionService, IQuestionAnswerService questionAnswerService, IHttpContextAccessor httpContextAccessor, IQuizScoreService quizScoreService)
         {
             _questionAnswerService = questionAnswerService;
             _quizTypeService = quizTypeService;
             _questionService = questionService;
+            _httpContextAccessor = httpContextAccessor;
+            _quizScoreService = quizScoreService;
         }
         public IActionResult Index()
         {
-            var data = _quizTypeService.GetQuizTypes();
+            var data = _quizTypeService.GetQuizTypes(CurrentCulture);
+            ViewBag.GroupedQuizScores = _quizScoreService.GetGroupedQuizScore();
             return View(data);
         }
-        public IActionResult GetQuestions(int quizTypeId,string QuizType) 
+        public IActionResult GetQuestions(int quizTypeId, string QuizType)
         {
-            var data = _questionService.GetQuestionByQuizTypeId(quizTypeId);
+            var data = _questionService.GetQuestionByQuizTypeId(quizTypeId, CurrentCulture);
             ViewBag.QuizType = QuizType;
             return View(data);
         }
-        public IActionResult Question (int prev, int quizType)
+        public void AddQuizScore(int questionId, int questionAnswerId, int quizTypeId, int score)
+        {
+            QuizScoreAddEditVM model = new QuizScoreAddEditVM()
+            {
+                QuestionAnswerId = questionAnswerId,
+                QuestionId = questionId,
+                QuizTypeId = quizTypeId,
+                Score = score,
+                UserId = Convert.ToInt32(_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value),
+            };
+            _quizScoreService.Add(model);
+        }
+        public IActionResult Question(int prev, int quizType)
         {
             //get next question by prev and pass model to view
-            var data = _questionService.GetQuestionByQuizTypeId(quizType);
+            var data = _questionService.GetQuestionByQuizTypeId(quizType, CurrentCulture);
             var item = data.Skip(prev).FirstOrDefault();
-            return PartialView("_Question",item);
+            return PartialView("_Question", item);
         }
         public bool CheckAnswer(int questionAnswerId)
         {
