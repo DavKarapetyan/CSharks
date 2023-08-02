@@ -44,13 +44,21 @@ namespace CSharks.DAL.Repositories
 
         public News GetById(int Id)
         {
-           var data=_context.News.Where (n => n.Id == Id).AsNoTracking().FirstOrDefault();
+           var data=_context.News.Where(n => n.Id == Id).AsNoTracking().FirstOrDefault();
             return data;
         }
 
         public News GetForEdit(int Id)
         {
-           var data=_context.News.Where(n=>n.Id== Id).FirstOrDefault();
+            var data = _context.News.Where(n => n.Id == Id).Select(n => new News() { 
+                Comments = n.Comments,
+                CreateDate = n.CreateDate,
+                Description = n.Description,
+                Id = Id,
+                ImageFile = n.ImageFile,
+                NewsType = n.NewsType,
+                Title = n.Title,
+            }).FirstOrDefault();
             return data;
         }
 

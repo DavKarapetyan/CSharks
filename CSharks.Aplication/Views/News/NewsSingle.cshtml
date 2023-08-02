@@ -44,12 +44,30 @@
                 </div>
             </div>
         </div><!-- row end -->
-        <partial name="_AddComment" model="new CommentAddEditVM(){ NewsId = Model.Id}"/>
+        <partial name="_AddComment" model="new CommentAddEditVM(){ NewsId = Model.Id}" />
+
+        @foreach (var item in Model.Comments)
+        {
+            <div class="row justify-content-center mt-50">
+                <div class="col-lg-10">
+                    <div class="author">
+                        <div class="NEWlogo">
+                            <img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="image">
+                        </div>
+                        <div class="author__content">
+                            <span class="top-title">@item.Name</span>
+                            <p>@item.CommentText</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
 
         <div class="row justify-content-center mt-50">
             <div class="col-lg-10">
                 <div class="author">
-                    <div class="NEWlogo" >
+                    <div class="NEWlogo">
                         <img src="~/assets/images/NEWCSharksLogo.png" alt="image">
                     </div>
                     <div class="author__content">

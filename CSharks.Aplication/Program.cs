@@ -7,7 +7,9 @@ using CSharks.DAL.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SignalR;
 using System.Globalization;
+using CSharks.Aplication.Hubs;
 
 namespace CSharks.Aplication
 {
@@ -42,6 +44,7 @@ namespace CSharks.Aplication
             builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddScoped<IQuizScoreRepository, QuizScoreRepository>();
             builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
+            builder.Services.AddSignalR();
             builder.Services.AddAuthentication()
             .AddGoogle(opts =>
             {
@@ -80,6 +83,7 @@ namespace CSharks.Aplication
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthorization();
+            app.MapHub<ChatHub>("/chathub");
             app.MapControllerRoute(
                 name: "Admin",
                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

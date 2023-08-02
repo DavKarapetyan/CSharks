@@ -12,6 +12,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Price</th>
             <th>Date Of Publication</th>
             <th>Image</th>
             <th>Actions</th>
@@ -24,6 +25,7 @@
                 <td><strong>@item.Id</strong></td>
                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.Name</strong></td>
                 <td>@(item.Description.Count() > 100 ? item.Description.Remove(50) : item.Description)</td>
+                <td>@item.Price</td>
                 <td>@item.DateOfPublication.ToString("MM.dd.yyyy")</td>
                 <td>
                     <img src="@item.ImageFile" class="rounded-3 img-fluid border-1" style="max-width:100px;">

@@ -38,14 +38,14 @@ namespace CSharks.Areas.Admin.Controllers
                 string path = "/Files/" + fileName.FileName;
                 using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create)) { await fileName.CopyToAsync(fileStream); }
                 model.ImageFile = path;
-                if (model.Id == 0)
-                {
-                    _newsService.Add(model);
-                }
-                else
-                {
-                    _newsService.Update(model,model.CultureType);
-                }
+            }
+            if (model.Id == 0)
+            {
+                _newsService.Add(model);
+            }
+            else
+            {
+                _newsService.Update(model, model.CultureType);
             }
             return RedirectToAction("Index");
         }

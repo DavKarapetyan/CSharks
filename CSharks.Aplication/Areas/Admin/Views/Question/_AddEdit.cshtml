@@ -8,13 +8,30 @@
         <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <form method="post" asp-action="AddEdit" asp-controller="Question">
+    <form method="post" asp-action="AddEdit" asp-controller="Question" enctype="multipart/form-data">
         <div class="modal-body">
             <input asp-for="Id" hidden/>
             <div class="row">
                 <div class="col mb-3">
                     <label asp-for="Text" class="form-label">Text</label>
                     <input type="text" class="form-control" placeholder="Enter Text" asp-for="Text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="QuestionImage" class="form-label">Question Image</label>
+                    <input type="file" class="form-control" placeholder="Enter Image" name="fileName">
+                    @if (Model.QuestionImage != null)
+                    {
+                        <img src="@Model.QuestionImage" class="img-fluid w-25 mt-3 rounded-lg" />
+                        <input hidden asp-for="QuestionImage" />
+                    }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Explanation" class="form-label">Explanation</label>
+                    <textarea type="text" class="form-control" aria-label="Enter Explanation" asp-for="Explanation"></textarea>
                 </div>
             </div>
             <div class="row">

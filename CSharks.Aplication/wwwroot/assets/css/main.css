@@ -5403,3 +5403,7 @@ span.is-active {
     .top-table tbody td {
         padding: 15px;
     }
+
+.game-card__btn {
+    padding: 19px 25px !important;
+}

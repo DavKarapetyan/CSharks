@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CSharks.DAL.Repositories
 {
     public class QuestionRepository : IQuestionRepository
-    { 
+    {
         private readonly CSharksDbContext _context;
         public QuestionRepository(CSharksDbContext context)
         {
@@ -24,26 +24,28 @@ namespace CSharks.DAL.Repositories
 
         public void Delete(int Id)
         {
-            var query=_context.Questions.Remove(GetById(Id));
+            var query = _context.Questions.Remove(GetById(Id));
         }
 
         public List<Question> GetAll()
         {
-           var query=_context.Questions.Select(q=>new Question
-           {
-               QuizType= q.QuizType,
-               Answers= q.Answers,
-               Id=q.Id,
-               QuizTypeId=q.QuizTypeId,
-               Text=q.Text,
-   
-           }).AsNoTracking().ToList();
+            var query = _context.Questions.Select(q => new Question
+            {
+                QuizType = q.QuizType,
+                Answers = q.Answers,
+                Id = q.Id,
+                QuizTypeId = q.QuizTypeId,
+                Text = q.Text,
+                Explanation = q.Explanation,
+                QuestionImage = q.QuestionImage,
+
+            }).AsNoTracking().ToList();
             return query;
         }
 
         public Question GetById(int Id)
         {
-           var query=_context.Questions.Where(q=>q.Id==Id).AsNoTracking().FirstOrDefault();
+            var query = _context.Questions.Where(q => q.Id == Id).AsNoTracking().FirstOrDefault();
             return query;
         }
 
@@ -55,11 +57,13 @@ namespace CSharks.DAL.Repositories
 
         public void Update(Question model)
         {
-           var query=_context.Questions.FirstOrDefault(q=>q.Id==model.Id);
-            query.Answers=model.Answers;
-            query.Text=model.Text;
-            query.QuizType=model.QuizType;
-            query.QuizTypeId=model.QuizTypeId;
+            var query = _context.Questions.FirstOrDefault(q => q.Id == model.Id);
+            query.Answers = model.Answers;
+            query.Text = model.Text;
+            query.QuizType = model.QuizType;
+            query.QuizTypeId = model.QuizTypeId;
+            query.QuestionImage = model.QuestionImage;
+            query.Explanation = model.Explanation;
         }
     }
 }

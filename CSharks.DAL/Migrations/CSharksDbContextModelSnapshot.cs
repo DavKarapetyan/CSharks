@@ -114,6 +114,35 @@ namespace CSharks.DAL.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("CSharks.DAL.Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("When")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("CSharks.DAL.Entities.News", b =>
                 {
                     b.Property<int>("Id")
@@ -151,6 +180,13 @@ namespace CSharks.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Explanation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QuestionImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("QuizTypeId")
                         .HasColumnType("int");
@@ -199,16 +235,13 @@ namespace CSharks.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("QuestionAnswerId")
-                        .IsRequired()
+                    b.Property<int>("QuestionAnswerId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("QuestionId")
-                        .IsRequired()
+                    b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("QuizTypeId")
-                        .IsRequired()
+                    b.Property<int>("QuizTypeId")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
@@ -502,6 +535,17 @@ namespace CSharks.DAL.Migrations
                     b.Navigation("News");
                 });
 
+            modelBuilder.Entity("CSharks.DAL.Entities.Message", b =>
+                {
+                    b.HasOne("CSharks.DAL.Entities.User", "User")
+                        .WithMany("Messages")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("CSharks.DAL.Entities.Question", b =>
                 {
                     b.HasOne("CSharks.DAL.Entities.QuizType", "QuizType")
@@ -610,6 +654,11 @@ namespace CSharks.DAL.Migrations
             modelBuilder.Entity("CSharks.DAL.Entities.Question", b =>
                 {
                     b.Navigation("Answers");
+                });
+
+            modelBuilder.Entity("CSharks.DAL.Entities.User", b =>
+                {
+                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

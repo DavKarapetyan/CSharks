@@ -46,7 +46,12 @@ namespace CSharks.BLL.Services
 
         public List<NewsVM> GetAllNews(CultureType cultureType, string? text, NewsType? newsType)
         {
-            var news = _newsRepository.GetAll();
+            var baseQuery = _newsRepository.GetAll().Where(n => (
+                (text == null || n.Title.ToLower().Contains(text.ToLower()))
+                && (newsType == null || n.NewsType == newsType)
+            ));
+
+            var news = baseQuery.ToList();
             if (cultureType != CultureType.en)
             {
                 news = _translateService.Convert(news, "News", 0, cultureType, news.Select(n => n.Id).ToList()) as List<News>;
@@ -58,7 +63,8 @@ namespace CSharks.BLL.Services
                 NewsType = n.NewsType,
                 Title = n.Title,
                 Id = n.Id,
-                CreateDate = n.CreateDate
+                CreateDate = n.CreateDate,
+                Comments = n.Comments.ToList(),
             }).ToList();
             return list;
         }
@@ -78,6 +84,7 @@ namespace CSharks.BLL.Services
                 NewsType = news.NewsType,
                 Title = news.Title,
                 CreateDate= news.CreateDate,
+                Comments = news.Comments.ToList(),
             };
             return newsVM;
         }

@@ -34,13 +34,13 @@ namespace CSharks.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, DOB = model.DOB , NickName = model.NickName, Avatar = model.Avatar };
+                User user = new User { Email = model.Email, UserName = model.Email, DOB = model.DOB, NickName = model.NickName, Avatar = model.Avatar };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace CSharks.Areas.Admin.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return Redirect("/");
                 }
                 else
                 {
@@ -81,7 +81,7 @@ namespace CSharks.Areas.Admin.Controllers
         [HttpGet]
         [AllowAnonymous]
         public IActionResult ForgotPassword()
-        { 
+        {
             return View();
         }
         [HttpPost]
@@ -90,14 +90,14 @@ namespace CSharks.Areas.Admin.Controllers
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
-            { 
+            {
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 if (user == null)
                 {
                     return View("ForgotPasswordConfirmation");
                 }
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code}, protocol: HttpContext.Request.Scheme);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                 await _emailService.SendEmailAsync(model.Email, "Reset Password", $"For password reset go to:", $"<a href='{callbackUrl}'>link<a/>");
                 return View("ForgotPasswordConfirmation");
             }

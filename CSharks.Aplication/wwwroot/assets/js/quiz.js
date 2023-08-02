@@ -1,26 +1,15 @@
 ﻿var prev = 0;
 var a;
-
-
-function getInfo(quizTypeId, quizType) {
-    Swal.fire({
-        title: "Info",
-        text: "If your are not registered your result doesnt save! For register click join now button!",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonText: 'GO',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            location.href = "/Quiz/GetQuestions?quizTypeId=" + quizTypeId + "&" + "QuizType=" + quizType
-        }
-    });
-}
+var count;
 
 $(document).ready(function () {
     $("#load").click(function () {
         a = $("#load").data("id");
         console.log(a);
-        if (prev < 2) {
+        $.get("/Quiz/GetQuestionCount?quizTypeId=" + a, function (response) {
+            count = response;
+        });
+        if (prev < count) {
             $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
                 $("#add").html(response)
             });
@@ -32,35 +21,45 @@ $(document).ready(function () {
 });
 
 function check(b, c) {
-    if (prev < 2) {
+    if (prev < count) {
         $.post("/Quiz/CheckAnswer?questionAnswerId=" + b, function (response1) {
+            explanation = $("#explan").data("text");
+            console.log("Text: " + explanation);
             if (response1) {
-                $.post("/Quiz/AddQuizScore", { questionId: c, questionAnswerId: b, quizTypeId: a, score: 100 }, function () {
-                    console.log("Score is added");
-                });
-                $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
-                    $("#add").html(response)
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Correct answer",
+                    icon: "success"
+                }).then(function () {
+                    $.post("/Quiz/AddQuizScore", { questionId: c, questionAnswerId: b, quizTypeId: a, score: 100 }, function () {
+                        console.log("Score is added");
+                    });
+                    $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
+                        $("#add").html(response)
+                    });
+                    if (prev >= count) {
+                        location.href = "/Quiz/Index";
+                    }
                 });
             }
             if (!response1) {
-                $.post("/Quiz/AddQuizScore", { questionId: c, questionAnswerId: b, quizTypeId: a, score: -10 }, function () {
-                    console.log("Score is added");
-                });
-                $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
-                    $("#add").html(response)
+                Swal.fire({
+                    title: "Oops!",
+                    text: explanation,
+                    icon: "error"
+                }).then(function () {
+                    $.post("/Quiz/AddQuizScore", { questionId: c, questionAnswerId: b, quizTypeId: a, score: -10 }, function () {
+                        console.log("Score is added");
+                    });
+                    $.get("/Quiz/Question?prev=" + prev + "&quizType=" + a, function (response) {
+                        $("#add").html(response)
+                    });
+                    if (prev >= count) {
+                        location.href = "/Quiz/Index";
+                    }
                 });
             }
         })
-    }
-    else {
-        Swal.fire({
-            title: "Good job!",
-            text: "You Finished the quiz!",
-            icon: "success",
-        }).then(function () {
-            console.log(points);
-            location.href = "/Home/Index"
-        });
     }
     prev += 1;
 }

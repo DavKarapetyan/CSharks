@@ -1,0 +1,36 @@
+﻿@using CSharks.DAL.Entities;
+@model List<Message>
+<div id="chat" class="pt-120 container">
+    <div id="messages">
+        @foreach(var item in Model)
+        {
+            <div><strong>@item.UserName</strong> (@item.When.ToShortDateString()): @item.Text </div>
+        }
+    </div>
+    <input type="text" id="messageInput" class="form-control w-25"/>
+    <button id="sendButton">Send</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chathub")
+        .build();
+
+    connection.on("ReceiveMessage", (user, content, sentAt) => {
+        $("#messages").append(`<div><strong>${user}</strong> (${sentAt}): ${content}</div>`);
+    });
+
+    connection.start().catch(err => console.error(err));
+
+    $(document).ready(() => {
+        $("#sendButton").click(() => {
+            const message = $("#messageInput").val();
+            if (message.trim() !== "") {
+                connection.invoke("SendMessage", message).catch(err => console.error(err));
+                $("#messageInput").val("");
+            }
+        });
+    });
+</script>

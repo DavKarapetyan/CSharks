@@ -1,4 +1,5 @@
-﻿using CSharks.DAL.Enums;
+﻿using CSharks.DAL.Entities;
+using CSharks.DAL.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CSharks.BLL.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageFile { get; set; }
+        public List<Comment> Comments { get; set; }
         public NewsType NewsType { get; set; }
         public CultureType CultureType { get; set; }
         public DateTime CreateDate { get; set; }    

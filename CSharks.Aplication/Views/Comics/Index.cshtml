@@ -1,4 +1,6 @@
-﻿<!-- inner-hero start -->
+﻿@model List<ComicsVM>
+
+<!-- inner-hero start -->
 <section class="inner-hero bg_img" data-background="assets/images/bg/inner-hero.jpg">
     <div class="shape position-absolute"><img src="assets/images/elements/inner-hero/shape.png" alt="image"></div>
 
@@ -56,45 +58,70 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="games-search-wrapper">
-                    <div class="left">
-                        <form class="games-filter-from">
-                            <div class="row align-items-center">
-                                <div class="col-lg-2 mb-lg-0 mb-2"><span>@Localizer["Text9"]</span></div>
-                                <div class="col-lg-5 col-md-6 mb-md-0 mb-3">
-                                    <select class="nice-select">
-                                        <option>All Platform</option>
-                                        <option>Platform</option>
-                                        <option>Platform</option>
-                                        <option>Platform</option>
-                                        <option>Platform</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-5 col-md-6">
-                                    <select class="nice-select">
-                                        <option>All Platform</option>
-                                        <option>Platform</option>
-                                        <option>Platform</option>
-                                        <option>Platform</option>
-                                        <option>Platform</option>
-                                    </select>
+        @*        <div class="row">
+        <div class="col-lg-12">
+        <div class="games-search-wrapper">
+        <div class="left">
+        <form class="games-filter-from">
+        <div class="row align-items-center">
+        <div class="col-lg-2 mb-lg-0 mb-2"><span>@Localizer["Text9"]</span></div>
+        <div class="col-lg-5 col-md-6 mb-md-0 mb-3">
+        <select class="nice-select">
+        <option>All Platform</option>
+        <option>Platform</option>
+        <option>Platform</option>
+        <option>Platform</option>
+        <option>Platform</option>
+        </select>
+        </div>
+        <div class="col-lg-5 col-md-6">
+        <select class="nice-select">
+        <option>All Platform</option>
+        <option>Platform</option>
+        <option>Platform</option>
+        <option>Platform</option>
+        <option>Platform</option>
+        </select>
+        </div>
+        </div>
+        </form>
+        </div>
+        <div class="right">
+        <form class="games-search-from">
+        <input type="search" name="games-search-text" placeholder="@Localizer["Text10"]" class="form-control style--two">
+        <button type="submit"><i class="las la-search"></i></button>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        *@
+        <div class="row mt-50 mb-none-40">
+            @foreach(var item in Model)
+            {
+                <div class="col-lg-6 mt-3">
+                    <div class="game-card">
+                        <div class="game-card__thumb">
+                            <img src="@item.ImageFile" />
+                        </div>
+                        <div class="game-card__content">
+                            <div class="game-card__details">
+                                <div class="game-card__info">
+                                    <div class="content">
+                                        <h3 class="game-card__title">@item.Name</h3>
+                                        <p>@item.Description</p>
+                                        <p>Price: @item.Price֏</p>
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="right">
-                        <form class="games-search-from">
-                            <input type="search" name="games-search-text" placeholder="@Localizer["Text10"]" class="form-control style--two">
-                            <button type="submit"><i class="las la-search"></i></button>
-                        </form>
+                            <div class="game-card__action">
+                                <button class="submit-btn game-card__btn">BUY NOW</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row mt-50 mb-none-40">
-            <h1>No Comics right now</h1>
+
+            }
         </div>
     </div>
 </section>

@@ -4,6 +4,7 @@ using CSharks.BLL.ViewModels;
 using CSharks.DAL.Entities;
 using CSharks.DAL.Enums;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSharks.Areas.Admin.Controllers
@@ -13,10 +14,12 @@ namespace CSharks.Areas.Admin.Controllers
     {
         private readonly IQuestionService _questionService;
         private readonly IQuizTypeService _quizTypeService;
-        public QuestionController(IQuestionService questionService,IQuizTypeService quizTypeService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public QuestionController(IQuestionService questionService,IQuizTypeService quizTypeService, IWebHostEnvironment webHostEnvironment)
         {
             _questionService = questionService;
             _quizTypeService = quizTypeService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -32,13 +35,21 @@ namespace CSharks.Areas.Admin.Controllers
             return PartialView("_AddEdit",model);
         }
         [HttpPost]
-        public IActionResult AddEdit(QuestionAddEditVM model) {
+        public async Task<IActionResult> AddEdit(QuestionAddEditVM model, IFormFile fileName) {
+            if (fileName != null)
+            {
+                string path = "/Files/" + fileName.FileName;
+                using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create)) { await fileName.CopyToAsync(fileStream); }
+                model.QuestionImage = path;
+
+            }
             if (model.Id == 0)
             {
                 _questionService.Add(model);
             }
-            else {
-                _questionService.Update(model,model.Culture);
+            else
+            {
+                _questionService.Update(model, model.Culture);
             }
             return RedirectToAction("Index");
         }

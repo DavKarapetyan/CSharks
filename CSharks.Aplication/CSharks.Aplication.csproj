@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="IKVM" Version="8.4.4" />
     <PackageReference Include="MailKit" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
@@ -34,6 +35,20 @@
   <ItemGroup>
     <Folder Include="wwwroot\Files\Characters\" />
     <Folder Include="wwwroot\Files\Comics\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\chat.js" />
+    <None Include="wwwroot\js\chat.min.js" />
+    <None Include="wwwroot\js\signalrReqHandler.js" />
+    <None Include="wwwroot\js\signalrReqHandler.min.js" />
+    <None Include="wwwroot\js\signrReqHandler.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\site.min.js" />
+    <None Include="wwwroot\signalr\signalr.js" />
+    <None Include="wwwroot\signalr\signalr.js.map" />
+    <None Include="wwwroot\signalr\signalr.min.js" />
+    <None Include="wwwroot\signalr\signalr.min.js.map" />
   </ItemGroup>
 
 </Project>

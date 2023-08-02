@@ -56,6 +56,10 @@ namespace CSharks.Aplication.Controllers
             var item = data.Skip(prev).FirstOrDefault();
             return PartialView("_Question", item);
         }
+        public int GetQuestionCount(int quizTypeId)
+        {
+            return _questionService.GetQuestionByQuizTypeId(quizTypeId, CurrentCulture).Count;  
+        }
         public bool CheckAnswer(int questionAnswerId)
         {
             bool isRight = _questionAnswerService.IsCorrect(questionAnswerId);

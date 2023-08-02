@@ -34,7 +34,6 @@ namespace CSharks.BLL.Services
                 Name = model.Name,
                 Price = model.Price,
                 Discount=model.Discount,
-                
             };
             _comicsRepository.Add(comics);
             _uow.Save();
@@ -100,6 +99,8 @@ namespace CSharks.BLL.Services
                 Description = comics.Description,
                 ImageFile = comics.ImageFile,
                 Name = comics.Name,
+                Discount = comics.Discount.GetValueOrDefault(),
+                Price = comics.Price,
             };
             return comicsVM;
         }
@@ -113,6 +114,8 @@ namespace CSharks.BLL.Services
                 entity.Name = model.Name;
                 entity.ImageFile = model.ImageFile;
                 entity.DateOfPublication = model.DateOfPublication;
+                entity.Price = model.Price;
+                entity.Discount = model.Discount;
                 _comicsRepository.Update(entity);
             }
             else

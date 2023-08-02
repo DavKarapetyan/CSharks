@@ -32,6 +32,8 @@ namespace CSharks.BLL.Services
                 Id = model.Id,
                 Text = model.Text,
                 QuizTypeId = model.QuizTypeId,
+                Explanation = model.Explanation,
+                QuestionImage = model.QuestionImage,
             };
             _questionRepository.Add(question);
             _unitOfWork.Save();
@@ -48,6 +50,8 @@ namespace CSharks.BLL.Services
             {
                 Id = id,
                 Text = question.Text,
+                Explanation = question.Explanation,
+                QuestionImage = question.QuestionImage,
             };
             return questionVM;
         }
@@ -63,6 +67,8 @@ namespace CSharks.BLL.Services
             {
                 Id = n.Id,
                 Text = n.Text,
+                Explanation = n.Explanation,
+                QuestionImage = n.QuestionImage,
             }).ToList();
             return list;
         }
@@ -78,7 +84,9 @@ namespace CSharks.BLL.Services
                 Id = q.Id,
                 Text = q.Text,
                 QuizTypeId = quizTypeId,
-                Answers = _questionAnswerService.GetQuestionAnswersByQuestionId(q.Id, cultureType).OrderBy(a => Guid.NewGuid()).ToList()
+                Answers = _questionAnswerService.GetQuestionAnswersByQuestionId(q.Id, cultureType).OrderBy(a => Guid.NewGuid()).ToList(),
+                Explanation = q.Explanation,
+                QuestionImage = q.QuestionImage,
             }).ToList();
             return list;
         }
@@ -89,6 +97,8 @@ namespace CSharks.BLL.Services
             {
                 entity.Text = model.Text;
                 entity.QuizTypeId = model.QuizTypeId;
+                entity.QuestionImage = model.QuestionImage;
+                entity.Explanation = model.Explanation;
                 _questionRepository.Update(entity);
             }
             else
@@ -111,6 +121,8 @@ namespace CSharks.BLL.Services
                 Id = id,
                 QuizTypeId = question.QuizTypeId,
                 Text = question.Text,
+                QuestionImage = question.QuestionImage,
+                Explanation = question.Explanation
             };
             return model;
         }

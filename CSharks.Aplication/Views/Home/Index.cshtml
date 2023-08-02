@@ -36,7 +36,7 @@
     </div>
 </section>
 
-<section>
+@*<section>
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -118,7 +118,7 @@
 
         </div>
     </div>
-</section>
+</section>*@
 
 <section class=" pt-120 pb-120 position-relative overflow-hidden">
     <div class="about-obj-1" data-paroller-factor="-0.08" data-paroller-type="foreground"
@@ -174,68 +174,7 @@
             </div>
             <div class="col-lg-8 mt-lg-0 mt-5">
                 <div class="blog-slider">
-                    <div class="post-card">
-                        <div class="post-card__thumb">
-                            <img src="~/assets/images/blog/1.jpg" alt="image">
-                        </div>
-                        <div class="post-card__content">
-                            <span class="date">Sep 15, 2020</span>
-                            <h3 class="post-title"><a href="blog-details.html">Benefits of Gaming - PC and Video Games</a></h3>
-                            <div class="post-author mt-3">
-                                <div class="post-author__thumb">
-                                    <img src="~/assets/images/blog/author.png" alt="image">
-                                </div>
-                                <a href="#0" class="post-author__name">Andres Todd</a>
-                            </div>
-                        </div>
-                    </div><!-- post-card end -->
-                    <div class="post-card">
-                        <div class="post-card__thumb">
-                            <img src="~/assets/images/blog/2.jpg" alt="image">
-                        </div>
-                        <div class="post-card__content">
-                            <a href="#0" class="post-type"><i class="las la-file-alt"></i></a>
-                            <span class="date">Sep 15, 2020</span>
-                            <h3 class="post-title"><a href="blog-details.html">Benefits of Gaming - PC and Video Games</a></h3>
-                            <div class="post-author mt-3">
-                                <div class="post-author__thumb">
-                                    <img src="~/assets/images/blog/author.png" alt="image">
-                                </div>
-                                <a href="#0" class="post-author__name">Andres Todd</a>
-                            </div>
-                        </div>
-                    </div><!-- post-card end -->
-                    <div class="post-card">
-                        <div class="post-card__thumb">
-                            <img src="~/assets/images/blog/1.jpg" alt="image">
-                        </div>
-                        <div class="post-card__content">
-                            <span class="date">Sep 15, 2020</span>
-                            <h3 class="post-title"><a href="blog-details.html">Benefits of Gaming - PC and Video Games</a></h3>
-                            <div class="post-author mt-3">
-                                <div class="post-author__thumb">
-                                    <img src="~/assets/images/blog/author.png" alt="image">
-                                </div>
-                                <a href="#0" class="post-author__name">Andres Todd</a>
-                            </div>
-                        </div>
-                    </div><!-- post-card end -->
-                    <div class="post-card">
-                        <div class="post-card__thumb">
-                            <img src="~/assets/images/blog/2.jpg" alt="image">
-                        </div>
-                        <div class="post-card__content">
-                            <a href="#0" class="post-type"><i class="las la-file-alt"></i></a>
-                            <span class="date">Sep 15, 2020</span>
-                            <h3 class="post-title"><a href="blog-details.html">Benefits of Gaming - PC and Video Games</a></h3>
-                            <div class="post-author mt-3">
-                                <div class="post-author__thumb">
-                                    <img src="~/assets/images/blog/author.png" alt="image">
-                                </div>
-                                <a href="#0" class="post-author__name">Andres Todd</a>
-                            </div>
-                        </div>
-                    </div><!-- post-card end -->
+                    @await Component.InvokeAsync("News")
                 </div>
             </div>
         </div>

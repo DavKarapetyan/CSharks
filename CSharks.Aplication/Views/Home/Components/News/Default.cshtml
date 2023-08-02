@@ -1,0 +1,20 @@
+﻿@model List<NewsVM>
+
+@foreach(var item in Model)
+{
+    <div class="post-card">
+        <div class="post-card__thumb">
+            <img src="@item.ImageFile" alt="image">
+        </div>
+        <div class="post-card__content">
+            <span class="date">@item.CreateDate.ToString("d")</span>
+            <h3 class="post-title"><a href="blog-details.html">@item.Title</a></h3>
+            <div class="post-author mt-3">
+                <div class="post-author__thumb">
+                    <img src="~/assets/images/NEWCSharksLogo.png" alt="image">
+                </div>
+                <a href="#0" class="post-author__name">@Localizer["String1"]</a>
+            </div>
+        </div>
+    </div>
+}
