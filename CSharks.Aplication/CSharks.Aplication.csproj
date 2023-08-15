@@ -38,13 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\chat.js" />
-    <None Include="wwwroot\js\chat.min.js" />
-    <None Include="wwwroot\js\signalrReqHandler.js" />
-    <None Include="wwwroot\js\signalrReqHandler.min.js" />
-    <None Include="wwwroot\js\signrReqHandler.js" />
-    <None Include="wwwroot\js\site.js" />
-    <None Include="wwwroot\js\site.min.js" />
     <None Include="wwwroot\signalr\signalr.js" />
     <None Include="wwwroot\signalr\signalr.js.map" />
     <None Include="wwwroot\signalr\signalr.min.js" />

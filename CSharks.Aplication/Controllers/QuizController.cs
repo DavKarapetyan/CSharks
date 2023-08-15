@@ -35,6 +35,7 @@ namespace CSharks.Aplication.Controllers
         {
             var data = _questionService.GetQuestionByQuizTypeId(quizTypeId, CurrentCulture);
             ViewBag.QuizType = QuizType;
+            ViewBag.QuizTypeDescription = _quizTypeService.GetQuizTypeById(quizTypeId, CurrentCulture).Description;
             return View(data);
         }
         public void AddQuizScore(int questionId, int questionAnswerId, int quizTypeId, int score)

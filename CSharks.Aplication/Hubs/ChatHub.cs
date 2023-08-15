@@ -29,7 +29,6 @@ namespace CSharks.Aplication.Hubs
             await _context.Messages.AddAsync(message);
             await _context.SaveChangesAsync();
 
-            // Save the message to the database (you'll need to implement this method).
 
             await Clients.All.SendAsync("ReceiveMessage", user.UserName, content, sentAt.ToString("yyyy-MM-dd HH:mm:ss"));
         }

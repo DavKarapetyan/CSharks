@@ -5407,3 +5407,10 @@ span.is-active {
 .game-card__btn {
     padding: 19px 25px !important;
 }
+.chat {
+    padding: 30px;
+    background-color: #311a83;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin-top:130px;
+}

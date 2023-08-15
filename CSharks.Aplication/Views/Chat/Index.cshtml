@@ -1,14 +1,22 @@
 ﻿@using CSharks.DAL.Entities;
-@model List<Message>
-<div id="chat" class="pt-120 container">
+<div id="chat" class="container chat">
     <div id="messages">
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
-            <div><strong>@item.UserName</strong> (@item.When.ToShortDateString()): @item.Text </div>
+            @if (User.Identity.IsAuthenticated == true && item.UserName == User.Identity.Name)
+            {
+                <div style="color:white;" class="message my-message"><strong>@item.UserName</strong> (@item.When.ToShortDateString()): @item.Text </div>
+            }
+            else
+            {
+                <div style="color:aqua;" class="message other-message"><strong>@item.UserName</strong> (@item.When.ToShortDateString()): @item.Text </div>
+            }
         }
     </div>
-    <input type="text" id="messageInput" class="form-control w-25"/>
-    <button id="sendButton">Send</button>
+    <div class="d-flex" style="gap:15px;">
+        <input type="text" id="messageInput" class="form-control style--two w-75" />
+        <button id="sendButton" class="submit-btn w-25">Send</button>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -19,7 +27,7 @@
         .build();
 
     connection.on("ReceiveMessage", (user, content, sentAt) => {
-        $("#messages").append(`<div><strong>${user}</strong> (${sentAt}): ${content}</div>`);
+        $("#messages").append(`<div style="color:white;" class="message my-message"><strong>${user}</strong> (${sentAt}): ${content}</div>`);
     });
 
     connection.start().catch(err => console.error(err));
@@ -34,3 +42,16 @@
         });
     });
 </script>
+<style>
+    .message {
+        display:flex;
+    }
+
+    .my-message {
+        justify-content:flex-end;
+    }
+
+    .other-message {
+        justify-content:flex-start;
+    }
+</style>

@@ -64,7 +64,7 @@ namespace CSharks.DAL.Repositories
 
         public void Update(News model)
         {
-           var data=_context.News.FirstOrDefault(n=>n.Id== model.Id);
+            var data=_context.News.FirstOrDefault(n=>n.Id== model.Id);
             data.Comments = model.Comments;
             data.Description = model.Description;
             data.ImageFile = model.ImageFile;
