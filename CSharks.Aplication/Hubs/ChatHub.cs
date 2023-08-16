@@ -9,6 +9,7 @@ namespace CSharks.Aplication.Hubs
     {
         private readonly UserManager<User> _userManager;
         private readonly CSharksDbContext _context;
+
         public ChatHub(UserManager<User> userManager, CSharksDbContext context)
         {
             _userManager = userManager;

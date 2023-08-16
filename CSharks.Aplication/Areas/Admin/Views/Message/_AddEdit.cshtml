@@ -1,0 +1,49 @@
+﻿@model MessageVM
+@{
+    var actionText = Model.Id == 0 ? "Add" : "Edit";
+}
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">@actionText</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form method="post" asp-action="AddEdit" asp-controller="Message" enctype="multipart/form-data">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="UserName" class="form-label">User Name</label>
+                    <select asp-for="UserName" class="form-select">
+                        @foreach (var item in ViewBag.Users)
+                        {
+                            <option value="@item.UserName">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="UserId" class="form-label">User Id</label>
+                    <select asp-for="UserId" class="form-select">
+                        @foreach (var item in ViewBag.Users)
+                        {
+                            <option value="@item.Id">@item.UserName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="Text" class="form-label">Text</label>
+                    <input asp-for="Text" type="text" class="form-control" placeholder="Text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label asp-for="When" class="form-label">When</label>
+                    <input asp-for="When" class="form-control"/>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</div>

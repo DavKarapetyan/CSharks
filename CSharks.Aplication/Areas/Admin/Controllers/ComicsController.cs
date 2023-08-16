@@ -1,11 +1,13 @@
 ﻿using CSharks.BLL.Services.Interfaces;
 using CSharks.BLL.ViewModels;
 using CSharks.DAL.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSharks.Aplication.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class ComicsController : Controller
     {
         private readonly IComicsService _comicsService;

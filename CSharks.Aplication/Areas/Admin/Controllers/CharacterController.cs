@@ -2,11 +2,13 @@
 using CSharks.BLL.Services.Interfaces;
 using CSharks.BLL.ViewModels;
 using CSharks.DAL.Enums;
+using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSharks.Aplication.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class CharacterController : Controller
     {
         private readonly ICharacterService _characterService;

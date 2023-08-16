@@ -5414,3 +5414,7 @@ span.is-active {
     border-radius: 20px;
     margin-top:130px;
 }
+.show-btn {
+    border:none;
+    outline:none;
+}

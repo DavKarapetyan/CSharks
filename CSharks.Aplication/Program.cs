@@ -42,15 +42,23 @@ namespace CSharks.Aplication
             builder.Services.AddScoped<IComicsRepository, ComicsRepository>();
             builder.Services.AddScoped<IComicsService, ComicsService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
+            builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+            builder.Services.AddScoped<IMessageService, MessageService>();
             builder.Services.AddScoped<IQuizScoreRepository, QuizScoreRepository>();
             builder.Services.AddScoped<IQuizScoreService, QuizScoreService>();
             builder.Services.AddSignalR();
             builder.Services.AddAuthentication()
             .AddGoogle(opts =>
             {
-                opts.ClientId = "17087847832-pkvell0hnehc49539di4ahj4a3pcr97t.apps.googleusercontent.com";
-                opts.ClientSecret = "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";
+                opts.ClientId = "17087847832-7tnmqghn8ln7qm0qcpqpgn1ima3l7g0g.apps.googleusercontent.com";
+                opts.ClientSecret = "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";
                 opts.SignInScheme = IdentityConstants.ExternalScheme;
+            });
+            builder.Services.AddRouting(options => options.LowercaseUrls = true);
+            builder.Services.ConfigureApplicationCookie(options => 
+            {
+                options.LoginPath = "/Admin/Account/Login";
+                options.AccessDeniedPath = "/";
             });
             builder.Services.Configure<RequestLocalizationOptions>(options =>
             {

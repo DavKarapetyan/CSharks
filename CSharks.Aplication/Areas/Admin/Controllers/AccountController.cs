@@ -40,7 +40,8 @@ namespace CSharks.Areas.Admin.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return Redirect("/");
+
                 }
                 else
                 {
@@ -163,13 +164,14 @@ namespace CSharks.Areas.Admin.Controllers
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
             string[] userInfo = { info.Principal.FindFirst(ClaimTypes.Name).Value, info.Principal.FindFirst(ClaimTypes.Email).Value };
             if (result.Succeeded)
-                return View(userInfo);
+                return Redirect("/");
             else
             {
                 User user = new User
                 {
                     Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
-                    UserName = info.Principal.FindFirst(ClaimTypes.Email).Value
+                    UserName = info.Principal.FindFirst(ClaimTypes.Email).Value,
+                    NickName = info.Principal.FindFirst(ClaimTypes.Name).Value
                 };
 
                 IdentityResult identResult = await _userManager.CreateAsync(user);
@@ -179,10 +181,10 @@ namespace CSharks.Areas.Admin.Controllers
                     if (identResult.Succeeded)
                     {
                         await _signInManager.SignInAsync(user, false);
-                        return View(userInfo);
+                        return Redirect("/");
                     }
                 }
-                return RedirectToAction("Index", "Home");
+                return Redirect("/");
             }
         }
     }

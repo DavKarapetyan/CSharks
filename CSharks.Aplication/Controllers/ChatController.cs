@@ -1,4 +1,5 @@
 ﻿using CSharks.Aplication.Hubs;
+using CSharks.BLL.Services.Interfaces;
 using CSharks.DAL;
 using CSharks.DAL.Entities;
 using java.lang;
@@ -11,14 +12,14 @@ namespace CSharks.Aplication.Controllers
 {
     public class ChatController : Controller
     {
-        private readonly CSharksDbContext _context;
-        public ChatController(CSharksDbContext context)
+        private readonly IMessageService _messageService;
+        public ChatController(IMessageService messageService)
         {
-            _context = context;
+            _messageService = messageService;   
         }
         public IActionResult Index()
         {
-            var data = _context.Messages.ToList();
+            var data = _messageService.GetAll();
             return View(data);
         }
     }

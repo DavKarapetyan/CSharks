@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace CSharks.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class QuestionController : Controller
     {
         private readonly IQuestionService _questionService;

@@ -63,3 +63,15 @@ function check(b, c) {
     }
     prev += 1;
 }
+
+const btn = document.getElementById("load");
+
+var clickCount = 0;
+btn.addEventListener("click", () =>
+{
+    clickCount++;
+    if (clickCount == 2)
+    {
+        btn.style.display = "none";
+    }
+});

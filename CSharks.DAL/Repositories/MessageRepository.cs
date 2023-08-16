@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CSharks.DAL.Repositories
 {
-    internal class MessageRepository : IMessageRepository
+    public class MessageRepository : IMessageRepository
     {
         private readonly CSharksDbContext _context;
         public MessageRepository(CSharksDbContext context)

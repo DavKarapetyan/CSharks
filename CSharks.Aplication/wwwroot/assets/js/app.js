@@ -326,3 +326,14 @@ if (document.getElementsByClassName("trailer_container").length) {
     }
 }
 //custom script end for game trailer slider
+document.getElementById("showPasswordBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        this.textContent = "Hide";
+    } else {
+        passwordInput.type = "password";
+        this.textContent = "Show";
+    }
+});

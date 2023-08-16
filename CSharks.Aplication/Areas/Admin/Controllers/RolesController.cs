@@ -8,6 +8,7 @@ using System.Data;
 namespace CSharks.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole<int>> _roleManager;

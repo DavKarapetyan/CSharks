@@ -2,12 +2,15 @@
 using CSharks.BLL.ViewModels;
 using CSharks.DAL.Entities;
 using CSharks.DAL.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSharks.Aplication.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class QuizScoreController : Controller
     {
         private readonly IQuizScoreService _quizScoreService;

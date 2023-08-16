@@ -3,7 +3,7 @@
 <h3 style="text-align:center;" class="mt-3">@Model.Text</h3>
 <div class="container justify-content-center">
     <img src="@Model.QuestionImage" class="img-fluid" style="max-width:300px; width:100%;"/>
-    <div class="row flex-lg-row align-items-center">
+    <div class="row flex-lg-row align-items-center justify-contect-center">
         @foreach (var item1 in Model.Answers)
         {
             <h1 hidden id="explan" data-text="@Model.Explanation">@Model.Explanation</h1>
