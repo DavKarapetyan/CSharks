@@ -6038,6 +6038,7 @@ span.is-active {
 .wrap-img {
     float:left;
     border-radius: 30px;
+    width:100%;
     max-width:900px;
     padding: 20px;
 }
