@@ -6035,3 +6035,18 @@ span.is-active {
     max-width:268px;
     width:100%;
 }
+.wrap-img {
+    float:left;
+    border-radius: 30px;
+    max-width:900px;
+    padding: 20px;
+}
+.wrapper p {
+    color: #FFF;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 36px */
+    letter-spacing: 0.48px;
+}

@@ -31,6 +31,10 @@ namespace CSharks.Aplication.Controllers
             ViewBag.GroupedQuizScores = _quizScoreService.GetGroupedQuizScore();
             return View(data);
         }
+        public IActionResult QuizStory()
+        { 
+            return View();
+        }
         public IActionResult GetQuestions(int quizTypeId, string QuizType)
         {
             var data = _questionService.GetQuestionByQuizTypeId(quizTypeId, CurrentCulture);
