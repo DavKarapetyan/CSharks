@@ -256,6 +256,29 @@
                 },
             ],
         });
+        $(".quiz__cards").slick({
+            
+            swipe: false,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            nextArrow: '<div class="d-flex justify-content-end"><a class="primary__btn">Next</a></div>',
+            prevArrow: '<div class="d-flex justify-content-end"><a class="primary__btn">Prev</a></div>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                    },
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+            ],
+        });
 
         // single-game-slider
         $(".single-game-slider").slick({
