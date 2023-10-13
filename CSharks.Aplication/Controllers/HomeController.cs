@@ -1,4 +1,5 @@
 ﻿using CSharks.Aplication.Models;
+using CSharks.BLL.Services.Interfaces;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,15 +9,18 @@ namespace CSharks.Aplication.Controllers
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMessageService _messageService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IMessageService messageService)
         {
             _logger = logger;
+            _messageService = messageService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var data = _messageService.GetAll();
+            return View(data);
         }
         [HttpPost]
         public IActionResult SetLanguage(string culture, string returnUrl)

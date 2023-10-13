@@ -19,23 +19,23 @@
     Enum.TryParse(culture.Name, out CultureType cultureType);
     var activeLang = Html.GetEnumSelectList<CultureType>().Where(l => l.Value == ((int)cultureType).ToString()).FirstOrDefault();
 }
-<li class="menu">
-    <div class="dropdown">
-        <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class='bx bx-world'></i>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <form asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" method="post">
-                @foreach (var item in cultureItems)
-                {
-                    <button value="@item.Value" onclick="this.form.submit();" name="culture" class="dropdown-item">
+<li class="menu menu_has_children left__border">
+    <a id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class='bx bx-world'></i>
+    </a>
+    <ul class="sub-menu" aria-labelledby="dropdownMenuButton">
+        <form asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" method="post">
+            @foreach (var item in cultureItems)
+            {
+            <li>
+                <button value="@item.Value" onclick="this.form.submit();" name="culture">
                         @item.Value.ToString().ToUpper()
-                    </button>
-                }
-            </form>
+                </button>
+            </li>
+            }
+        </form>
 
-        </div>
-    </div>
+    </ul>
 </li>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

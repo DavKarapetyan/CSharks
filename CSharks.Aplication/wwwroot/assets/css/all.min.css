@@ -2,6 +2,7 @@
  * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@900&display=swap');
 .fa, .fab, .fad, .fal, .far, .fas {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -6037,22 +6038,46 @@
     font-weight: normal;
 }
 
-
-.text-anim {
+.text-anim-2 {
     transition: all 0.5s;
-    -webkit-text-stroke: 4px #d6f4f4;
-    font-variation-settings: "wght" 600, "ital" 1;
-    font-size: 6rem;
-    text-align: left;
-    color: transparent;
-    font-family: "Meta", sans-serif;
-    text-shadow: 10px 10px 0px #07bccc, 15px 15px 0px #e601c0, 20px 20px 0px #e9019a;
-    cursor: pointer;
+    color: #FFFCFC;
+    text-shadow: 6px 6px 0px #07BCCC, 8px 8px 0px #E601C0, 10px 10px 0px #E9019A;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150%; /* 48px */
+    letter-spacing: 0.64px;
+    text-transform: capitalize;
 }
-
-.text-anim:hover {
+.text-anim-2:hover {
     font-variation-settings: "wght" 100, "ital" 0;
     text-shadow: none;
+}
+.text-anim {
+    transition: all 0.5s;
+    color: #FFFCFC;
+    text-shadow: 10px 10px 0px #07BCCC, 15px 15px 0px #E601C0, 20px 20px 0px #084D90;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%; /* 76.8px */
+    letter-spacing: 1.28px;
+    text-transform: uppercase;
+}
+    .text-anim:hover {
+        font-variation-settings: "wght" 100, "ital" 0;
+        text-shadow: none;
+    }
+@media only screen and (max-width:768px) {
+    .text-anim {
+        text-shadow:none;
+        font-size: 28px!important;
+    }
+    .text-anim-2 {
+        text-shadow: none;
+        font-size: 28px !important;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -6060,6 +6085,16 @@
         font-variation-settings: "wght" 200, "ital" 0;
         text-shadow: none;
     }
+    .text-anim-2 {
+        font-variation-settings: "wght" 200, "ital" 0;
+        text-shadow: none;
+    }
+    .el-4, .el-3, .el-2, .el-1, .el-8 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
     .el-4, .el-3 ,.el-2, .el-1, .el-8 {
         display:none;
     }

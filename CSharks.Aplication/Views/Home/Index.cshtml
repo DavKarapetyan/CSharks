@@ -1,4 +1,12 @@
-﻿<link rel="stylesheet" href="~/assets/css/button.css"/>
+﻿@using CSharks.DAL.Entities;
+@using Microsoft.AspNetCore.Identity;
+@model List<MessageVM>
+@inject UserManager<User> userManager
+@{
+    var users = userManager.Users.ToList();
+}
+
+
 <section class="hero bg_img" data-background="/assets/images/bg/hero.jpg">
     <div class="hero__shape">
         <img src="~/assets/images/elements/hero/shape.png" alt="image">
@@ -7,7 +15,6 @@
     <div class="el-2"><img src="~/assets/images/elements/hero/el-2.png" alt="image"></div>
     <div class="el-3"><img src="~/assets/images/elements/hero/el-3.png" alt="image"></div>
     <div class="el-4"><img src="~/assets/images/elements/hero/el-4.png" alt="image"></div>
-    <div class="el-5"><img src="~/assets/images/elements/hero/el-5.png" alt="image"></div>
     <div class="el-6"><img src="~/assets/images/elements/hero/el-6.png" alt="image"></div>
     <div class="el-7"><img src="~/assets/images/elements/hero/el-7.png" alt="image"></div>
     <div class="el-8"><img src="~/assets/images/elements/hero/el-8.png" alt="image"></div>
@@ -18,17 +25,14 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="hero__content">
-                    <span class="hero__sub-title wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-                        @Localizer["text1"]
-                    </span>
                     <h2 class="hero__title wow fadeInUp text-anim" data-wow-duration="0.5s" data-wow-delay="0.5s">
                         @Localizer["bigText1"]
                     </h2>
                     <p class="wow fadeInUp mt-3" data-wow-duration="0.5s" data-wow-delay="0.7s">
-                        @Localizer["text2"]
+                        @Localizer["text1"]
                     </p>
-                    <a class="glowing-btn mt-3">
-                        <span class="glowing-txt"><span class="faulty-letter">@Localizer["play"]</span></span>
+                    <a class="primary__btn mt-3" asp-action="Index" asp-controller="Comics">
+                        @Localizer["start"]
                     </a>
                 </div>
             </div>
@@ -137,13 +141,13 @@
                         <div class="header-image style--two">
                             <img src="~/assets/images/elements/header-el-2.png" alt="image">
                         </div>
-                        <h2 class="section-title text-anim">@Localizer["bigText3"]</h2>
+                        <h2 class="section-title text-anim">@Localizer["bigText2"]</h2>
                     </div>
                     <p class="pt-3">
-                        @Localizer["text4"]
+                        @Localizer["String1"]
                     </p>
-                    <a class="glowing-btn mt-3">
-                        <span class="glowing-txt"><span class="faulty-letter">@Localizer["learnMore"]</span></span>
+                    <a class="secondary__btn mt-3" asp-action="AboutUs">
+                        @Localizer["learn"]
                     </a>
                 </div>
             </div>
@@ -158,8 +162,129 @@
 </section>
 <!-- about section end -->
 
+<section class="pt-12 pb-90">
+    <div class="about-obj-1" data-paroller-factor="-0.08" data-paroller-type="foreground"
+         data-paroller-direction="horizontal">
+        <img src="~/assets/images/elements/about-obj-1.png" alt="image">
+    </div>
+    <div class="about-obj-2" data-paroller-factor="0.08" data-paroller-type="foreground"
+         data-paroller-direction="horizontal">
+        <img src="~/assets/images/elements/about-obj-2.png" alt="image">
+    </div>
+    <div class="container">
+        <h2 class="section-title text-anim">@Localizer["chat"] </h2>
+        <div class="community__chat mt-5">
+            <div class="chat__messages" id="messages">
+                @foreach (var item in Model)
+                {
+                    @if (User.Identity.IsAuthenticated == true && item.UserName == User.Identity.Name)
+                    {
+                        
+                        <div class="message my-message">
+                            <div class="message__text">
+                                <h6>@item.Text</h6>
+                                <p class="message__date">@item.When.ToShortTimeString()</p>
+                            </div>
+                            <div class="message__img">
+                                <img src="@($"/Avatars/{users.Where(u => u.UserName == item.UserName).FirstOrDefault().Avatar}-removebg-preview.png")" class="img-fluid" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="message other-message">
+                            <div class="message__img">
+                                <img src="@($"/Avatars/{users.Where(u => u.UserName == item.UserName).FirstOrDefault().Avatar}-removebg-preview.png")" class="img-fluid" />
+                            </div>
+                            <div class="message__text">
+                                <h6>@item.Text</h6>
+                                <p class="message__date">@item.When.ToShortTimeString()</p>
+                            </div>
+                        </div>
+
+
+                    }
+                }
+            </div>
+            <div class="chat__input mt-3">
+                <input type="text" id="messageInput" placeholder="@Localizer["problem"] " />
+                <button class="send__btn" id="sendButton" type="submit">@Localizer["send"]</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+<script>
+    document.getElementById("messageInput").addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chathub")
+        .build();
+
+    connection.on("ReceiveMessage", (user, content, sentAt) => {
+        $("#messages").append(`
+                                <div class="message my-message">
+                            <div class="message__text">
+                                <h6>${content}</h6>
+                                <p class="message__date">${sentAt}</p>
+                            </div>
+                                <div class="message__img">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_210_85)">
+                                            <rect width="48" height="48" rx="24" fill="#FFFCFC" />
+                                            <path d="M43.6639 7.73708C39.7811 3.29314 34.5512 0.339117 28.8293 -0.642039C23.1074 -1.62319 17.232 -0.573431 12.1637 2.33562C7.09534 5.24468 3.13393 9.84092 0.927109 15.3729C-1.27971 20.9049 -1.60137 27.0453 0.0147007 32.7902C1.63078 38.5352 5.08898 43.5448 9.82393 47L41.7051 45.1296C46.0295 41.1429 48.0818 36.2736 49 33.3468L36.2591 27.4705C35.8107 30.186 34.4821 32.6642 32.4908 34.5001C30.4994 36.3359 27.963 37.4207 25.2963 37.5772C22.6295 37.7336 19.9902 36.9524 17.8098 35.3613C15.6294 33.7702 14.0369 31.4634 13.2927 28.8179C12.5485 26.1724 12.6967 23.3448 13.7129 20.7973C14.7291 18.2499 16.5533 16.1334 18.8872 14.7938C21.2212 13.4542 23.9267 12.9708 26.5616 13.4226C29.1965 13.8744 31.2688 14.8587 33.0568 16.9051L43.6639 7.73708Z" fill="#FCC91E" />
+                                            <path d="M2.7245 47.2731C2.91682 47.7467 4.40731 47.8651 5.12851 47.8651C25.3222 48.288 29.409 47.6114 40.9482 47.2732C40.9482 47.2732 43.5125 47.3577 43.5125 46.2583C42.8714 42.9602 33.8965 44.8207 31.5726 33.235C30.5308 31.3745 33.015 26.8078 31.4925 26.3004C24.601 25.5393 10.1769 38.901 6.57091 42.2837C2.9649 45.6664 2.4841 46.6812 2.7245 47.2731Z" fill="url(#paint0_linear_210_85)" />
+                                        </g>
+                                        <rect x="0.5" y="0.5" width="47" height="47" rx="23.5" stroke="#FFFCFC" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_210_85" x1="23.0925" y1="26.2692" x2="23.0925" y2="47.9999" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#15233E" />
+                                                <stop offset="1" stop-color="#084D90" />
+                                            </linearGradient>
+                                            <clipPath id="clip0_210_85">
+                                                <rect width="48" height="48" rx="24" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                        </div>
+
+
+            `);
+    });
+
+    connection.start().catch(err => console.error(err));
+
+    $(document).ready(() => {
+        $("#sendButton").click(() => {
+            const message = $("#messageInput").val();
+            if (message.trim() !== "") {
+                connection.invoke("SendMessage", message).catch(err => console.error(err));
+                $("#messageInput").val("");
+            }
+        });
+        document.addEventListener("keyup", function(event) {
+            if (event.keyCode == 13)
+            {
+                const message = $("#messageInput").val();
+                if (message.trim() !== "") {
+                    connection.invoke("SendMessage", message).catch(err => console.error(err));
+                    $("#messageInput").val("");
+                }
+            }
+        });
+    });
+</script>
+
 <!-- blog section start -->
-<section class="pt-120 pb-90">
+@*<section class="pt-120 pb-90">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -179,4 +304,4 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@

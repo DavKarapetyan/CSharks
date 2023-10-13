@@ -34,8 +34,8 @@ namespace CSharks.Aplication.Controllers
         public IActionResult GetQuestions(int quizTypeId, string QuizType)
         {
             var data = _questionService.GetQuestionByQuizTypeId(quizTypeId, CurrentCulture);
-            ViewBag.QuizType = QuizType;
-            ViewBag.QuizTypeDescription = _quizTypeService.GetQuizTypeById(quizTypeId, CurrentCulture).Description;
+            //ViewBag.QuizType = QuizType;
+            //ViewBag.QuizTypeDescription = _quizTypeService.GetQuizTypeById(quizTypeId, CurrentCulture).Description;
             return View(data);
         }
         public void AddQuizScore(int questionId, int questionAnswerId, int quizTypeId, int score)
@@ -56,6 +56,11 @@ namespace CSharks.Aplication.Controllers
             var data = _questionService.GetQuestionByQuizTypeId(quizType, CurrentCulture);
             var item = data.Skip(prev).FirstOrDefault();
             return PartialView("_Question", item);
+        }
+        public IActionResult Finished(int score, int quizTypeId)
+        {
+            ViewBag.QuizType = _quizTypeService.GetQuizTypeById(quizTypeId, CurrentCulture);
+            return View(score);
         }
         public int GetQuestionCount(int quizTypeId)
         {

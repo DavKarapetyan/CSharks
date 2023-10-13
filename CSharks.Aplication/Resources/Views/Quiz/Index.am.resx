@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InfoText" xml:space="preserve">
-    <value>Եթե գրանցված չեք, ապա արդյունքը չի պահպանվում: Գրանցվելու համար սեղմեք միանալ հիմա կոճակը:</value>
+  <data name="avatar" xml:space="preserve">
+    <value>Անձնանշան</value>
   </data>
-  <data name="Text1" xml:space="preserve">
-    <value>Ընտրեք վիկտորինայի տեսակը</value>
+  <data name="bigText1" xml:space="preserve">
+    <value>Շաբաթվա վիկտորինաներ</value>
+  </data>
+  <data name="bigText2" xml:space="preserve">
+    <value>Այս շաբաթվա լավագույն խաղացողները!</value>
+  </data>
+  <data name="bigText3" xml:space="preserve">
+    <value>Բոլոր վիկտորինաները</value>
+  </data>
+  <data name="InfoText" xml:space="preserve">
+    <value>Եթե ցանկանում եք պահպանել ձեր արդյունքը, խնդրում ենք գրանցվել</value>
+  </data>
+  <data name="score" xml:space="preserve">
+    <value>Միավոր</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>Օգտագործողի անունը</value>
   </data>
 </root>

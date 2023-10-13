@@ -1,7 +1,49 @@
 ﻿@using CSharks.DAL.Enums;
 @model EditUserVM
 
-<section class="inner-hero bg_img" data-background="/assets/images/bg/inner-hero.jpg">
+<section class="pt-120 pb-120">
+    <div class="container d-flex align-items-center justify-content-start" style="gap:56px;">
+        <img src="@($"/Avatars/{Model.Avatar}-removebg-preview.png")" class="img-fluid rounded-circle" style="max-width:288px;" />
+        <h2 class="section-title">@Model.NickName</h2>
+    </div>
+    <form method="post" asp-action="Index" asp-controller="Profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" placeholder="Email" class="form-control-two">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DOB" class="form-label">Date of Birth</label>
+                        <input class="form-control-two" placeholder="Enter Year" asp-for="DOB">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NickName" class="form-label">Nick Name</label>
+                        <input class="form-control-two" placeholder="Enter Nick Name" asp-for="NickName">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="Avatar" class="form-label">Avatar</label>
+                        @foreach (var item in Enum.GetValues(typeof(Avatar)))
+                        {
+                            <input asp-for="Avatar" type="radio" id="radiobtn4" class="Send_data" value="@item" />
+                            <label for="radiobtn4">
+                                <img src="@($"/Avatars/{item}-removebg-preview.png")" class="img-fluid" style="max-width:93px;" />
+                            </label>
+                        }
+                    </div>
+                    <button type="submit" class="account__btn">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</section>
+
+
+@*<section class="inner-hero bg_img" data-background="/assets/images/bg/inner-hero.jpg">
     <div class="shape position-absolute"><img src="~/assets/images/elements/inner-hero/shape.png" alt="image"></div>
 
     <div class="el-1 position-absolute"><img src="~/assets/images/elements/inner-hero/el-1.png" alt="image"></div>
@@ -38,7 +80,7 @@
                 {
                     <input asp-for="Avatar" type="radio" id="radiobtn4" class="Send_data" value="@item" />
                     <label for="radiobtn4">
-                        <img src="@($"/Avatars/{item}.png")" class="img-fluid" style="max-width:100px;" />
+                        <img src="@($"/Avatars/{item}-removebg-preview.png")" class="img-fluid" style="max-width:100px;" />
                     </label>
                 }
             </div>
@@ -49,4 +91,4 @@
             <button type="submit" class="submit-btn">Save</button>
         </form>
     </div>
-</section>
+</section>*@

@@ -117,34 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bigText1" xml:space="preserve">
+    <value>Շաբաթվա կոմիքսներ</value>
+  </data>
+  <data name="bigText2" xml:space="preserve">
+    <value>Պատրաստվեք սուզվելու մի աշխարհ, որտեղ երևակայությունը սահմաններ չի ճանաչում: Զարմանալի վիզուալներով և գրավիչ երկխոսությամբ կոմիքսները ձեզ տանում են հուզիչ արկածների, սրտաճմլիկ ճամփորդությունների և անսպասելի շրջադարձերի: Յուրաքանչյուր վահանակ հուզմունքի դուռ է: Պատրա՞ստ եք շրջել էջը։</value>
+  </data>
   <data name="Text1" xml:space="preserve">
     <value>Կոմիքսներ</value>
   </data>
-  <data name="Text10" xml:space="preserve">
-    <value>Որոնում</value>
-  </data>
   <data name="Text2" xml:space="preserve">
-    <value>Այժմ հասանելի</value>
-  </data>
-  <data name="Text3" xml:space="preserve">
-    <value>ՌՈԲԱՏԻ ՊԱՏՄՈՒԹՅՈՒՆ</value>
-  </data>
-  <data name="Text4" xml:space="preserve">
-    <value>Վաղվա արդյունքն այժմ երեխաների համար է: Ապրի ծիծաղի հեղինակը։ Ոչ Fringilla ցավը եւ velit laoreet eleifend. Որովհետև ուլտրիկները, բացի լճից, կհետապնդվեն նետերով։ Կեցցե կյանքի երկար ընթացքը։</value>
-  </data>
-  <data name="Text5" xml:space="preserve">
-    <value>ԳՆԻՐ ՀԻՄԱ</value>
-  </data>
-  <data name="Text6" xml:space="preserve">
-    <value>Ներբեռնեք հիմա</value>
-  </data>
-  <data name="Text7" xml:space="preserve">
-    <value>Մեր կոմիքսները</value>
-  </data>
-  <data name="Text8" xml:space="preserve">
-    <value>Մենք ստեղծում ենք խաղեր տարբեր խաղային հարթակների և կոնսուլների համար, ներառյալ՝ PC, Mac, Switch, Playstation 4, Xbox One և առաջիկա նոր կոնսուլները:</value>
-  </data>
-  <data name="Text9" xml:space="preserve">
-    <value>ԴԱՍԱՎՈՐԵԼ ԸՍՏ:</value>
+    <value>Կարդալ</value>
   </data>
 </root>

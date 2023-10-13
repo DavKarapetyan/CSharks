@@ -118,39 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="bigText1" xml:space="preserve">
-    <value>ՆԵՐԳՐԱՎՈՐՈՒՄ ԽԱՂԻ ՄԻՋՈՑՈՎ</value>
+    <value>Մեդիագրագիտություն խաղերի միջոցով</value>
   </data>
   <data name="bigText2" xml:space="preserve">
-    <value>Կոմիքսներ</value>
-  </data>
-  <data name="bigText3" xml:space="preserve">
     <value>Մենք կենտրոնանում ենք որակյալ ժամանցի վրա</value>
   </data>
-  <data name="bigText4" xml:space="preserve">
-    <value>Լուրեր</value>
+  <data name="chat" xml:space="preserve">
+    <value>Csharks-ի Համայնք</value>
   </data>
-  <data name="learnMore" xml:space="preserve">
-    <value>ԻՄԱՑԵՔ ԱՎԵԼԻՆ</value>
+  <data name="learn" xml:space="preserve">
+    <value>ԻՄԱՆԱԼ ԱՎԵԼԻՆ</value>
   </data>
-  <data name="play" xml:space="preserve">
-    <value>ԽԱՂԱԼ ՀԻՄԱ</value>
+  <data name="problem" xml:space="preserve">
+    <value>Խնդիրն այն է, որ</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Ուղարկել</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>Սկսեք Կոմիքսը</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Մեր հիմնական նպատակն է ապահովել մեր խաղացողներին հնարավոր լավագույն ժամանցը: Մենք հատուկ ուշադրություն ենք դարձնում բոլոր առումներով որակյալ խաղերի ստեղծմանը։ Սա նշանակում է, որ մենք երաշխավորում ենք, որ մեր խաղի բոլոր թեմաները գրավիչ են, մեր առանձնահատկությունները եզակի են և զվարճալի, և մեր արվեստը զարմանալի է և ճշգրիտ: Մենք չենք կտրում անկյունները և անում ենք ամեն ինչ՝ անմոռանալի խաղային փորձ առաջարկելու համար:</value>
   </data>
   <data name="text1" xml:space="preserve">
-    <value>ԽԱՂԱՅԻՆ ՍՏՈՒԴԻԱ</value>
-  </data>
-  <data name="text2" xml:space="preserve">
-    <value>Մեր խաղերը զվարճացնում են միլիոնավոր մարդկանց ամեն օր, ամենուր</value>
-  </data>
-  <data name="text3" xml:space="preserve">
-    <value>ՎԵՐՋԻՆ ԿՈՄԻՔՍ</value>
-  </data>
-  <data name="text4" xml:space="preserve">
-    <value>Մեր հիմնական նպատակն է ապահովել լավագույն ժամանցը մեր խաղացողների համար: Մենք հիմնական շեշտը դնում ենք ամեն կերպ բարձր որակի խաղեր ստեղծելու վրա: Սա նշանակում է, որ մենք երաշխավորում ենք, որ մեր խաղերի բոլոր թեմաները գրավիչ են, մեր առանձնահատկությունները՝ եզակի և գրավիչ, իսկ մեր արվեստը՝ ցնցող և ճշգրիտ: Մենք չենք կտրում անկյունները և անում ենք այն ամենը, ինչ անհրաժեշտ է՝ հիշարժան խաղային փորձ առաջարկելու համար:</value>
-  </data>
-  <data name="text5" xml:space="preserve">
-    <value>ՎԵՐՋԻՆ ԳՐԱՌՈՒՄՆԵՐ</value>
-  </data>
-  <data name="viewAll" xml:space="preserve">
-    <value>ԴԻՏԵՔ ԲՈԼՈՐԸ</value>
+    <value>Մենք ձեզ համար ստեղծում ենք այնքան ֆուտուրիստական կոմիքսներ</value>
   </data>
 </root>

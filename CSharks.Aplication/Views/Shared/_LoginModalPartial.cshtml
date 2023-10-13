@@ -1,11 +1,11 @@
 ﻿@model LoginVM
 
-<div class="modal fade" id="loginModal" tabindex="1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal fade bd-example-modal-lg" id="loginModal" tabindex="1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-transparent">
             <div class="modal-body">
                 <div class="account-area">
-                    <h3 class="title mb-4">@Localizer["Welcome"]</h3>
+                    <h3 class="title mb-4 text-anim-2">@Localizer["Welcome"]</h3>
                     <form class="account-form" method="post" asp-area="Admin" asp-controller="Account" asp-action="Login">
                         <div class="form-group">
                             <label asp-for="Email">@Localizer["YourEmail"] </label>
@@ -23,17 +23,19 @@
                                 <label asp-for="RememberMe" class="form-check-label">@Localizer["RememberMe"]</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <p>@Localizer["ForgotPassword?"] <a href="#0">@Localizer["RecoverPassword"]</a></p>
-                        </div>
                         <div class="text-center">
-                            <button type="submit" class="cmn-btn">@Localizer["SignIn"]</button>
+                            <button type="submit" class="account__btn">@Localizer["SignIn"]</button>
                         </div>
                     </form>
-                    <div class="or-devider mt-5"><span>@Localizer["OR"]</span></div>
+                    <span class="text-center" style="margin-left:47%; color: #535388;
+font-family: Josefin Sans;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 30px */
+letter-spacing: 0.4px;">@Localizer["OR"]</span>
                     <div class="text-center mt-4">
-                        <p>@Localizer["SignEmail"]</p>
-                        <a asp-area="Admin" asp-controller="Account" asp-action="GoogleLogin" class="google-btn mt-4 mb-3">
+                        <a asp-area="Admin" asp-controller="Account" asp-action="GoogleLogin" class="google-btn mb-3">
                             <img src="~/assets/images/icon/google.png" alt="image">
                             @Localizer["SignGoogle"]
                         </a>
@@ -41,6 +43,7 @@
                             @Localizer["DontAccount"] <a href="#0" data-dismiss="modal" data-toggle="modal"
                                                          data-target="#signupModal">@Localizer["SignUp"]</a>
                         </p>
+                        <p class="mt-2">@Localizer["ForgotPassword?"] <a asp-action="ForgotPassword" asp-controller="Account" asp-area="Admin">@Localizer["RecoverPassword"]</a></p>
                     </div>
                 </div><!-- account-area end -->
             </div>

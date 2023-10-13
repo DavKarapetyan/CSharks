@@ -117,34 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bigText1" xml:space="preserve">
+    <value>Выходные комиксы</value>
+  </data>
+  <data name="bigText2" xml:space="preserve">
+    <value>Приготовьтесь погрузиться в мир, где воображение не знает границ. Комиксы с потрясающей графикой и захватывающими диалогами перенесут вас в захватывающие приключения, трогательные путешествия и неожиданные повороты событий. Каждая панель — это дверь в волнение. Вы готовы перевернуть страницу?</value>
+  </data>
   <data name="Text1" xml:space="preserve">
     <value>Комиксы</value>
   </data>
-  <data name="Text10" xml:space="preserve">
-    <value>Поиск</value>
-  </data>
   <data name="Text2" xml:space="preserve">
-    <value>Теперь доступно</value>
-  </data>
-  <data name="Text3" xml:space="preserve">
-    <value>ИСТОРИЯ РОБЭТА</value>
-  </data>
-  <data name="Text4" xml:space="preserve">
-    <value>Завтрашний результат теперь для детей. Да здравствует автор смеха. No fringilla pain and velit laoreet eleifend. Ибо ультрисов, кроме озера, будут преследовать стрелы. Да здравствует долгий путь жизни.</value>
-  </data>
-  <data name="Text5" xml:space="preserve">
-    <value>КУПИТЬ СЕЙЧАС</value>
-  </data>
-  <data name="Text6" xml:space="preserve">
-    <value>Скачать сейчас</value>
-  </data>
-  <data name="Text7" xml:space="preserve">
-    <value>Наши комиксы</value>
-  </data>
-  <data name="Text8" xml:space="preserve">
-    <value>Мы создаем игры для различных игровых платформ и консолей, включая ПК, Mac, Switch, Playstation 4, Xbox One и грядущие новые консоли.</value>
-  </data>
-  <data name="Text9" xml:space="preserve">
-    <value>СОРТИРОВАТЬ ПО:</value>
+    <value>Читать</value>
   </data>
 </root>

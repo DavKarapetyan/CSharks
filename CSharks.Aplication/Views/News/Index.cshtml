@@ -1,6 +1,55 @@
 ﻿@using CSharks.DAL.Enums;
 @model List<NewsVM>
-<section class="inner-hero bg_img" data-background="/assets/images/bg/inner-hero.jpg">
+
+<div class="container" style="padding-top:150px; background-image:url(/assets/images/pngwing.png);">
+    <h2 class="text-anim section-title">@Localizer["Text1"]</h2>
+    <div class="row mt-3" style="gap:20px;">
+        <div class="col-lg-7 news__box">
+            <p>@Localizer["topic"]</p>
+            <div class="filter__buttons mt-2">
+                <form asp-action="Index" asp-controller="News" method="get">
+                    <button value="@NewsType.Quiz" name="newsType" onclick="this.form.submit();">
+                        @Localizer["Text9"]
+                    </button>
+                    <button value="@NewsType.MediaLiteracy" name="newsType" onclick="this.form.submit();">
+                        @Localizer["Text11"]
+                    </button>
+                    <button value="@NewsType.Comics" name="newsType" onclick="this.form.submit();">
+                        @Localizer["Text10"]
+                    </button>
+                    <button value="@NewsType.AboutTeam" name="newsType" onclick="this.form.submit();">
+                        @Localizer["Text12"]
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-4 news__box">
+            <p>@Localizer["fallow"]</p>
+            <ul class="social-links mt-2">
+                <li><a href="#0"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#0"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#0"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#0"><i class="fab fa-pinterest-p"></i></a></li>
+                <li><a href="#0"><i class="fab fa-google-plus-g"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-3">
+        @foreach(var item in Model)
+        {
+            <div class="col-lg-3">
+                <a class="news__card" asp-action="NewsSingle" asp-controller="News" asp-route-id="@item.Id">
+                    <img src="@item.ImageFile" class="img-fluid" />
+                    <h6>@item.Title</h6>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@*<section class="inner-hero bg_img" data-background="/assets/images/bg/inner-hero.jpg">
     <div class="shape position-absolute"><img src="~/assets/images/elements/inner-hero/shape.png" alt="image"></div>
 
     <div class="el-1 position-absolute"><img src="~/assets/images/elements/inner-hero/el-1.png" alt="image"></div>
@@ -98,5 +147,5 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@
 <!-- News section end -->

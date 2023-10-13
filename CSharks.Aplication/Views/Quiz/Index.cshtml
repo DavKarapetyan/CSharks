@@ -1,6 +1,81 @@
 ﻿@model List<QuizTypeVM>
 
-<div class="container" style="margin-top:150px;">
+<div class="container" style="padding-top:150px;">
+    <h2 class="text-anim section-title">@Localizer["bigText1"]</h2>
+    <div class="row quiz__carousel mt-5">
+        <div class="col">
+            <img src="~/assets/images/slide__png.png" class="img-fluid" />
+            <p>Dino quizz</p>
+        </div>
+        <div class="col">
+            <img src="~/assets/images/slide__png.png" class="img-fluid" />
+            <p>Dino quizz</p>
+        </div>
+        <div class="col">
+            <img src="~/assets/images/slide__png.png" class="img-fluid" />
+            <p>Dino quizz</p>
+        </div>
+        <div class="col">
+            <img src="~/assets/images/slide__png.png" class="img-fluid" />
+            <p>Dino quizz</p>
+        </div>
+        <div class="col">
+            <img src="~/assets/images/slide__png.png" class="img-fluid" />
+            <p>Dino quizz</p>
+        </div>
+        <div class="col">
+            <img src="~/assets/images/slide__png.png" class="img-fluid" />
+            <p>Dino quizz</p>
+        </div>
+    </div>
+</div>
+<div class="container mt-3">
+    <h2 class="text-anim section-title">@Localizer["bigText2"]</h2>
+    <table class="top-table mt-5">
+        <thead>
+            <tr>
+                <th>@Localizer["avatar"]</th>
+                <th>@Localizer["userName"]</th>
+                <th>@Localizer["score"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.GroupedQuizScores as List<GroupedQuizScoreVM>)
+            {
+                <tr>
+                    <td><img src="@($"/Avatars/{item.Avatar}-removebg-preview.png")" class="img-fluid" style="max-width: 100px; max-height: 100px; object-fit:cover;" /></td>
+                    <td>@item.UserName</td>
+                    <td>@item.Score</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container mt-3">
+    <h2 class="text-anim section-title">@Localizer["bigText3"]</h2>
+    <div class="row mt-5 align-items-center justify-content-center">
+        @foreach (var item in Model)
+        {
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="GetQuestions" asp-route-quizTypeId="@item.Id" asp-route-QuizType="@item.Title" id="quizTypeBtn" class="col-lg-3 col-6 mt-2" style="cursor:pointer;">
+                    <img src="~/assets/images/slide__png.png" class="img-fluid" />
+                    <p>@item.Title</p>
+                </a>
+            }
+            else
+            {
+                <a onclick="getInfo(@item.Id, '@item.Title')" class="col-lg-3 col-6 mt-2" id="quizTypeBtn" style="cursor:pointer;">
+                    <img src="~/assets/images/slide__png.png" class="img-fluid" />
+                    <p>@item.Title</p>
+                </a>
+            }
+        }
+
+    </div>
+</div>
+
+@*<div class="container" style="margin-top:150px;">
     <h2 style="text-align:center;" class="text-anim">@Localizer["Text1"]</h2>
     @foreach (var item in Model)
     {
@@ -37,7 +112,7 @@
             }
         </tbody>
     </table>
-</div>
+</div>*@
 
 
 

@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InfoText" xml:space="preserve">
-    <value>Если вы не зарегистрированы, ваш результат не сохраняется! Для регистрации нажмите кнопку «Присоединиться сейчас»!</value>
+  <data name="avatar" xml:space="preserve">
+    <value>Аватар</value>
   </data>
-  <data name="Text1" xml:space="preserve">
-    <value>Выберите тип викторины</value>
+  <data name="bigText1" xml:space="preserve">
+    <value>Викторины недели</value>
+  </data>
+  <data name="bigText2" xml:space="preserve">
+    <value>Лучшие игроки на этой неделе!</value>
+  </data>
+  <data name="bigText3" xml:space="preserve">
+    <value>Все викторины</value>
+  </data>
+  <data name="InfoText" xml:space="preserve">
+    <value>Если вы хотите сохранить результат, пожалуйста, зарегистрируйтесь</value>
+  </data>
+  <data name="score" xml:space="preserve">
+    <value>Счет</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>Имя пользователя</value>
   </data>
 </root>

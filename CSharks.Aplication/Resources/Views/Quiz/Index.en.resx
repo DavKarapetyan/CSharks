@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="InfoText" xml:space="preserve">
-    <value>If your are not registered your result doesnt save! For register click join now button!</value>
+  <data name="avatar" xml:space="preserve">
+    <value>Avatar</value>
   </data>
-  <data name="Text1" xml:space="preserve">
-    <value>Select Quiz Type</value>
+  <data name="bigText1" xml:space="preserve">
+    <value>Weekend Quizzes</value>
+  </data>
+  <data name="bigText2" xml:space="preserve">
+    <value>Top Quizzers In This Week!</value>
+  </data>
+  <data name="bigText3" xml:space="preserve">
+    <value>All Quizzes</value>
+  </data>
+  <data name="InfoText" xml:space="preserve">
+    <value>If you want to save your result please register</value>
+  </data>
+  <data name="score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="userName" xml:space="preserve">
+    <value>User Name</value>
   </data>
 </root>

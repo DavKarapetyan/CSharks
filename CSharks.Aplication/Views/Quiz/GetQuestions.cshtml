@@ -3,14 +3,16 @@
 
 
 
-<div class="container" style="margin-top:250px;">
-    <h2 class="text-anim">@ViewBag.QuizType</h2>
+<div class="container" id="quizContainer" style="padding-top:150px; display:flex; flex-direction:column; max-width:494px; background-image:url(/assets/images/pngwing.png);">
+    <h2 class="text-anim text-center section-title">@ViewBag.QuizType</h2>
+    <img src="~/assets/images/slide__png.png" class="img-fluid mt-3" />
     <p class="mt-2">
         @ViewBag.QuizTypeDescription
     </p>
-    <button data-id="@Model.FirstOrDefault().QuizTypeId" class="btn submit-btn" id="load">Start</button>
-    <div class="container" id="add">
-    </div>
+    <button data-id="@Model.FirstOrDefault().QuizTypeId" class="primary__btn mt-3" id="load">Start</button>
+    <button class="secondary__btn mt-3">Chalange friends</button>
+</div>
+<div class="container" style="padding-top:150px;" id="add">
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

@@ -1,7 +1,36 @@
 ﻿@model List<ComicsVM>
 
+
+<div class="container" style="padding-top:150px; display:flex; flex-direction:column; justify-content:center;">
+    <div class="row">
+        <div class="col-lg-6">
+            <p>21.10.2023</p>
+            <h2 class="text-anim section-title">@Localizer["bigText1"]</h2>
+            <p class="mt-3">
+                @Localizer["bigText2"]
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <img src="@Model.FirstOrDefault().ImageFile" class="img-fluid"/>
+        </div>
+    </div>
+    <h2 class="text-anim section-title mt-3">@Localizer["Text1"]</h2>
+    <div class="row mt-3">
+        @foreach(var item in Model)
+        {
+            <div class="col-lg-3">
+                <div class="comics__card" onmouseover="showButton(this)" onmouseout="hideButton(this)">
+                    <img src="@item.ImageFile" class="img-fluid" />
+                    <button class="secondary__btn">@Localizer["Text2"]</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
 <!-- inner-hero start -->
-<section class="inner-hero bg_img" data-background="assets/images/bg/inner-hero.jpg">
+@*<section class="inner-hero bg_img" data-background="assets/images/bg/inner-hero.jpg">
     <div class="shape position-absolute"><img src="assets/images/elements/inner-hero/shape.png" alt="image"></div>
 
     <div class="el-1 position-absolute"><img src="assets/images/elements/inner-hero/el-1.png" alt="image"></div>
@@ -95,7 +124,7 @@
         </div>
         </div>
         </div>
-        *@
+        
         <div class="row mt-50 mb-none-40">
             @foreach(var item in Model)
             {
@@ -125,4 +154,4 @@
         </div>
     </div>
 </section>
-<!-- game section end -->
+<!-- game section end -->*@

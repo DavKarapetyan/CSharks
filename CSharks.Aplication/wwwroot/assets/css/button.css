@@ -1,217 +1,51 @@
-﻿@import url("https://fonts.googleapis.com/css?family=Raleway");
-
-:root {
-    --glow-color: #e83a99;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-.glowing-btn {
-    position: relative;
-    color: var(--glow-color);
-    cursor: pointer;
-    padding: 0.35em 1em;
-    border: 0.15em solid var(--glow-color);
-    border-radius: 0.45em;
-    background: none;
-    perspective: 2em;
-    font-family: "Raleway", sans-serif;
-    font-size: 2em;
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;800;900&family=Raleway:wght@900&family=Roboto:wght@500&display=swap');
+.primary__btn {
+    padding: 16px 56px;
+    border-radius: 40px;
+    /*border: 1px solid rgba(255, 255, 255, 0.00);*/
+    background: #FCC91E;
+    box-shadow: 0px 0px 18px 0px #E83A99, 0px 0px 18px 5px #E83A99 inset;
+    color: #0D3C6E !important;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-style: normal;
     font-weight: 900;
-    letter-spacing: 0.2em;
-    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
-    -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
-    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
-    animation: border-flicker 2s linear infinite;
+    line-height: 24px; /* 150% */
+    letter-spacing: 7.2px;
+    transition: all .4s;
 }
+    .primary__btn:hover {
+        background: #FFDD32;
+        box-shadow: 0px 0px 18px 0px #E83A99, 0px 0px 18px 5px #E83A99 inset;
+    }
 
-.glowing-txt {
-    float: left;
-    margin-right: -0.8em;
-    -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-    -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-    animation: text-flicker 3s linear infinite;
+.secondary__btn {
+    padding: 16px 56px;
+    border-radius: 40px;
+    box-sizing:border-box;
+    border: 5px solid var(--cta, #FCC91E);
+    background: rgba(255, 255, 255, 0.00);
+    box-shadow: 0px 0px 18px 0px #E83A99, 0px 0px 18px 5px #E83A99 inset;
+    color: #FF8000 !important;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 24px; /* 150% */
+    letter-spacing: 7.2px;
+    transition: all .4s;
 }
-
-.faulty-letter {
-    opacity: 0.5;
-    animation: faulty-flicker 2s linear infinite;
-}
-
-.glowing-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.7;
-    filter: blur(1em);
-    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-    background: var(--glow-color);
-    pointer-events: none;
-}
-
-.glowing-btn::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    z-index: -1;
-    background-color: var(--glow-color);
-    box-shadow: 0 0 2em 0.2em var(--glow-color);
-    transition: opacity 250ms linear;
-}
-
-.glowing-btn:hover {
-    color: rgba(0, 0, 0, 0.8);
-    text-shadow: none;
-    animation: none;
-}
-
-    .glowing-btn:hover .glowing-txt {
-        animation: none;
+    .secondary__btn:hover {
+        background: #FCC91E;
+        box-shadow: 0px 0px 18px 0px #E83A99, 0px 0px 18px 5px #E83A99 inset;
+        color: #FFFCFC !important;
     }
 
-    .glowing-btn:hover .faulty-letter {
-        animation: none;
-        text-shadow: none;
-        opacity: 1;
+@media(max-width:379px) {
+    .primary__btn {
+        font-size:15px;
     }
-
-    .glowing-btn:hover:before {
-        filter: blur(1.5em);
-        opacity: 1;
-    }
-
-    .glowing-btn:hover:after {
-        opacity: 1;
-    }
-
-@keyframes faulty-flicker {
-    0% {
-        opacity: 0.1;
-    }
-
-    2% {
-        opacity: 0.1;
-    }
-
-    4% {
-        opacity: 0.5;
-    }
-
-    19% {
-        opacity: 0.5;
-    }
-
-    21% {
-        opacity: 0.1;
-    }
-
-    23% {
-        opacity: 1;
-    }
-
-    80% {
-        opacity: 0.5;
-    }
-
-    83% {
-        opacity: 0.4;
-    }
-
-    87% {
-        opacity: 1;
-    }
-}
-
-@keyframes text-flicker {
-    0% {
-        opacity: 0.1;
-    }
-
-    2% {
-        opacity: 1;
-    }
-
-    8% {
-        opacity: 0.1;
-    }
-
-    9% {
-        opacity: 1;
-    }
-
-    12% {
-        opacity: 0.1;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    25% {
-        opacity: 0.3;
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 0.7;
-    }
-
-    72% {
-        opacity: 0.2;
-    }
-
-    77% {
-        opacity: 0.9;
-    }
-
-    100% {
-        opacity: 0.9;
-    }
-}
-
-@keyframes border-flicker {
-    0% {
-        opacity: 0.1;
-    }
-
-    2% {
-        opacity: 1;
-    }
-
-    4% {
-        opacity: 0.1;
-    }
-
-    8% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 0.7;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .glowing-btn {
-        font-size: 1em;
+    .secondary__btn {
+        font-size:15px;
     }
 }

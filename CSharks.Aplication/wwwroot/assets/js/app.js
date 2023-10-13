@@ -17,13 +17,6 @@
 
         // menu options custom affix
         var fixed_top = $(".header");
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop() > 50) {
-                fixed_top.addClass("animated fadeInDown menu-fixed");
-            } else {
-                fixed_top.removeClass("animated fadeInDown menu-fixed");
-            }
-        });
 
         // mobile menu js
         $(".navbar-collapse>ul>li>a, .navbar-collapse ul.sub-menu>li>a").on(
@@ -243,6 +236,27 @@
                 '<div class="next"><i class="fa-solid fa-arrow-right"></i></div>',
         });
 
+        $(".quiz__carousel").slick({
+            speed: 700,
+            slidesToShow: 3.5,
+            slidesToScroll: 1,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                    },
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+            ],
+        });
+
         // single-game-slider
         $(".single-game-slider").slick({
             autoplay: true,
@@ -336,4 +350,21 @@ document.getElementById("showPasswordBtn").addEventListener("click", function (e
         passwordInput.type = "password";
         this.textContent = "Show";
     }
+});
+function showButton(el)
+{
+    $(el).find("button").addClass("anim");
+}
+function hideButton(el)
+{
+    $(el).find("button").removeClass("anim");
+}
+$('.navbar-toggler').click(function (e) {
+    e.preventDefault();
+    $('body').css('overflow', 'hidden');
+});
+
+$('.navbar-collapse').click(function (e) {
+    e.preventDefault();
+    $('body').css('overflow', 'auto');
 });

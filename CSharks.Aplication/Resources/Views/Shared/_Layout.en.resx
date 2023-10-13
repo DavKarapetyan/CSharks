@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aboutUs" xml:space="preserve">
-    <value>ABOUT US</value>
+    <value>About</value>
   </data>
   <data name="comics" xml:space="preserve">
-    <value>COMICS</value>
+    <value>Comics</value>
   </data>
   <data name="editProfile" xml:space="preserve">
-    <value>EDIT PROFILE</value>
+    <value>Edit profile</value>
   </data>
   <data name="games" xml:space="preserve">
     <value>games</value>
   </data>
   <data name="home" xml:space="preserve">
-    <value>HOME</value>
+    <value>Home</value>
   </data>
   <data name="join" xml:space="preserve">
     <value>JOIN NOW</value>
   </data>
   <data name="logout" xml:space="preserve">
-    <value>LOGOUT</value>
+    <value>Logout</value>
   </data>
   <data name="news" xml:space="preserve">
-    <value>NEWS</value>
+    <value>News</value>
   </data>
   <data name="profile" xml:space="preserve">
-    <value>PROFILE</value>
+    <value>My Profile</value>
   </data>
   <data name="quiz" xml:space="preserve">
-    <value>QUIZ</value>
+    <value>Quiz</value>
   </data>
   <data name="text1" xml:space="preserve">
     <value>Find Out About New Games!</value>

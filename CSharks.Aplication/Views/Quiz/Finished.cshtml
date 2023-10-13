@@ -1,0 +1,10 @@
+﻿@model int
+
+<div class="container" style="padding-top:150px; display:flex; flex-direction:column; max-width:845px; align-items:center;">
+    <h2 class="text-anim text-center section-title">Dino and apple quiz</h2>
+    <img src="~/assets/images/stars.png" class="img-fluid mt-3"/>
+    <p>You got</p>
+    <p class="text-anim">@Model points</p>
+    <a class="primary__btn mt-3" asp-action="GetQuestions" asp-route-quizTypeId="@ViewBag.QuizType.Id" asp-route-QuizType="@ViewBag.QuizType.Title">Replay</a>
+    <a class="secondary__btn mt-3" asp-action="Index" asp-controller="Home">Home</a>
+</div>

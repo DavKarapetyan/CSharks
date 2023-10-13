@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aboutUs" xml:space="preserve">
-    <value>ՄԵՐ ՄԱՍԻՆ</value>
+    <value>Մեր Մասին</value>
   </data>
   <data name="comics" xml:space="preserve">
-    <value>ԿՈՄԻՔՍՆԵՐ</value>
+    <value>Կոմիքսներ</value>
   </data>
   <data name="editProfile" xml:space="preserve">
-    <value>խմբագրել պրոֆիլը</value>
+    <value>Խմբագրել Պրոֆիլը</value>
   </data>
   <data name="games" xml:space="preserve">
     <value>ԽԱՂԵՐ</value>
@@ -136,16 +136,16 @@
     <value>ՄԻԱՑԻՐ ՀԻՄԱ</value>
   </data>
   <data name="logout" xml:space="preserve">
-    <value>Դուրս գալ</value>
+    <value>Դուրս Գալ</value>
   </data>
   <data name="news" xml:space="preserve">
-    <value>ԼՈՒՐԵՐ</value>
+    <value>Լուրեր</value>
   </data>
   <data name="profile" xml:space="preserve">
     <value>Պրոֆիլ</value>
   </data>
   <data name="quiz" xml:space="preserve">
-    <value>ՎԻԿՏՈՐԻՆԱ</value>
+    <value>Վիկտորինա</value>
   </data>
   <data name="text1" xml:space="preserve">
     <value>Իմացեք նոր խաղերի մասին:</value>

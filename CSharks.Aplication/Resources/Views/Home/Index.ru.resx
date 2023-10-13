@@ -118,39 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="bigText1" xml:space="preserve">
-    <value>ВОВЛЕЧЕНИЕ ЧЕРЕЗ ИГРУ</value>
+    <value>Медиаграмотность через игры.</value>
   </data>
   <data name="bigText2" xml:space="preserve">
-    <value>Комиксы</value>
-  </data>
-  <data name="bigText3" xml:space="preserve">
     <value>Мы ориентируемся на качественные развлечения</value>
   </data>
-  <data name="bigText4" xml:space="preserve">
-    <value>Новости</value>
+  <data name="chat" xml:space="preserve">
+    <value>Сообщество Csharks</value>
   </data>
-  <data name="learnMore" xml:space="preserve">
+  <data name="learn" xml:space="preserve">
     <value>УЗНАТЬ БОЛЬШЕ</value>
   </data>
-  <data name="play" xml:space="preserve">
-    <value>ИГРАТЬ СЕЙЧАС</value>
+  <data name="problem" xml:space="preserve">
+    <value>Проблема в том, что</value>
   </data>
-  <data name="text1" xml:space="preserve">
-    <value>ИГРОВАЯ СТУДИЯ</value>
+  <data name="send" xml:space="preserve">
+    <value>Отправить</value>
   </data>
-  <data name="text2" xml:space="preserve">
-    <value>Наши игры развлекают миллионы людей каждый день по всему миру</value>
+  <data name="start" xml:space="preserve">
+    <value>Начать комиксы</value>
   </data>
-  <data name="text3" xml:space="preserve">
-    <value>ПОСЛЕДНИЕ КОМИКСЫ</value>
-  </data>
-  <data name="text4" xml:space="preserve">
+  <data name="String1" xml:space="preserve">
     <value>Наша главная задача — предоставить нашим игрокам наилучшие развлечения. Мы уделяем особое внимание созданию игр, которые во всех отношениях имеют высокое качество. Это означает, что мы гарантируем, что все наши игровые темы привлекательны, наши функции уникальны и увлекательны, а наше искусство — потрясающим и точным! Мы не срезаем углы и делаем все необходимое, чтобы предложить незабываемый игровой процесс.</value>
   </data>
-  <data name="text5" xml:space="preserve">
-    <value>НЕДАВНИЕ ПОСТЫ</value>
-  </data>
-  <data name="viewAll" xml:space="preserve">
-    <value>ПОСМОТРЕТЬ ВСЕ</value>
+  <data name="text1" xml:space="preserve">
+    <value>Мы создаем для вас такие футуристические комиксы</value>
   </data>
 </root>

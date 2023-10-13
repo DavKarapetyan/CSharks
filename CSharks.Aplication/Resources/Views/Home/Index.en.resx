@@ -118,39 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="bigText1" xml:space="preserve">
-    <value>ENGAGING THROUGH PLAY</value>
+    <value>Media literacy through games</value>
   </data>
   <data name="bigText2" xml:space="preserve">
-    <value>Comics</value>
-  </data>
-  <data name="bigText3" xml:space="preserve">
     <value>We Focus On Quality Entertainment</value>
   </data>
-  <data name="bigText4" xml:space="preserve">
-    <value>News</value>
+  <data name="chat" xml:space="preserve">
+    <value>Csharks Community</value>
   </data>
-  <data name="learnMore" xml:space="preserve">
+  <data name="learn" xml:space="preserve">
     <value>LEARN MORE</value>
   </data>
-  <data name="play" xml:space="preserve">
-    <value>PLAY NOW</value>
+  <data name="problem" xml:space="preserve">
+    <value>Problem is that</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>Start Comics</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Our main goal is to provide our players with the best possible entertainment. We pay special attention to creating games that are of high quality in every respect. This means that we guarantee that all of our game themes are attractive, our features are unique and fun, and our art is amazing and accurate! We don't cut corners and do everything necessary to offer an unforgettable gaming experience.</value>
   </data>
   <data name="text1" xml:space="preserve">
-    <value>GAME STUDIOS</value>
-  </data>
-  <data name="text2" xml:space="preserve">
-    <value>Our games entertain millions of people every day, everywhere</value>
-  </data>
-  <data name="text3" xml:space="preserve">
-    <value>RECENT COMICS</value>
-  </data>
-  <data name="text4" xml:space="preserve">
-    <value>Our main focus is to provide the best entertainment possible for our players. We place key emphasis on creating games that are of a high quality in every way possible. This means that we ensure that all our games themes are engaging, our features unique and captivating and our art, stunning and precise! We don’t cut corners and do whatever is necessary to offer a memorable gameplay experience.</value>
-  </data>
-  <data name="text5" xml:space="preserve">
-    <value>RECENT POSTS</value>
-  </data>
-  <data name="viewAll" xml:space="preserve">
-    <value>VIEW ALL POSTS</value>
+    <value>We create so futuristic comics for you</value>
   </data>
 </root>

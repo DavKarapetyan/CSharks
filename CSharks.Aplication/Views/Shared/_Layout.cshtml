@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using CSharks.DAL.Entities;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> _userManager
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSharks</title>
     <!-- site favicon -->
-    <link rel="icon" type="image/png" href="~/assets/images/CSharksLogo.png" sizes="12x4">
+    <link rel="icon" type="image/x-icon" href="~/assets/images/CSharksLogo.png">
     <!-- bootstrap 4  -->
     <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
     <!-- fontawesome 5  -->
@@ -24,6 +27,8 @@
     <link rel="stylesheet" href="~/assets/css/vendor/slick.css">
     <!-- style main css -->
     <link rel="stylesheet" href="~/assets/css/main.css">
+    <link rel="stylesheet" href="~/assets/css/button.css" />
+
 </head>
 
 <body>
@@ -36,13 +41,6 @@
         </div>
     </div>
     <!-- prealoader end -->
-    <!-- scroll-to-top start -->
-    <div class="scroll-to-top">
-        <span class="scroll-icon">
-            <i class="las la-arrow-up"></i>
-        </span>
-    </div>
-    <!-- scroll-to-top end -->
     <!-- page-wrapper start -->
     <div class="page-wrapper">
         <!-- login modal -->
@@ -56,49 +54,62 @@
                 <div>
                     <nav class="navbar navbar-expand-xl align-items-center">
                         <a class="site-logo site-title" asp-action="Index" asp-controller="Home">
-                            <img src="~/assets/images/CSharksLogo.png" alt="site-logo" style="max-height:60px; padding:5px;"><span class="logo-icon"><i class="flaticon-fire"></i></span>
+                            <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M42.8773 9.08334C39.1498 4.7176 34.1292 1.81555 28.6361 0.851662C23.1431 -0.112229 17.5027 0.919063 12.6371 3.77693C7.77152 6.63479 3.96857 11.1502 1.85002 16.5848C-0.26852 22.0194 -0.57732 28.0518 0.974113 33.6956C2.52554 39.3395 5.84542 44.2609 10.391 47.6553L40.9968 45.8179C45.1483 41.9014 47.1185 37.1177 48 34.2424L35.7687 28.4695C35.3382 31.1372 34.0629 33.5718 32.1512 35.3754C30.2394 37.1789 27.8045 38.2446 25.2444 38.3983C22.6844 38.552 20.1506 37.7846 18.0574 36.2215C15.9642 34.6584 14.4354 32.3921 13.721 29.7932C13.0066 27.1942 13.1488 24.4164 14.1244 21.9138C15.0999 19.4112 16.8512 17.3319 19.0917 16.0159C21.3323 14.6998 23.9297 14.2249 26.4592 14.6688C28.9886 15.1127 30.978 16.0796 32.6945 18.09L42.8773 9.08334Z" fill="#FCC91E" />
+                                <path d="M2.7245 47.7731C2.91682 48.2467 4.40731 48.3651 5.12851 48.3651C25.3222 48.788 29.409 48.1114 40.9482 47.7732C40.9482 47.7732 43.5125 47.8577 43.5125 46.7583C42.8714 43.4602 33.8965 45.3207 31.5726 33.735C30.5308 31.8745 33.015 27.3078 31.4925 26.8004C24.601 26.0393 10.1769 39.401 6.57091 42.7837C2.9649 46.1664 2.4841 47.1812 2.7245 47.7731Z" fill="url(#paint0_linear_227_39)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_227_39" x1="23.0925" y1="26.7692" x2="23.0925" y2="48.4999" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#15233E" />
+                                        <stop offset="1" stop-color="#084D90" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
                         </a>
-                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                        @*<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="menu-toggle"></span>
+                        </button>*@
+                        <button class="navbar-toggler collapsed d-flex d-xl-none flex-column justify-content-around" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                                 aria-label="Toggle navigation">
-                            <span class="menu-toggle"></span>
+                            <span class="toggler-icon top-bar"></span>
+                            <span class="toggler-icon middle-bar"></span>
+                            <span class="toggler-icon bottom-bar"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav main-menu ml-auto">
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="Home"><span class="underline">@Localizer["home"]</span></a>
-                                </li>
-                                <li class="menu">
-                                    <a asp-action="Index" asp-controller="Comics"><span class="underline">@Localizer["comics"]</span></a>
+                                    <a asp-action="Index" asp-controller="Comics">@Localizer["comics"]</a>
                                 </li>
                                 @*<li class="menu">
-                                    <a asp-action="Index" asp-controller="Game"><span class="underline">@Localizer["games"]</span></a>
+                                <a asp-action="Index" asp-controller="Game"><span class="underline">@Localizer["games"]</span></a>
                                 </li>*@
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="Quiz"><span class="underline">@Localizer["quiz"]</span></a>
+                                    <a asp-action="Index" asp-controller="Quiz">@Localizer["quiz"]</a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="Index" asp-controller="News"><span class="underline">@Localizer["news"]</span></a>
+                                    <a asp-action="Index" asp-controller="News">@Localizer["news"]</a>
                                 </li>
                                 <li class="menu">
-                                    <a asp-action="AboutUs" asp-controller="Home"><span class="underline">@Localizer["aboutUs"]</span></a>
+                                    <a asp-action="AboutUs" asp-controller="Home">@Localizer["aboutUs"]</a>
                                 </li>
+                                @await Html.PartialAsync("~/Views/Shared/_SelectLanguagePartial.cshtml")
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <li class="menu menu_has_children">
                                         <a>@Localizer["profile"]</a>
+                                        <img src="@($"/Avatars/{_userManager.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault().Avatar}-removebg-preview.png")" class="img-fluid profile__avatar" />
                                         <ul class="sub-menu">
                                             <li>
-                                                <a asp-action="Index" asp-controller="Profile"><span class="underline">@Localizer["editProfile"]</span></a>
+                                                <a asp-action="Index" asp-controller="Profile">@Localizer["editProfile"]</a>
                                                 <form asp-action="Logout" asp-controller="Account" asp-area="Admin" id="logout_form">
-                                                    <a style="cursor:pointer;" id="logout"><span class="underline">@Localizer["logout"]</span></a>
+                                                    <a style="cursor:pointer; text-decoration:none;" id="logout">@Localizer["logout"]</a>
                                                 </form>
                                             </li>
                                         </ul>
                                     </li>
                                 }
-                                @await Html.PartialAsync("~/Views/Shared/_SelectLanguagePartial.cshtml")
-
                             </ul>
                             @if (!User.Identity.IsAuthenticated)
                             {
@@ -112,86 +123,71 @@
             </div><!-- header__bottom end -->
         </header>
         @RenderBody()
-        <footer class="footer-section bg_img" data-background="/assets/images/elements/footer.png">
+        <footer class="footer-section bg_img mt-5" data-background="/assets/images/elements/footer.png">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+                @*                <div class="row">
+                <div class="col-lg-12">
+                <div class="subscribe-area">
+                <div class="obj"><img src="~/assets/robet only no bg-01.png" alt="image" style="max-width:482px; max-height:541px;"></div>
+                <div class="subscribe-content">
+                <p class="title">@Localizer["text1"]</p>
+                <p class="mt-5">@Localizer["text2"]</p>
+                <p></p>
+                <form class="subscribe-form">
+                <input type="email" name="subscribe_email" id="subscribe_email" placeholder="@Localizer["text4"]">
+                <button type="submit">@Localizer["text3"]</button>
+                </form>
+                </div>
+                </div>
+                </div>
+                </div>
+                *@
+                <div class="row mt-3" style="padding-bottom:90px;">
+                    <div class="col-lg-3">
+                        <div class="anim-area">
+                            <div class="obj"><img src="~/assets/robet only no bg-01.png" alt="image" style="max-width:388px; max-height:411px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
                         <div class="subscribe-area">
-                            <div class="obj"><img src="~/assets/robet only no bg-01.png" alt="image" style="max-width:482px; max-height:541px;"></div>
                             <div class="subscribe-content">
                                 <p class="title">@Localizer["text1"]</p>
                                 <p class="mt-5">@Localizer["text2"]</p>
                                 <p></p>
-                                <form class="subscribe-form">
-                                    <input type="email" name="subscribe_email" id="subscribe_email" placeholder="@Localizer["text4"]">
-                                    <button type="submit">@Localizer["text3"]</button>
-                                </form>
+                                <div class="contact__input mt-3">
+                                    <input type="text" id="messageInput" placeholder="name_surname@gmail.com" />
+                                    <button class="send__btn" id="sendButton" type="submit">Subscribe</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <img class="img-fluid mt-2" src="https://pjc.am/wp-content/uploads/2020/04/logo-small.png" />
-                <div class="row footer-top mb-none-50">
-                    <div class="col-lg-3 col-sm-6 mb-50">
-                        <div class="footer-widget">
-                            <h3 class="footer-widget__title">ABOUT</h3>
-                            <ul class="short-links">
-                                <li><a href="#0">About Us</a></li>
-                                <li><a href="#0">Contact Us</a></li>
-                                <li><a href="#0">Customer Reviews</a></li>
-                                <li><a href="#0">Privacy Policy</a></li>
-                            </ul>
-                        </div><!-- footer-widget end -->
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-50">
-                        <div class="footer-widget">
-                            <h3 class="footer-widget__title">MY ACCOUNT</h3>
-                            <ul class="short-links">
-                                <li><a href="#0">Manage Your Account</a></li>
-                                <li><a href="#0">Account Varification</a></li>
-                                <li><a href="#0">Safety & Security</a></li>
-                            </ul>
-                        </div><!-- footer-widget end -->
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-50">
-                        <div class="footer-widget">
-                            <h3 class="footer-widget__title">HELP CENTER</h3>
-                            <ul class="short-links">
-                                <li><a href="#0">Help centre</a></li>
-                                <li><a href="#0">FAQ</a></li>
-                                <li><a href="#0">Quick Start Guide</a></li>
-                                <li><a href="#0">Tutorials</a></li>
-                            </ul>
-                        </div><!-- footer-widget end -->
-                    </div>
-                    <div class="col-lg-3 col-sm-6 mb-50">
-                        <div class="footer-widget">
-                            <h3 class="footer-widget__title">LEGAL INFO</h3>
-                            <ul class="short-links">
-                                <li><a href="#0">Security</a></li>
-                                <li><a href="#0">Terms of Service</a></li>
-                                <li><a href="#0">Become Affiliate</a></li>
-                                <li><a href="#0">Complaints Policy</a></li>
-                            </ul>
-                        </div><!-- footer-widget end -->
-                    </div>
-                </div><!-- footer-top end -->
-                <div class="row footer-bottom align-items-center">
-                    <div class="col-lg-7 col-md-6 text-md-left text-center">
-                        <p class="copy-right-text">Copyright © 2022. All Rights Reserved By <a href="#0">CSharks</a></p>
-                    </div>
-                    <div class="col-lg-5 col-md-6 mt-md-0 mt-3">
-                        <ul class="social-links justify-content-md-end justify-content-center">
-                            <li><a href="#0"><i class="lab la-facebook-f"></i></a></li>
-                            <li><a href="#0"><i class="lab la-twitter"></i></a></li>
-                            <li><a href="#0"><i class="lab la-pinterest-p"></i></a></li>
-                            <li><a href="#0"><i class="lab la-google-plus"></i></a></li>
-                            <li><a href="#0"><i class="lab la-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </footer>
+        <div class="container mt-3">
+            <div class="row footer-bottom mt-3 align-items-center justify-content-center">
+                <div class="col-lg-6">
+                    <img class="img-fluid mt-2" style="max-height:150px;" src="https://pjc.am/wp-content/uploads/2020/04/logo-small.png" />
+                </div>
+                <div class="col-lg-6">
+                    <img class="img-fluid mt-2" style="max-height:150px;" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png" />
+                </div>
+            </div>
+            <div class="row footer-bottom align-items-center">
+                <div class="col-lg-7 col-md-6 text-md-left text-center">
+                    <p class="copy-right-text">Copyright © 2022. All Rights Reserved By <a href="#0">CSharks</a></p>
+                </div>
+                <div class="col-lg-5 col-md-6 mt-md-0 mt-3">
+                    <ul class="social-links justify-content-md-end justify-content-center">
+                        <li><a href="#0"><i class="lab la-facebook-f"></i></a></li>
+                        <li><a href="#0"><i class="lab la-twitter"></i></a></li>
+                        <li><a href="#0"><i class="lab la-pinterest-p"></i></a></li>
+                        <li><a href="#0"><i class="lab la-google-plus"></i></a></li>
+                        <li><a href="#0"><i class="lab la-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <!-- footer section end -->
     </div>
     <!-- page-wrapper end -->
